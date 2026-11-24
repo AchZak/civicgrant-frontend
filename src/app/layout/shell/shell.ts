@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageSwitch } from '../language-switch/language-switch';
+import { UserMenu } from '../user-menu/user-menu';
 
 @Component({
-  imports: [RouterLink, LanguageSwitch],
+  imports: [RouterLink, LanguageSwitch, UserMenu],
   selector: 'app-shell',
   templateUrl: './shell.html',
 })

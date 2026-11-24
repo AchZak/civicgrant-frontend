@@ -1,0 +1,19 @@
+<button
+  pButton
+  text
+  type="button"
+  aria-haspopup="menu"
+  aria-controls="user-menu"
+  [attr.aria-expanded]="open()"
+  (click)="menu.toggle($event)"
+>
+  <span pButtonLabel>{{ userName }}</span>
+</button>
+<p-menu
+  #menu
+  id="user-menu"
+  popup
+  [model]="items"
+  (onShow)="open.set(true)"
+  (onHide)="open.set(false)"
+/>

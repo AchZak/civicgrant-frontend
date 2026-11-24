@@ -14,6 +14,10 @@
         <source>Language</source>
         <target>Taal</target>
       </trans-unit>
+      <trans-unit id="layout.signOut" datatype="html">
+        <source>Sign out</source>
+        <target>Afmelden</target>
+      </trans-unit>
       <trans-unit id="layout.skipToMain" datatype="html">
         <source>Skip to main content</source>
         <target>Naar de hoofdinhoud</target>
