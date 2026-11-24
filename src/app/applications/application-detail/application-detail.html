@@ -1,0 +1,119 @@
+@if (application.hasValue()) {
+  @let current = application.value();
+  <app-page-header [heading]="current.proposal.title" [intro]="current.reference">
+    <app-application-status-tag [status]="current.status" />
+  </app-page-header>
+
+  <div class="flex flex-col gap-10">
+    <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div app-detail label="Funding call" i18n-label="@@applications.fundingCall">
+        @if (fundingCall.hasValue()) {
+          <a
+            [routerLink]="['/funding-calls', current.fundingCallId]"
+            class="text-primary hover:underline"
+            >{{ fundingCall.value().title | localized }}</a
+          >
+        } @else {
+          <p-skeleton width="12rem" />
+        }
+      </div>
+      <div app-detail label="Organisation" i18n-label="@@applications.organisation">
+        @if (organisation.hasValue()) {
+          {{ organisation.value().name }}
+        } @else {
+          <p-skeleton width="12rem" />
+        }
+      </div>
+      <div app-detail label="Requested amount" i18n-label="@@applications.requestedAmount">
+        {{ current.proposal.requestedAmount | currency }}
+      </div>
+      <div app-detail label="Total project budget" i18n-label="@@applications.totalProjectBudget">
+        {{ current.proposal.totalProjectBudget | currency }}
+      </div>
+      <div app-detail label="Language of the project" i18n-label="@@applications.language">
+        {{ languageLabel(current.proposal.language) }}
+      </div>
+      @if (current.submittedAt; as submittedAt) {
+        <div app-detail label="Submitted on" i18n-label="@@applications.submittedAt">
+          {{ submittedAt | brusselsDate }}
+        </div>
+      } @else {
+        <div app-detail label="Created on" i18n-label="@@applications.createdAt">
+          {{ current.createdAt | brusselsDate }}
+        </div>
+      }
+    </dl>
+
+    <section aria-labelledby="description-heading">
+      <h2
+        id="description-heading"
+        class="mb-2 text-lg font-semibold"
+        i18n="@@applications.description"
+      >
+        Project description
+      </h2>
+      <p class="whitespace-pre-line">{{ current.proposal.description }}</p>
+    </section>
+
+    <section aria-labelledby="documents-heading">
+      <h2 id="documents-heading" class="mb-2 text-lg font-semibold" i18n="@@applications.documents">
+        Supporting documents
+      </h2>
+      <ul class="flex flex-col gap-2">
+        @for (document of current.documents; track document.id) {
+          <li>
+            <span class="font-semibold">{{ document.fileName }}</span>
+            <span class="text-sm text-muted-color">
+              · {{ document.sizeInBytes | fileSize }} ·
+              {{ document.uploadedAt | brusselsDate }}</span
+            >
+          </li>
+        } @empty {
+          <li class="text-muted-color" i18n="@@applications.documents.none">
+            No documents attached yet.
+          </li>
+        }
+      </ul>
+    </section>
+
+    @if (decision.hasValue()) {
+      @let taken = decision.value();
+      <section aria-labelledby="decision-heading">
+        <h2 id="decision-heading" class="mb-2 text-lg font-semibold" i18n="@@applications.decision">
+          Decision
+        </h2>
+        <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          @if (taken.grantedAmount !== undefined) {
+            <div app-detail label="Granted amount" i18n-label="@@applications.grantedAmount">
+              {{ taken.grantedAmount | currency }}
+            </div>
+          }
+          @if (taken.rejectionGround; as ground) {
+            <div
+              app-detail
+              label="Ground for rejection"
+              i18n-label="@@applications.rejectionGround"
+            >
+              {{ rejectionGroundLabel(ground) }}
+            </div>
+          }
+          <div app-detail label="Decided on" i18n-label="@@applications.decidedAt">
+            {{ taken.decidedAt | brusselsDate }}
+          </div>
+          <div
+            app-detail
+            class="sm:col-span-2"
+            label="Motivation"
+            i18n-label="@@applications.motivation"
+          >
+            <span class="whitespace-pre-line font-normal">{{ taken.motivation }}</span>
+          </div>
+        </dl>
+      </section>
+    }
+  </div>
+} @else if (application.error(); as error) {
+  <app-load-error [error]="error" />
+} @else {
+  <p-skeleton width="24rem" height="2rem" />
+}

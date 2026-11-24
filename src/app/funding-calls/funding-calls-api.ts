@@ -10,6 +10,9 @@ export function openFundingCallsResource() {
   return httpResource<FundingCallCollection>(() => fundingCallsUrl);
 }
 
-export function fundingCallResource(fundingCallId: () => string) {
-  return httpResource<FundingCall>(() => `${fundingCallsUrl}/${fundingCallId()}`);
+export function fundingCallResource(fundingCallId: () => string | undefined) {
+  return httpResource<FundingCall>(() => {
+    const id = fundingCallId();
+    return id === undefined ? undefined : `${fundingCallsUrl}/${id}`;
+  });
 }

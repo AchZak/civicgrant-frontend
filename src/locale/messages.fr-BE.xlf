@@ -6,6 +6,46 @@
         <source>CivicGrant is unavailable right now. Please try again later.</source>
         <target>CivicGrant est momentanément indisponible. Veuillez réessayer plus tard.</target>
       </trans-unit>
+      <trans-unit id="applications.createdAt" datatype="html">
+        <source>Created on</source>
+        <target>Créée le</target>
+      </trans-unit>
+      <trans-unit id="applications.decidedAt" datatype="html">
+        <source>Decided on</source>
+        <target>Décidé le</target>
+      </trans-unit>
+      <trans-unit id="applications.decision" datatype="html">
+        <source>Decision</source>
+        <target>Décision</target>
+      </trans-unit>
+      <trans-unit id="applications.description" datatype="html">
+        <source>Project description</source>
+        <target>Description du projet</target>
+      </trans-unit>
+      <trans-unit id="applications.detail.title" datatype="html">
+        <source>Application</source>
+        <target>Demande</target>
+      </trans-unit>
+      <trans-unit id="applications.documents" datatype="html">
+        <source>Supporting documents</source>
+        <target>Pièces justificatives</target>
+      </trans-unit>
+      <trans-unit id="applications.documents.none" datatype="html">
+        <source>No documents attached yet.</source>
+        <target>Aucune pièce justificative jointe pour l'instant.</target>
+      </trans-unit>
+      <trans-unit id="applications.fundingCall" datatype="html">
+        <source>Funding call</source>
+        <target>Appel à projets</target>
+      </trans-unit>
+      <trans-unit id="applications.grantedAmount" datatype="html">
+        <source>Granted amount</source>
+        <target>Montant octroyé</target>
+      </trans-unit>
+      <trans-unit id="applications.language" datatype="html">
+        <source>Language of the project</source>
+        <target>Langue du projet</target>
+      </trans-unit>
       <trans-unit id="applications.mine.heading" datatype="html">
         <source>My applications</source>
         <target>Mes demandes</target>
@@ -30,6 +70,14 @@
         <source>My applications</source>
         <target>Mes demandes</target>
       </trans-unit>
+      <trans-unit id="applications.motivation" datatype="html">
+        <source>Motivation</source>
+        <target>Motivation</target>
+      </trans-unit>
+      <trans-unit id="applications.organisation" datatype="html">
+        <source>Organisation</source>
+        <target>Organisation</target>
+      </trans-unit>
       <trans-unit id="applications.project" datatype="html">
         <source>Project</source>
         <target>Projet</target>
@@ -38,6 +86,10 @@
         <source>Reference</source>
         <target>Référence</target>
       </trans-unit>
+      <trans-unit id="applications.rejectionGround" datatype="html">
+        <source>Ground for rejection</source>
+        <target>Motif du refus</target>
+      </trans-unit>
       <trans-unit id="applications.requestedAmount" datatype="html">
         <source>Requested amount</source>
         <target>Montant demandé</target>
@@ -45,6 +97,14 @@
       <trans-unit id="applications.status" datatype="html">
         <source>Status</source>
         <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="applications.submittedAt" datatype="html">
+        <source>Submitted on</source>
+        <target>Introduite le</target>
+      </trans-unit>
+      <trans-unit id="applications.totalProjectBudget" datatype="html">
+        <source>Total project budget</source>
+        <target>Budget total du projet</target>
       </trans-unit>
       <trans-unit id="applications.updatedAt" datatype="html">
         <source>Last change</source>
@@ -113,6 +173,14 @@
       <trans-unit id="fundingCalls.remainingBudget" datatype="html">
         <source>Remaining budget</source>
         <target>Budget restant</target>
+      </trans-unit>
+      <trans-unit id="language.FR" datatype="html">
+        <source>French</source>
+        <target>Français</target>
+      </trans-unit>
+      <trans-unit id="language.NL" datatype="html">
+        <source>Dutch</source>
+        <target>Néerlandais</target>
       </trans-unit>
       <trans-unit id="layout.appName" datatype="html">
         <source>CivicGrant</source>
@@ -309,6 +377,26 @@
       <trans-unit id="problem.unreachable" datatype="html">
         <source>CivicGrant can&apos;t be reached right now. Check your connection and try again.</source>
         <target>CivicGrant est injoignable pour le moment. Vérifiez votre connexion et réessayez.</target>
+      </trans-unit>
+      <trans-unit id="rejectionGround.BUDGET_EXHAUSTED" datatype="html">
+        <source>The funding call&apos;s budget is exhausted</source>
+        <target>Le budget de l'appel à projets est épuisé</target>
+      </trans-unit>
+      <trans-unit id="rejectionGround.INCOMPLETE" datatype="html">
+        <source>The application is incomplete</source>
+        <target>La demande est incomplète</target>
+      </trans-unit>
+      <trans-unit id="rejectionGround.INELIGIBLE" datatype="html">
+        <source>The application isn&apos;t eligible</source>
+        <target>La demande n'est pas recevable</target>
+      </trans-unit>
+      <trans-unit id="rejectionGround.INSUFFICIENT_QUALITY" datatype="html">
+        <source>The project&apos;s quality is insufficient</source>
+        <target>La qualité du projet est insuffisante</target>
+      </trans-unit>
+      <trans-unit id="rejectionGround.unknown" datatype="html">
+        <source>Another ground</source>
+        <target>Un autre motif</target>
       </trans-unit>
     </body>
   </file>
