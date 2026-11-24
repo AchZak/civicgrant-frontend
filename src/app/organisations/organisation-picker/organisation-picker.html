@@ -1,0 +1,84 @@
+@if (organisation(); as chosen) {
+  <div class="rounded-border border border-surface p-4">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <p class="font-semibold">{{ chosen.name }}</p>
+        <p class="text-sm text-muted-color">
+          {{ legalFormLabel(chosen.legalForm) }} · {{ format(chosen.enterpriseNumber) }}
+        </p>
+      </div>
+      <button pButton type="button" text (click)="chooseAnother()">
+        <span pButtonLabel i18n="@@organisations.chooseAnother">Choose another organisation</span>
+      </button>
+    </div>
+  </div>
+} @else {
+  <form [formRoot]="lookupForm" class="flex flex-col gap-2">
+    <label for="enterprise-number" class="font-semibold" i18n="@@organisations.enterpriseNumber"
+      >Enterprise number</label
+    >
+    <div class="flex flex-wrap gap-2">
+      <input
+        pInputText
+        id="enterprise-number"
+        autocomplete="off"
+        aria-describedby="enterprise-number-hint enterprise-number-errors"
+        [formField]="lookupForm.enterpriseNumber"
+      />
+      <button pButton type="submit" outlined [disabled]="lookupForm().submitting()">
+        <span pButtonLabel i18n="@@organisations.lookUp">Look up</span>
+      </button>
+    </div>
+    <small
+      id="enterprise-number-hint"
+      class="text-muted-color"
+      i18n="@@organisations.enterpriseNumber.hint"
+      >As in the Crossroads Bank for Enterprises, for example 0123.456.749.</small
+    >
+    <app-field-errors
+      id="enterprise-number-errors"
+      [errors]="lookupForm.enterpriseNumber().errors()"
+    />
+    <app-field-errors [errors]="lookupForm().errors()" />
+  </form>
+
+  @if (unregisteredNumber(); as enterpriseNumber) {
+    <form [formRoot]="registerForm" class="mt-6 flex flex-col gap-4">
+      <p-message severity="info" i18n="@@organisations.notRegistered"
+        >No organisation with enterprise number {{ format(enterpriseNumber) }} is registered yet.
+        Register it to continue.</p-message
+      >
+      <div class="flex flex-col gap-2">
+        <label for="organisation-name" class="font-semibold" i18n="@@organisations.name"
+          >Name of the organisation</label
+        >
+        <input
+          pInputText
+          id="organisation-name"
+          aria-describedby="organisation-name-errors"
+          [formField]="registerForm.name"
+        />
+        <app-field-errors id="organisation-name-errors" [errors]="registerForm.name().errors()" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="legal-form" class="font-semibold" i18n="@@organisations.legalForm"
+          >Legal form</label
+        >
+        <p-select
+          inputId="legal-form"
+          optionLabel="label"
+          optionValue="value"
+          [options]="legalForms"
+          [formField]="registerForm.legalForm"
+        />
+        <app-field-errors [errors]="registerForm.legalForm().errors()" />
+      </div>
+      <app-field-errors [errors]="registerForm().errors()" />
+      <div>
+        <button pButton type="submit" [disabled]="registerForm().submitting()">
+          <span pButtonLabel i18n="@@organisations.register">Register the organisation</span>
+        </button>
+      </div>
+    </form>
+  }
+}
