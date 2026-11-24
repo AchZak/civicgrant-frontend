@@ -1,3 +1,8 @@
 {
-  "primeUiLicenseKey": ""
+  "primeUiLicenseKey": "",
+  "entra": {
+    "tenantId": "<tenant id>",
+    "clientId": "<client id of the civicgrant-spa-<env> registration>",
+    "apiScope": "api://<tenant id>/civicgrant-api-<env>/access_as_user"
+  }
 }

@@ -1,5 +1,12 @@
 export interface RuntimeConfig {
   readonly primeUiLicenseKey: string;
+  readonly entra: EntraConfig;
+}
+
+export interface EntraConfig {
+  readonly tenantId: string;
+  readonly clientId: string;
+  readonly apiScope: string;
 }
 
 export async function loadRuntimeConfig(): Promise<RuntimeConfig> {
@@ -16,9 +23,25 @@ export async function loadRuntimeConfig(): Promise<RuntimeConfig> {
 
 function isRuntimeConfig(value: unknown): value is RuntimeConfig {
   return (
-    typeof value === 'object' &&
-    value !== null &&
-    'primeUiLicenseKey' in value &&
-    typeof value.primeUiLicenseKey === 'string'
+    isObject(value) &&
+    typeof value['primeUiLicenseKey'] === 'string' &&
+    isEntraConfig(value['entra'])
   );
+}
+
+function isEntraConfig(value: unknown): value is EntraConfig {
+  return (
+    isObject(value) &&
+    isFilled(value['tenantId']) &&
+    isFilled(value['clientId']) &&
+    isFilled(value['apiScope'])
+  );
+}
+
+function isFilled(value: unknown): value is string {
+  return typeof value === 'string' && value.length > 0;
+}
+
+function isObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
 }
