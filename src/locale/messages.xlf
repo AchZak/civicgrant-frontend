@@ -2,11 +2,333 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="problem.concurrentUpdate" datatype="html">
+        <source>Someone else changed this at the same time. Reload the page to see the latest version, then try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.roleRequired" datatype="html">
+        <source>Your account doesn&apos;t have the role this needs.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.payloadTooLarge" datatype="html">
+        <source>The file is too large. A document can be at most 10 MB.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.notTheApplicant" datatype="html">
+        <source>Only the person who created this application can change it.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.applicationNotDraft" datatype="html">
+        <source>This application has been submitted and can no longer be changed.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.fundingCallClosed" datatype="html">
+        <source>This funding call is closed.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.submissionBeforeOpeningDate" datatype="html">
+        <source>This funding call isn&apos;t open for applications yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.submissionAfterClosingDate" datatype="html">
+        <source>This funding call has closed and no longer accepts applications.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.supportingDocumentRequired" datatype="html">
+        <source>Attach at least one PDF document before you submit.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.requestedAmountExceedsCap" datatype="html">
+        <source>The requested amount is more than this funding call&apos;s maximum per application.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.requestedAmountExceedsProjectBudget" datatype="html">
+        <source>The requested amount can&apos;t be more than the total project budget.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.requestedAmountNotPositive" datatype="html">
+        <source>The requested amount must be more than zero.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.legalFormNotEligible" datatype="html">
+        <source>Only non-profits can apply: associations and foundations.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.projectTitleRequired" datatype="html">
+        <source>Enter a project title.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.projectTitleTooLong" datatype="html">
+        <source>The project title can be at most 200 characters long.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.projectDescriptionRequired" datatype="html">
+        <source>Describe the project.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.projectDescriptionTooLong" datatype="html">
+        <source>The description can be at most 10,000 characters long.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.amountNegative" datatype="html">
+        <source>An amount can&apos;t be negative.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.amountTooPrecise" datatype="html">
+        <source>An amount has at most two decimals.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.documentNotPdf" datatype="html">
+        <source>Only PDF files can be attached.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.documentEmpty" datatype="html">
+        <source>This file is empty.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.documentTooLarge" datatype="html">
+        <source>A document can be at most 10 MB.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.documentNameInvalid" datatype="html">
+        <source>The file name isn&apos;t valid. Rename the file and try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.enterpriseNumberInvalidFormat" datatype="html">
+        <source>An enterprise number has 10 digits, such as 0123.456.749.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.enterpriseNumberInvalidChecksum" datatype="html">
+        <source>This enterprise number isn&apos;t valid. Check it for typing errors.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.organisationNameRequired" datatype="html">
+        <source>Enter the organisation&apos;s name.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.organisationNameTooLong" datatype="html">
+        <source>The organisation&apos;s name can be at most 200 characters long.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.organisationAlreadyRegistered" datatype="html">
+        <source>This organisation is already registered. Look it up by its enterprise number.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.schemaViolation" datatype="html">
+        <source>This value isn&apos;t valid.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.invalidInput" datatype="html">
+        <source>This value isn&apos;t valid.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.referencedResourceNotFound" datatype="html">
+        <source>This no longer exists. Reload the page and try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.unreachable" datatype="html">
+        <source>CivicGrant can&apos;t be reached right now. Check your connection and try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.signInAgain" datatype="html">
+        <source>Your session has expired. Sign in again to continue.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.forbidden" datatype="html">
+        <source>You&apos;re not allowed to do this.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.notFound" datatype="html">
+        <source>This doesn&apos;t exist, or you may not see it.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.conflict" datatype="html">
+        <source>This can&apos;t be done in the current state. Reload the page and check the status.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.invalid" datatype="html">
+        <source>Some of the information isn&apos;t valid. Check it and try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="problem.serverError" datatype="html">
+        <source>Something went wrong on our side. Try again in a few minutes.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/api/problem-messages.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="notFound.title" datatype="html">
         <source>Page not found</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.title" datatype="html">
+        <source>Open funding calls</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/funding-calls.routes.ts</context>
           <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.heading" datatype="html">
+        <source>Open funding calls</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.intro" datatype="html">
+        <source>Choose a funding call to read its conditions and apply.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.call" datatype="html">
+        <source>Funding call</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.closesAt" datatype="html">
+        <source>Closes on</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.maxAmountPerApplication" datatype="html">
+        <source> Maximum per application </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">17,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.remainingBudget" datatype="html">
+        <source> Remaining budget </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">20,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.none" datatype="html">
+        <source> There are no open funding calls right now. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">40,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="layout.language" datatype="html">
@@ -52,11 +374,18 @@
           <context context-type="linenumber">12,13</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="layout.signOut" datatype="html">
+        <source>Sign out</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/user-menu/user-menu.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="app.unavailable" datatype="html">
         <source>CivicGrant is unavailable right now. Please try again later.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/main.ts</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
     </body>

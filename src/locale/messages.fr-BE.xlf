@@ -6,6 +6,38 @@
         <source>CivicGrant is unavailable right now. Please try again later.</source>
         <target>CivicGrant est momentanément indisponible. Veuillez réessayer plus tard.</target>
       </trans-unit>
+      <trans-unit id="fundingCalls.call" datatype="html">
+        <source>Funding call</source>
+        <target>Appel à projets</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.closesAt" datatype="html">
+        <source>Closes on</source>
+        <target>Clôture le</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.maxAmountPerApplication" datatype="html">
+        <source>Maximum per application</source>
+        <target>Maximum par demande</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.heading" datatype="html">
+        <source>Open funding calls</source>
+        <target>Appels à projets ouverts</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.intro" datatype="html">
+        <source>Choose a funding call to read its conditions and apply.</source>
+        <target>Choisissez un appel à projets pour en lire les conditions et introduire une demande.</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.none" datatype="html">
+        <source>There are no open funding calls right now.</source>
+        <target>Il n'y a pas d'appel à projets ouvert pour le moment.</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.open.title" datatype="html">
+        <source>Open funding calls</source>
+        <target>Appels à projets ouverts</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.remainingBudget" datatype="html">
+        <source>Remaining budget</source>
+        <target>Budget restant</target>
+      </trans-unit>
       <trans-unit id="layout.appName" datatype="html">
         <source>CivicGrant</source>
         <target>CivicGrant</target>
@@ -27,7 +59,7 @@
         <target>Retour à la page d'accueil</target>
       </trans-unit>
       <trans-unit id="notFound.explanation" datatype="html">
-        <source>This page doesn't exist, or you may not see it. Check the address, or go back to the start page.</source>
+        <source>This page doesn&apos;t exist, or you may not see it. Check the address, or go back to the start page.</source>
         <target>Cette page n'existe pas, ou vous n'y avez pas accès. Vérifiez l'adresse, ou revenez à la page d'accueil.</target>
       </trans-unit>
       <trans-unit id="notFound.heading" datatype="html">
@@ -37,6 +69,158 @@
       <trans-unit id="notFound.title" datatype="html">
         <source>Page not found</source>
         <target>Page introuvable</target>
+      </trans-unit>
+      <trans-unit id="problem.amountNegative" datatype="html">
+        <source>An amount can&apos;t be negative.</source>
+        <target>Un montant ne peut pas être négatif.</target>
+      </trans-unit>
+      <trans-unit id="problem.amountTooPrecise" datatype="html">
+        <source>An amount has at most two decimals.</source>
+        <target>Un montant compte au maximum deux décimales.</target>
+      </trans-unit>
+      <trans-unit id="problem.applicationNotDraft" datatype="html">
+        <source>This application has been submitted and can no longer be changed.</source>
+        <target>Cette demande a été introduite et ne peut plus être modifiée.</target>
+      </trans-unit>
+      <trans-unit id="problem.concurrentUpdate" datatype="html">
+        <source>Someone else changed this at the same time. Reload the page to see the latest version, then try again.</source>
+        <target>Quelqu'un d'autre a modifié ceci en même temps. Rechargez la page pour voir la dernière version, puis réessayez.</target>
+      </trans-unit>
+      <trans-unit id="problem.conflict" datatype="html">
+        <source>This can&apos;t be done in the current state. Reload the page and check the status.</source>
+        <target>Cette action n'est pas possible dans l'état actuel. Rechargez la page et vérifiez le statut.</target>
+      </trans-unit>
+      <trans-unit id="problem.documentEmpty" datatype="html">
+        <source>This file is empty.</source>
+        <target>Ce fichier est vide.</target>
+      </trans-unit>
+      <trans-unit id="problem.documentNameInvalid" datatype="html">
+        <source>The file name isn&apos;t valid. Rename the file and try again.</source>
+        <target>Le nom du fichier n'est pas valide. Renommez le fichier et réessayez.</target>
+      </trans-unit>
+      <trans-unit id="problem.documentNotPdf" datatype="html">
+        <source>Only PDF files can be attached.</source>
+        <target>Seuls les fichiers PDF peuvent être joints.</target>
+      </trans-unit>
+      <trans-unit id="problem.documentTooLarge" datatype="html">
+        <source>A document can be at most 10 MB.</source>
+        <target>Un document peut faire au maximum 10 Mo.</target>
+      </trans-unit>
+      <trans-unit id="problem.enterpriseNumberInvalidChecksum" datatype="html">
+        <source>This enterprise number isn&apos;t valid. Check it for typing errors.</source>
+        <target>Ce numéro d'entreprise n'est pas valide. Vérifiez qu'il ne contient pas de faute de frappe.</target>
+      </trans-unit>
+      <trans-unit id="problem.enterpriseNumberInvalidFormat" datatype="html">
+        <source>An enterprise number has 10 digits, such as 0123.456.749.</source>
+        <target>Un numéro d'entreprise compte 10 chiffres, par exemple 0123.456.749.</target>
+      </trans-unit>
+      <trans-unit id="problem.forbidden" datatype="html">
+        <source>You&apos;re not allowed to do this.</source>
+        <target>Vous n'êtes pas autorisé à effectuer cette action.</target>
+      </trans-unit>
+      <trans-unit id="problem.fundingCallClosed" datatype="html">
+        <source>This funding call is closed.</source>
+        <target>Cet appel à projets est clôturé.</target>
+      </trans-unit>
+      <trans-unit id="problem.invalid" datatype="html">
+        <source>Some of the information isn&apos;t valid. Check it and try again.</source>
+        <target>Certaines données ne sont pas valides. Vérifiez-les et réessayez.</target>
+      </trans-unit>
+      <trans-unit id="problem.invalidInput" datatype="html">
+        <source>This value isn&apos;t valid.</source>
+        <target>Cette valeur n'est pas valide.</target>
+      </trans-unit>
+      <trans-unit id="problem.legalFormNotEligible" datatype="html">
+        <source>Only non-profits can apply: associations and foundations.</source>
+        <target>Seules les organisations sans but lucratif peuvent introduire une demande : associations et fondations.</target>
+      </trans-unit>
+      <trans-unit id="problem.notFound" datatype="html">
+        <source>This doesn&apos;t exist, or you may not see it.</source>
+        <target>Cet élément n'existe pas, ou vous n'y avez pas accès.</target>
+      </trans-unit>
+      <trans-unit id="problem.notTheApplicant" datatype="html">
+        <source>Only the person who created this application can change it.</source>
+        <target>Seule la personne qui a créé cette demande peut la modifier.</target>
+      </trans-unit>
+      <trans-unit id="problem.organisationAlreadyRegistered" datatype="html">
+        <source>This organisation is already registered. Look it up by its enterprise number.</source>
+        <target>Cette organisation est déjà enregistrée. Recherchez-la avec son numéro d'entreprise.</target>
+      </trans-unit>
+      <trans-unit id="problem.organisationNameRequired" datatype="html">
+        <source>Enter the organisation&apos;s name.</source>
+        <target>Indiquez le nom de l'organisation.</target>
+      </trans-unit>
+      <trans-unit id="problem.organisationNameTooLong" datatype="html">
+        <source>The organisation&apos;s name can be at most 200 characters long.</source>
+        <target>Le nom de l'organisation peut compter au maximum 200 caractères.</target>
+      </trans-unit>
+      <trans-unit id="problem.payloadTooLarge" datatype="html">
+        <source>The file is too large. A document can be at most 10 MB.</source>
+        <target>Le fichier est trop volumineux. Un document peut faire au maximum 10 Mo.</target>
+      </trans-unit>
+      <trans-unit id="problem.projectDescriptionRequired" datatype="html">
+        <source>Describe the project.</source>
+        <target>Décrivez le projet.</target>
+      </trans-unit>
+      <trans-unit id="problem.projectDescriptionTooLong" datatype="html">
+        <source>The description can be at most 10,000 characters long.</source>
+        <target>La description peut compter au maximum 10 000 caractères.</target>
+      </trans-unit>
+      <trans-unit id="problem.projectTitleRequired" datatype="html">
+        <source>Enter a project title.</source>
+        <target>Indiquez un titre de projet.</target>
+      </trans-unit>
+      <trans-unit id="problem.projectTitleTooLong" datatype="html">
+        <source>The project title can be at most 200 characters long.</source>
+        <target>Le titre du projet peut compter au maximum 200 caractères.</target>
+      </trans-unit>
+      <trans-unit id="problem.referencedResourceNotFound" datatype="html">
+        <source>This no longer exists. Reload the page and try again.</source>
+        <target>Cet élément n'existe plus. Rechargez la page et réessayez.</target>
+      </trans-unit>
+      <trans-unit id="problem.requestedAmountExceedsCap" datatype="html">
+        <source>The requested amount is more than this funding call&apos;s maximum per application.</source>
+        <target>Le montant demandé dépasse le maximum par demande de cet appel à projets.</target>
+      </trans-unit>
+      <trans-unit id="problem.requestedAmountExceedsProjectBudget" datatype="html">
+        <source>The requested amount can&apos;t be more than the total project budget.</source>
+        <target>Le montant demandé ne peut pas dépasser le budget total du projet.</target>
+      </trans-unit>
+      <trans-unit id="problem.requestedAmountNotPositive" datatype="html">
+        <source>The requested amount must be more than zero.</source>
+        <target>Le montant demandé doit être supérieur à zéro.</target>
+      </trans-unit>
+      <trans-unit id="problem.roleRequired" datatype="html">
+        <source>Your account doesn&apos;t have the role this needs.</source>
+        <target>Votre compte n'a pas le rôle requis pour cette action.</target>
+      </trans-unit>
+      <trans-unit id="problem.schemaViolation" datatype="html">
+        <source>This value isn&apos;t valid.</source>
+        <target>Cette valeur n'est pas valide.</target>
+      </trans-unit>
+      <trans-unit id="problem.serverError" datatype="html">
+        <source>Something went wrong on our side. Try again in a few minutes.</source>
+        <target>Une erreur s'est produite de notre côté. Réessayez dans quelques minutes.</target>
+      </trans-unit>
+      <trans-unit id="problem.signInAgain" datatype="html">
+        <source>Your session has expired. Sign in again to continue.</source>
+        <target>Votre session a expiré. Reconnectez-vous pour continuer.</target>
+      </trans-unit>
+      <trans-unit id="problem.submissionAfterClosingDate" datatype="html">
+        <source>This funding call has closed and no longer accepts applications.</source>
+        <target>Cet appel à projets est clôturé et n'accepte plus de demandes.</target>
+      </trans-unit>
+      <trans-unit id="problem.submissionBeforeOpeningDate" datatype="html">
+        <source>This funding call isn&apos;t open for applications yet.</source>
+        <target>Cet appel à projets n'est pas encore ouvert.</target>
+      </trans-unit>
+      <trans-unit id="problem.supportingDocumentRequired" datatype="html">
+        <source>Attach at least one PDF document before you submit.</source>
+        <target>Joignez au moins un document PDF avant d'introduire votre demande.</target>
+      </trans-unit>
+      <trans-unit id="problem.unreachable" datatype="html">
+        <source>CivicGrant can&apos;t be reached right now. Check your connection and try again.</source>
+        <target>CivicGrant est injoignable pour le moment. Vérifiez votre connexion et réessayez.</target>
       </trans-unit>
     </body>
   </file>

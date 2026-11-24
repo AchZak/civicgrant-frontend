@@ -62,6 +62,7 @@ module.exports = defineConfig([
             'mode',
             'optionLabel',
             'optionValue',
+            'scope',
             'severity',
             'size',
             'variant',
