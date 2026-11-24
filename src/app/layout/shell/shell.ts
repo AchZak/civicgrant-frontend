@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CurrentUser } from '../../auth/current-user';
 import { LanguageSwitch } from '../language-switch/language-switch';
 import { UserMenu } from '../user-menu/user-menu';
 
@@ -8,4 +9,6 @@ import { UserMenu } from '../user-menu/user-menu';
   selector: 'app-shell',
   templateUrl: './shell.html',
 })
-export class Shell {}
+export class Shell {
+  protected readonly user = inject(CurrentUser);
+}

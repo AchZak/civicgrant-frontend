@@ -2,11 +2,13 @@ import { Page, Route } from '@playwright/test';
 import { components } from '../src/app/api/schema';
 
 export type Application = components['schemas']['Application'];
+export type ApplicationPage = components['schemas']['ApplicationPage'];
 export type FundingCall = components['schemas']['FundingCall'];
 export type Organisation = components['schemas']['Organisation'];
 export type ProjectProposal = components['schemas']['ProjectProposal'];
 export type SupportingDocument = components['schemas']['SupportingDocument'];
 type Problem = components['schemas']['InputValidationProblem'];
+type Role = components['schemas']['Role'];
 
 export const fundingCall: FundingCall = {
   id: '8a1f0c2e-1d3b-4c5a-9e7f-0a1b2c3d4e5f',
@@ -61,10 +63,26 @@ export function aProblem(type: string, status: number, issues: Problem['issues']
   return { type: `urn:problem-type:${type}`, status, issues };
 }
 
+export function aPageOf(...items: ApplicationPage['items']): ApplicationPage {
+  return {
+    items,
+    page: 1,
+    pageSize: 20,
+    total: items.length,
+    self: 'https://api.test/api/v1/applications?page=1&pageSize=20',
+  };
+}
+
 export type Handler = (route: Route) => Promise<void>;
 
+export function signedInAs(...roles: Role[]): Record<string, Handler> {
+  return { 'GET /api/v1/me': json({ id: '3f1c2b7e-5a4d-4c3b-9e2f-1a0b9c8d7e6f', roles }) };
+}
+
 // The app only starts with a valid /config.json; the fake session ignores the Entra values.
+// Everyone is an applicant unless the handlers say otherwise with signedInAs.
 export async function mockApi(page: Page, handlers: Record<string, Handler>): Promise<void> {
+  const allHandlers = { ...signedInAs('APPLICANT'), ...handlers };
   await page.route('**/config.json', (route) =>
     route.fulfill({
       json: {
@@ -80,7 +98,7 @@ export async function mockApi(page: Page, handlers: Record<string, Handler>): Pr
   await page.route('**/api/v1/**', async (route) => {
     const request = route.request();
     const key = `${request.method()} ${new URL(request.url()).pathname}`;
-    const handler = handlers[key];
+    const handler = allHandlers[key];
     if (handler) {
       await handler(route);
     } else {

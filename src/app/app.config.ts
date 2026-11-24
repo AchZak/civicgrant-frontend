@@ -2,12 +2,15 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
   ApplicationConfig,
   DEFAULT_CURRENCY_CODE,
+  inject,
+  provideAppInitializer,
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
 import { accessTokenInterceptor } from './auth/access-token-interceptor';
+import { CurrentUser } from './auth/current-user';
 import { Session } from './auth/session';
 import { civicGrantPreset } from './civicgrant-preset';
 import { primeNgTranslation } from './primeng-translation';
@@ -20,6 +23,7 @@ export function appConfig(config: RuntimeConfig, session: Session): ApplicationC
       provideRouter(routes, withComponentInputBinding()),
       provideHttpClient(withInterceptors([accessTokenInterceptor])),
       { provide: Session, useValue: session },
+      provideAppInitializer(() => inject(CurrentUser).load()),
       { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
       providePrimeNG({
         license: config.primeUiLicenseKey,

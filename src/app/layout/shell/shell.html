@@ -12,22 +12,34 @@
     <div class="flex flex-wrap items-center justify-between gap-4 py-3">
       <div class="flex flex-wrap items-center gap-8">
         <a routerLink="/" class="text-lg font-semibold" i18n="@@layout.appName">CivicGrant</a>
-        <nav aria-label="Main" i18n-aria-label="@@layout.mainNavigation" class="flex gap-6">
-          <a
-            routerLink="/applications"
-            routerLinkActive="font-semibold text-primary"
-            ariaCurrentWhenActive="page"
-            i18n="@@layout.nav.applications"
-            >My applications</a
-          >
-          <a
-            routerLink="/funding-calls"
-            routerLinkActive="font-semibold text-primary"
-            ariaCurrentWhenActive="page"
-            i18n="@@layout.nav.fundingCalls"
-            >Funding calls</a
-          >
-        </nav>
+        @if (user.hasAnyRole()) {
+          <nav aria-label="Main" i18n-aria-label="@@layout.mainNavigation" class="flex gap-6">
+            @if (user.isStaff()) {
+              <a
+                routerLink="/applications"
+                routerLinkActive="font-semibold text-primary"
+                ariaCurrentWhenActive="page"
+                i18n="@@layout.nav.allApplications"
+                >Applications</a
+              >
+            } @else if (user.isApplicant()) {
+              <a
+                routerLink="/applications"
+                routerLinkActive="font-semibold text-primary"
+                ariaCurrentWhenActive="page"
+                i18n="@@layout.nav.applications"
+                >My applications</a
+              >
+            }
+            <a
+              routerLink="/funding-calls"
+              routerLinkActive="font-semibold text-primary"
+              ariaCurrentWhenActive="page"
+              i18n="@@layout.nav.fundingCalls"
+              >Funding calls</a
+            >
+          </nav>
+        }
       </div>
       <div class="flex items-center gap-4">
         <app-language-switch />

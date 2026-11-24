@@ -1,12 +1,9 @@
-<app-page-header
-  heading="My applications"
-  i18n-heading="@@applications.mine.heading"
-  intro="Follow your applications, or continue a draft."
-  i18n-intro="@@applications.mine.intro"
->
-  <a pButton routerLink="/funding-calls">
-    <span pButtonLabel i18n="@@applications.mine.new">New application</span>
-  </a>
+<app-page-header [heading]="heading()" [intro]="intro()">
+  @if (user.isApplicant()) {
+    <a pButton routerLink="/funding-calls">
+      <span pButtonLabel i18n="@@applications.mine.new">New application</span>
+    </a>
+  }
 </app-page-header>
 
 @if (applications.error(); as error) {
@@ -52,13 +49,17 @@
     <ng-template #emptymessage>
       <tr>
         <td colspan="5">
-          <span i18n="@@applications.mine.none">You haven't started an application yet.</span>
-          <a
-            routerLink="/funding-calls"
-            class="ml-1 text-primary hover:underline"
-            i18n="@@applications.mine.seeCalls"
-            >See the open funding calls.</a
-          >
+          @if (user.isStaff()) {
+            <span i18n="@@applications.all.none">There are no submitted applications yet.</span>
+          } @else {
+            <span i18n="@@applications.mine.none">You haven't started an application yet.</span>
+            <a
+              routerLink="/funding-calls"
+              class="ml-1 text-primary hover:underline"
+              i18n="@@applications.mine.seeCalls"
+              >See the open funding calls.</a
+            >
+          }
         </td>
       </tr>
     </ng-template>

@@ -268,11 +268,18 @@
           <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="noAccess.title" datatype="html">
+        <source>No access</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="notFound.title" datatype="html">
         <source>Page not found</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.submit.done" datatype="html">
@@ -303,8 +310,8 @@
           <context context-type="linenumber">34</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">32,34</context>
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">29,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.totalProjectBudget" datatype="html">
@@ -423,35 +430,35 @@
         <source>Remove</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
-          <context context-type="linenumber">26,28</context>
+          <context context-type="linenumber">27,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.documents.none" datatype="html">
         <source> No documents attached yet. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
-          <context context-type="linenumber">32,37</context>
+          <context context-type="linenumber">33,38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="documents.choose" datatype="html">
         <source>Attach a PDF</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
-          <context context-type="linenumber">45,46</context>
+          <context context-type="linenumber">46,47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="documents.hint" datatype="html">
         <source>One PDF file of at most 10 MB at a time.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
-          <context context-type="linenumber">56,58</context>
+          <context context-type="linenumber">57,59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="documents.progress" datatype="html">
         <source>Upload progress</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
-          <context context-type="linenumber">61,62</context>
+          <context context-type="linenumber">62,63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="documents.tooLarge" datatype="html">
@@ -494,6 +501,90 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-documents/application-documents.ts</context>
           <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.new" datatype="html">
+        <source>New application</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">4,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.reference" datatype="html">
+        <source>Reference</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.project" datatype="html">
+        <source>Project</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.status" datatype="html">
+        <source>Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.updatedAt" datatype="html">
+        <source>Last change</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">31,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.all.none" datatype="html">
+        <source>There are no submitted applications yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">53,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.none" datatype="html">
+        <source>You haven&apos;t started an application yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.seeCalls" datatype="html">
+        <source>See the open funding calls.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.html</context>
+          <context context-type="linenumber">60,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.all.heading" datatype="html">
+        <source>Applications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.heading" datatype="html">
+        <source>My applications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.all.intro" datatype="html">
+        <source>Submitted applications, the most recently changed first.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.intro" datatype="html">
+        <source>Follow your applications, or continue a draft.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-list/application-list.ts</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applicationStatus.DRAFT" datatype="html">
@@ -594,88 +685,32 @@
           <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="applications.all.title" datatype="html">
+        <source>Applications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/applications.routes.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="applications.mine.title" datatype="html">
         <source>My applications</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/applications.routes.ts</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.new.title" datatype="html">
         <source>New application</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/applications.routes.ts</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.detail.title" datatype="html">
         <source>Application</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/applications.routes.ts</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.mine.heading" datatype="html">
-        <source>My applications</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">2,3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.mine.intro" datatype="html">
-        <source>Follow your applications, or continue a draft.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">4,5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.mine.new" datatype="html">
-        <source>New application</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">8,12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.reference" datatype="html">
-        <source>Reference</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">28,29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.project" datatype="html">
-        <source>Project</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">29,30</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.status" datatype="html">
-        <source>Status</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">30,31</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.updatedAt" datatype="html">
-        <source>Last change</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">34,37</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.mine.none" datatype="html">
-        <source>You haven&apos;t started an application yet.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">55,57</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="applications.mine.seeCalls" datatype="html">
-        <source>See the open funding calls.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
-          <context context-type="linenumber">60,63</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.new.heading" datatype="html">
@@ -960,6 +995,28 @@
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="noAccess.heading" datatype="html">
+        <source>No access</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/no-access/no-access.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAccess.explanation" datatype="html">
+        <source> Your account doesn&apos;t have the role this page needs. If you think it should, contact the administration.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/no-access/no-access.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAccess.backToStart" datatype="html">
+        <source>Back to the start page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/no-access/no-access.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="notFound.heading" datatype="html">
         <source>Page not found</source>
         <context-group purpose="location">
@@ -1000,21 +1057,28 @@
         <source>Main</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.nav.allApplications" datatype="html">
+        <source>Applications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
+          <context context-type="linenumber">23,25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="layout.nav.applications" datatype="html">
         <source>My applications</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
-          <context context-type="linenumber">21,24</context>
+          <context context-type="linenumber">31,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="layout.nav.fundingCalls" datatype="html">
         <source>Funding calls</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
-          <context context-type="linenumber">28,31</context>
+          <context context-type="linenumber">39,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="layout.signOut" datatype="html">

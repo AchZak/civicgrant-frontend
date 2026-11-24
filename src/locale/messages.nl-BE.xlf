@@ -6,6 +6,22 @@
         <source>CivicGrant is unavailable right now. Please try again later.</source>
         <target>CivicGrant is momenteel niet beschikbaar. Probeer het later opnieuw.</target>
       </trans-unit>
+      <trans-unit id="applications.all.heading" datatype="html">
+        <source>Applications</source>
+        <target>Aanvragen</target>
+      </trans-unit>
+      <trans-unit id="applications.all.intro" datatype="html">
+        <source>Submitted applications, the most recently changed first.</source>
+        <target>Ingediende aanvragen, de laatst gewijzigde eerst.</target>
+      </trans-unit>
+      <trans-unit id="applications.all.none" datatype="html">
+        <source>There are no submitted applications yet.</source>
+        <target>Er zijn nog geen ingediende aanvragen.</target>
+      </trans-unit>
+      <trans-unit id="applications.all.title" datatype="html">
+        <source>Applications</source>
+        <target>Aanvragen</target>
+      </trans-unit>
       <trans-unit id="applications.createdAt" datatype="html">
         <source>Created on</source>
         <target>Aangemaakt op</target>
@@ -338,6 +354,10 @@
         <source>Main</source>
         <target>Hoofdmenu</target>
       </trans-unit>
+      <trans-unit id="layout.nav.allApplications" datatype="html">
+        <source>Applications</source>
+        <target>Aanvragen</target>
+      </trans-unit>
       <trans-unit id="layout.nav.applications" datatype="html">
         <source>My applications</source>
         <target>Mijn aanvragen</target>
@@ -377,6 +397,22 @@
       <trans-unit id="legalForm.VZW_ASBL" datatype="html">
         <source>Non-profit association</source>
         <target>Vereniging zonder winstoogmerk (vzw)</target>
+      </trans-unit>
+      <trans-unit id="noAccess.backToStart" datatype="html">
+        <source>Back to the start page</source>
+        <target>Terug naar de startpagina</target>
+      </trans-unit>
+      <trans-unit id="noAccess.explanation" datatype="html">
+        <source>Your account doesn&apos;t have the role this page needs. If you think it should, contact the administration.</source>
+        <target>Uw account heeft niet de rol die deze pagina vraagt. Denkt u dat dat niet klopt, neem dan contact op met de administratie.</target>
+      </trans-unit>
+      <trans-unit id="noAccess.heading" datatype="html">
+        <source>No access</source>
+        <target>Geen toegang</target>
+      </trans-unit>
+      <trans-unit id="noAccess.title" datatype="html">
+        <source>No access</source>
+        <target>Geen toegang</target>
       </trans-unit>
       <trans-unit id="notFound.backToStart" datatype="html">
         <source>Back to the start page</source>
