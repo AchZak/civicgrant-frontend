@@ -1,5 +1,4 @@
-import { expect, test } from '@playwright/test';
-import { aDraft, mockApi, ProjectProposal, referenceData } from './fixtures';
+import { aDraft, expect, mockApi, ProjectProposal, referenceData, test } from './fixtures';
 
 test('a saved incomplete draft reads back after a reload', async ({ page }) => {
   // given

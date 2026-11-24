@@ -1,13 +1,14 @@
-import { expect, test } from '@playwright/test';
 import {
   aDocument,
   aDraft,
+  expect,
   fundingCall,
   json,
   mockApi,
   organisation,
   proposal,
   referenceData,
+  test,
 } from './fixtures';
 
 test('an applicant creates a draft, attaches a PDF, submits it and sees it submitted', async ({

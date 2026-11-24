@@ -1,5 +1,25 @@
-import { Page, Route } from '@playwright/test';
+import { test as base, expect, Page, Route } from '@playwright/test';
 import { components } from '../src/app/api/schema';
+
+export { expect };
+
+// Transloco shows a missing key as the key itself and only warns in the console, so a journey
+// fails on that warning instead.
+export const test = base.extend<{ translationsComplete: void }>({
+  translationsComplete: [
+    async ({ page }, use) => {
+      const missing: string[] = [];
+      page.on('console', (message) => {
+        if (message.text().includes('Missing translation')) {
+          missing.push(message.text());
+        }
+      });
+      await use();
+      expect(missing).toEqual([]);
+    },
+    { auto: true },
+  ],
+});
 
 export type Application = components['schemas']['Application'];
 export type ApplicationPage = components['schemas']['ApplicationPage'];

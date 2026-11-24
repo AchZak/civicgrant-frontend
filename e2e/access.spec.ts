@@ -1,5 +1,13 @@
-import { expect, test } from '@playwright/test';
-import { aPageOf, fundingCall, json, mockApi, referenceData, signedInAs } from './fixtures';
+import {
+  aPageOf,
+  expect,
+  fundingCall,
+  json,
+  mockApi,
+  referenceData,
+  signedInAs,
+  test,
+} from './fixtures';
 
 test('an applicant lands on their own applications', async ({ page }) => {
   // given

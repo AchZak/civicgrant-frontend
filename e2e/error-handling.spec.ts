@@ -1,5 +1,4 @@
-import { expect, test } from '@playwright/test';
-import { aDraft, aProblem, mockApi, problem, referenceData } from './fixtures';
+import { aDraft, aProblem, expect, mockApi, problem, referenceData, test } from './fixtures';
 
 const application = aDraft();
 const proposalUrl = `PUT /api/v1/applications/${application.id}/proposal`;
