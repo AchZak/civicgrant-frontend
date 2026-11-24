@@ -1,0 +1,5 @@
+@if (problem().status === 404) {
+  <app-not-found />
+} @else {
+  <p-message severity="error">{{ message() }}</p-message>
+}
