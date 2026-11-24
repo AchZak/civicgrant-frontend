@@ -14,6 +14,10 @@
         <source>Closes on</source>
         <target>Sluit op</target>
       </trans-unit>
+      <trans-unit id="fundingCalls.detail.title" datatype="html">
+        <source>Funding call</source>
+        <target>Projectoproep</target>
+      </trans-unit>
       <trans-unit id="fundingCalls.maxAmountPerApplication" datatype="html">
         <source>Maximum per application</source>
         <target>Maximum per aanvraag</target>
@@ -33,6 +37,10 @@
       <trans-unit id="fundingCalls.open.title" datatype="html">
         <source>Open funding calls</source>
         <target>Open projectoproepen</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.opensAt" datatype="html">
+        <source>Open for applications from</source>
+        <target>Open voor aanvragen vanaf</target>
       </trans-unit>
       <trans-unit id="fundingCalls.remainingBudget" datatype="html">
         <source>Remaining budget</source>

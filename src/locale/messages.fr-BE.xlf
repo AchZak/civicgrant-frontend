@@ -14,6 +14,10 @@
         <source>Closes on</source>
         <target>Clôture le</target>
       </trans-unit>
+      <trans-unit id="fundingCalls.detail.title" datatype="html">
+        <source>Funding call</source>
+        <target>Appel à projets</target>
+      </trans-unit>
       <trans-unit id="fundingCalls.maxAmountPerApplication" datatype="html">
         <source>Maximum per application</source>
         <target>Maximum par demande</target>
@@ -33,6 +37,10 @@
       <trans-unit id="fundingCalls.open.title" datatype="html">
         <source>Open funding calls</source>
         <target>Appels à projets ouverts</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.opensAt" datatype="html">
+        <source>Open for applications from</source>
+        <target>Ouvert aux demandes à partir du</target>
       </trans-unit>
       <trans-unit id="fundingCalls.remainingBudget" datatype="html">
         <source>Remaining budget</source>

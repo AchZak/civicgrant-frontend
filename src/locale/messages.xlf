@@ -272,14 +272,61 @@
         <source>Page not found</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.opensAt" datatype="html">
+        <source>Open for applications from</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.closesAt" datatype="html">
+        <source>Closes on</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.maxAmountPerApplication" datatype="html">
+        <source> Maximum per application </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">17,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.remainingBudget" datatype="html">
+        <source> Remaining budget </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
+          <context context-type="linenumber">22,24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
+          <context context-type="linenumber">20,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fundingCalls.open.title" datatype="html">
         <source>Open funding calls</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/funding-calls.routes.ts</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fundingCalls.detail.title" datatype="html">
+        <source>Funding call</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/funding-calls/funding-calls.routes.ts</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fundingCalls.open.heading" datatype="html">
@@ -301,27 +348,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
           <context context-type="linenumber">14,15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="fundingCalls.closesAt" datatype="html">
-        <source>Closes on</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
-          <context context-type="linenumber">15,16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="fundingCalls.maxAmountPerApplication" datatype="html">
-        <source> Maximum per application </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
-          <context context-type="linenumber">17,19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="fundingCalls.remainingBudget" datatype="html">
-        <source> Remaining budget </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
-          <context context-type="linenumber">20,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fundingCalls.open.none" datatype="html">

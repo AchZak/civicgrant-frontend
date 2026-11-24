@@ -1,0 +1,33 @@
+@if (call.hasValue()) {
+  @let fundingCall = call.value();
+  <app-page-header [heading]="fundingCall.title | localized" [intro]="fundingCall.reference" />
+
+  <dl class="grid max-w-2xl gap-x-8 gap-y-6 sm:grid-cols-2">
+    <div>
+      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.opensAt">
+        Open for applications from
+      </dt>
+      <dd class="font-semibold">{{ fundingCall.opensAt | brusselsDate }}</dd>
+    </div>
+    <div>
+      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.closesAt">Closes on</dt>
+      <dd class="font-semibold">{{ fundingCall.closesAt | brusselsDate }}</dd>
+    </div>
+    <div>
+      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.maxAmountPerApplication">
+        Maximum per application
+      </dt>
+      <dd class="font-semibold">{{ fundingCall.maxAmountPerApplication | currency }}</dd>
+    </div>
+    <div>
+      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.remainingBudget">
+        Remaining budget
+      </dt>
+      <dd class="font-semibold">{{ fundingCall.remainingBudget | currency }}</dd>
+    </div>
+  </dl>
+} @else if (call.error(); as error) {
+  <app-load-error [error]="error" />
+} @else {
+  <p-skeleton width="24rem" height="2rem" />
+}
