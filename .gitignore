@@ -39,6 +39,10 @@ testem.log
 /typings
 __screenshots__/
 
+# Playwright
+/test-results
+/playwright-report
+
 # Runtime configuration, written by the deployment
 /public/config.json
 
