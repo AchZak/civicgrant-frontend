@@ -54,6 +54,7 @@ module.exports = defineConfig([
             'aria-haspopup',
             'aria-labelledby',
             'aria-live',
+            'ariaCurrentWhenActive',
             'currency',
             'dataKey',
             'inputId',

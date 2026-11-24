@@ -1,0 +1,66 @@
+<app-page-header
+  heading="My applications"
+  i18n-heading="@@applications.mine.heading"
+  intro="Follow your applications, or continue a draft."
+  i18n-intro="@@applications.mine.intro"
+>
+  <a pButton routerLink="/funding-calls">
+    <span pButtonLabel i18n="@@applications.mine.new">New application</span>
+  </a>
+</app-page-header>
+
+@if (applications.error(); as error) {
+  <app-load-error [error]="error" />
+} @else {
+  <p-table
+    [value]="items()"
+    [loading]="applications.isLoading()"
+    [lazy]="true"
+    [lazyLoadOnInit]="false"
+    [paginator]="total() > pageSize"
+    [rows]="pageSize"
+    [totalRecords]="total()"
+    (onLazyLoad)="showPage($event)"
+    dataKey="id"
+  >
+    <ng-template #header>
+      <tr>
+        <th scope="col" i18n="@@applications.reference">Reference</th>
+        <th scope="col" i18n="@@applications.project">Project</th>
+        <th scope="col" i18n="@@applications.status">Status</th>
+        <th scope="col" class="text-right" i18n="@@applications.requestedAmount">
+          Requested amount
+        </th>
+        <th scope="col" i18n="@@applications.updatedAt">Last change</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-application>
+      <tr>
+        <td>
+          <a
+            [routerLink]="['/applications', application.id]"
+            class="font-semibold text-primary hover:underline"
+            >{{ application.reference }}</a
+          >
+        </td>
+        <td>{{ application.projectTitle }}</td>
+        <td><app-application-status-tag [status]="application.status" /></td>
+        <td class="text-right">{{ application.requestedAmount | currency }}</td>
+        <td>{{ application.updatedAt | brusselsDate: 'date' }}</td>
+      </tr>
+    </ng-template>
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="5">
+          <span i18n="@@applications.mine.none">You haven't started an application yet.</span>
+          <a
+            routerLink="/funding-calls"
+            class="ml-1 text-primary hover:underline"
+            i18n="@@applications.mine.seeCalls"
+            >See the open funding calls.</a
+          >
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+}

@@ -6,6 +6,74 @@
         <source>CivicGrant is unavailable right now. Please try again later.</source>
         <target>CivicGrant is momenteel niet beschikbaar. Probeer het later opnieuw.</target>
       </trans-unit>
+      <trans-unit id="applications.mine.heading" datatype="html">
+        <source>My applications</source>
+        <target>Mijn aanvragen</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.intro" datatype="html">
+        <source>Follow your applications, or continue a draft.</source>
+        <target>Volg uw aanvragen op, of werk een ontwerp verder af.</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.new" datatype="html">
+        <source>New application</source>
+        <target>Nieuwe aanvraag</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.none" datatype="html">
+        <source>You haven&apos;t started an application yet.</source>
+        <target>U hebt nog geen aanvraag aangemaakt.</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.seeCalls" datatype="html">
+        <source>See the open funding calls.</source>
+        <target>Bekijk de open projectoproepen.</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.title" datatype="html">
+        <source>My applications</source>
+        <target>Mijn aanvragen</target>
+      </trans-unit>
+      <trans-unit id="applications.project" datatype="html">
+        <source>Project</source>
+        <target>Project</target>
+      </trans-unit>
+      <trans-unit id="applications.reference" datatype="html">
+        <source>Reference</source>
+        <target>Referentie</target>
+      </trans-unit>
+      <trans-unit id="applications.requestedAmount" datatype="html">
+        <source>Requested amount</source>
+        <target>Gevraagd bedrag</target>
+      </trans-unit>
+      <trans-unit id="applications.status" datatype="html">
+        <source>Status</source>
+        <target>Status</target>
+      </trans-unit>
+      <trans-unit id="applications.updatedAt" datatype="html">
+        <source>Last change</source>
+        <target>Laatst gewijzigd</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.APPROVED" datatype="html">
+        <source>Approved</source>
+        <target>Goedgekeurd</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.ASSESSED" datatype="html">
+        <source>Assessed</source>
+        <target>Beoordeeld</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.DRAFT" datatype="html">
+        <source>Draft</source>
+        <target>Ontwerp</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.REJECTED" datatype="html">
+        <source>Rejected</source>
+        <target>Afgewezen</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.SUBMITTED" datatype="html">
+        <source>Submitted</source>
+        <target>Ingediend</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.unknown" datatype="html">
+        <source>Unknown status</source>
+        <target>Onbekende status</target>
+      </trans-unit>
       <trans-unit id="fundingCalls.call" datatype="html">
         <source>Funding call</source>
         <target>Projectoproep</target>
@@ -53,6 +121,18 @@
       <trans-unit id="layout.language" datatype="html">
         <source>Language</source>
         <target>Taal</target>
+      </trans-unit>
+      <trans-unit id="layout.mainNavigation" datatype="html">
+        <source>Main</source>
+        <target>Hoofdmenu</target>
+      </trans-unit>
+      <trans-unit id="layout.nav.applications" datatype="html">
+        <source>My applications</source>
+        <target>Mijn aanvragen</target>
+      </trans-unit>
+      <trans-unit id="layout.nav.fundingCalls" datatype="html">
+        <source>Funding calls</source>
+        <target>Projectoproepen</target>
       </trans-unit>
       <trans-unit id="layout.signOut" datatype="html">
         <source>Sign out</source>

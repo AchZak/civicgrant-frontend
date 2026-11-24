@@ -272,21 +272,140 @@
         <source>Page not found</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applicationStatus.DRAFT" datatype="html">
+        <source>Draft</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-status.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applicationStatus.SUBMITTED" datatype="html">
+        <source>Submitted</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-status.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applicationStatus.ASSESSED" datatype="html">
+        <source>Assessed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-status.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applicationStatus.APPROVED" datatype="html">
+        <source>Approved</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-status.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applicationStatus.REJECTED" datatype="html">
+        <source>Rejected</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-status.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applicationStatus.unknown" datatype="html">
+        <source>Unknown status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-status.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.title" datatype="html">
+        <source>My applications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/applications.routes.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.heading" datatype="html">
+        <source>My applications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.intro" datatype="html">
+        <source>Follow your applications, or continue a draft.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.new" datatype="html">
+        <source>New application</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">8,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.reference" datatype="html">
+        <source>Reference</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.project" datatype="html">
+        <source>Project</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.status" datatype="html">
+        <source>Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.requestedAmount" datatype="html">
+        <source> Requested amount </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.updatedAt" datatype="html">
+        <source>Last change</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">34,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.none" datatype="html">
+        <source>You haven&apos;t started an application yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.mine.seeCalls" datatype="html">
+        <source>See the open funding calls.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
+          <context context-type="linenumber">60,63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fundingCalls.opensAt" datatype="html">
-        <source>Open for applications from</source>
+        <source> Open for applications from </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
-          <context context-type="linenumber">7,8</context>
+          <context context-type="linenumber">8,10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fundingCalls.closesAt" datatype="html">
         <source>Closes on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
-          <context context-type="linenumber">11,12</context>
+          <context context-type="linenumber">13,14</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
@@ -297,7 +416,7 @@
         <source> Maximum per application </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
-          <context context-type="linenumber">16,18</context>
+          <context context-type="linenumber">18,20</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
@@ -308,7 +427,7 @@
         <source> Remaining budget </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/funding-call-detail/funding-call-detail.html</context>
-          <context context-type="linenumber">22,24</context>
+          <context context-type="linenumber">24,26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/funding-calls/open-funding-calls/open-funding-calls.html</context>
@@ -397,7 +516,28 @@
         <source>CivicGrant</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
-          <context context-type="linenumber">12,13</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.mainNavigation" datatype="html">
+        <source>Main</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.nav.applications" datatype="html">
+        <source>My applications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
+          <context context-type="linenumber">21,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.nav.fundingCalls" datatype="html">
+        <source>Funding calls</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
+          <context context-type="linenumber">28,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="layout.signOut" datatype="html">

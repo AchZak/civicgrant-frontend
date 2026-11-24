@@ -6,6 +6,74 @@
         <source>CivicGrant is unavailable right now. Please try again later.</source>
         <target>CivicGrant est momentanément indisponible. Veuillez réessayer plus tard.</target>
       </trans-unit>
+      <trans-unit id="applications.mine.heading" datatype="html">
+        <source>My applications</source>
+        <target>Mes demandes</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.intro" datatype="html">
+        <source>Follow your applications, or continue a draft.</source>
+        <target>Suivez vos demandes, ou poursuivez un brouillon.</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.new" datatype="html">
+        <source>New application</source>
+        <target>Nouvelle demande</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.none" datatype="html">
+        <source>You haven&apos;t started an application yet.</source>
+        <target>Vous n'avez pas encore créé de demande.</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.seeCalls" datatype="html">
+        <source>See the open funding calls.</source>
+        <target>Consultez les appels à projets ouverts.</target>
+      </trans-unit>
+      <trans-unit id="applications.mine.title" datatype="html">
+        <source>My applications</source>
+        <target>Mes demandes</target>
+      </trans-unit>
+      <trans-unit id="applications.project" datatype="html">
+        <source>Project</source>
+        <target>Projet</target>
+      </trans-unit>
+      <trans-unit id="applications.reference" datatype="html">
+        <source>Reference</source>
+        <target>Référence</target>
+      </trans-unit>
+      <trans-unit id="applications.requestedAmount" datatype="html">
+        <source>Requested amount</source>
+        <target>Montant demandé</target>
+      </trans-unit>
+      <trans-unit id="applications.status" datatype="html">
+        <source>Status</source>
+        <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="applications.updatedAt" datatype="html">
+        <source>Last change</source>
+        <target>Dernière modification</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.APPROVED" datatype="html">
+        <source>Approved</source>
+        <target>Approuvée</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.ASSESSED" datatype="html">
+        <source>Assessed</source>
+        <target>Évaluée</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.DRAFT" datatype="html">
+        <source>Draft</source>
+        <target>Brouillon</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.REJECTED" datatype="html">
+        <source>Rejected</source>
+        <target>Refusée</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.SUBMITTED" datatype="html">
+        <source>Submitted</source>
+        <target>Introduite</target>
+      </trans-unit>
+      <trans-unit id="applicationStatus.unknown" datatype="html">
+        <source>Unknown status</source>
+        <target>Statut inconnu</target>
+      </trans-unit>
       <trans-unit id="fundingCalls.call" datatype="html">
         <source>Funding call</source>
         <target>Appel à projets</target>
@@ -53,6 +121,18 @@
       <trans-unit id="layout.language" datatype="html">
         <source>Language</source>
         <target>Langue</target>
+      </trans-unit>
+      <trans-unit id="layout.mainNavigation" datatype="html">
+        <source>Main</source>
+        <target>Menu principal</target>
+      </trans-unit>
+      <trans-unit id="layout.nav.applications" datatype="html">
+        <source>My applications</source>
+        <target>Mes demandes</target>
+      </trans-unit>
+      <trans-unit id="layout.nav.fundingCalls" datatype="html">
+        <source>Funding calls</source>
+        <target>Appels à projets</target>
       </trans-unit>
       <trans-unit id="layout.signOut" datatype="html">
         <source>Sign out</source>

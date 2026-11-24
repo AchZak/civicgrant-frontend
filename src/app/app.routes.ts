@@ -1,7 +1,12 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'funding-calls' },
+  { path: '', pathMatch: 'full', redirectTo: 'applications' },
+  {
+    path: 'applications',
+    loadChildren: () =>
+      import('./applications/applications.routes').then((m) => m.applicationsRoutes),
+  },
   {
     path: 'funding-calls',
     loadChildren: () =>
