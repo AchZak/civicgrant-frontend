@@ -100,21 +100,11 @@
       <h2 id="documents-heading" class="mb-2 text-lg font-semibold" i18n="@@applications.documents">
         Supporting documents
       </h2>
-      <ul class="flex flex-col gap-2">
-        @for (document of current.documents; track document.id) {
-          <li>
-            <span class="font-semibold">{{ document.fileName }}</span>
-            <span class="text-sm text-muted-color">
-              · {{ document.sizeInBytes | fileSize }} ·
-              {{ document.uploadedAt | brusselsDate }}</span
-            >
-          </li>
-        } @empty {
-          <li class="text-muted-color" i18n="@@applications.documents.none">
-            No documents attached yet.
-          </li>
-        }
-      </ul>
+      <app-application-documents
+        [application]="current"
+        [editable]="isDraft()"
+        (changed)="application.reload()"
+      />
     </section>
 
     @if (decision.hasValue()) {

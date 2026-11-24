@@ -190,6 +190,46 @@
         <source>Unknown status</source>
         <target>Statut inconnu</target>
       </trans-unit>
+      <trans-unit id="documents.choose" datatype="html">
+        <source>Attach a PDF</source>
+        <target>Joindre un PDF</target>
+      </trans-unit>
+      <trans-unit id="documents.download" datatype="html">
+        <source>Download <x id="fileName" equiv-text="fileName"/></source>
+        <target>Télécharger <x id="fileName"/></target>
+      </trans-unit>
+      <trans-unit id="documents.hint" datatype="html">
+        <source>One PDF file of at most 10 MB at a time.</source>
+        <target>Un fichier PDF de 10 Mo au maximum à la fois.</target>
+      </trans-unit>
+      <trans-unit id="documents.notPdf" datatype="html">
+        <source>{0} isn&apos;t a PDF.</source>
+        <target>{0} n'est pas un PDF.</target>
+      </trans-unit>
+      <trans-unit id="documents.notPdfDetail" datatype="html">
+        <source>Only PDF files can be attached.</source>
+        <target>Seuls les fichiers PDF peuvent être joints.</target>
+      </trans-unit>
+      <trans-unit id="documents.progress" datatype="html">
+        <source>Upload progress</source>
+        <target>Progression du téléversement</target>
+      </trans-unit>
+      <trans-unit id="documents.remove" datatype="html">
+        <source>Remove</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="documents.removeNamed" datatype="html">
+        <source>Remove <x id="fileName" equiv-text="fileName"/></source>
+        <target>Supprimer <x id="fileName"/></target>
+      </trans-unit>
+      <trans-unit id="documents.tooLarge" datatype="html">
+        <source>{0} is too large.</source>
+        <target>{0} est trop volumineux.</target>
+      </trans-unit>
+      <trans-unit id="documents.tooLargeDetail" datatype="html">
+        <source>A document can be at most {0}.</source>
+        <target>Un document peut faire au maximum {0}.</target>
+      </trans-unit>
       <trans-unit id="fundingCalls.apply" datatype="html">
         <source>Apply</source>
         <target>Introduire une demande</target>

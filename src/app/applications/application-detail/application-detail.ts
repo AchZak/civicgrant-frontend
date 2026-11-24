@@ -16,7 +16,7 @@ import { PageHeader } from '../../shared/page-header/page-header';
 import { serverErrors } from '../../shared/server-errors';
 import { ApplicationStatusTag } from '../application-status-tag/application-status-tag';
 import { applicationResource, ApplicationsApi, decisionResource } from '../applications-api';
-import { FileSizePipe } from '../file-size-pipe';
+import { ApplicationDocuments } from '../application-documents/application-documents';
 import {
   emptyProposal,
   languageLabel,
@@ -44,7 +44,7 @@ import { rejectionGroundLabel } from '../rejection-ground';
     LocalizedPipe,
     PageHeader,
     ApplicationStatusTag,
-    FileSizePipe,
+    ApplicationDocuments,
     ProposalForm,
   ],
   selector: 'app-application-detail',

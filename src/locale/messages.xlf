@@ -370,46 +370,116 @@
           <context context-type="linenumber">101,103</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="applications.documents.none" datatype="html">
-        <source> No documents attached yet. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">114,117</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="applications.decision" datatype="html">
         <source> Decision </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">124,126</context>
+          <context context-type="linenumber">114,116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.grantedAmount" datatype="html">
         <source>Granted amount</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.rejectionGround" datatype="html">
         <source>Ground for rejection</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">135,136</context>
+          <context context-type="linenumber">125,126</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.decidedAt" datatype="html">
         <source>Decided on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.motivation" datatype="html">
         <source>Motivation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">147,148</context>
+          <context context-type="linenumber">137,138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.remove" datatype="html">
+        <source>Remove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.documents.none" datatype="html">
+        <source> No documents attached yet. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
+          <context context-type="linenumber">32,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.choose" datatype="html">
+        <source>Attach a PDF</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.hint" datatype="html">
+        <source>One PDF file of at most 10 MB at a time.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.progress" datatype="html">
+        <source>Upload progress</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.tooLarge" datatype="html">
+        <source>{0} is too large.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.tooLargeDetail" datatype="html">
+        <source>A document can be at most {0}.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.notPdf" datatype="html">
+        <source>{0} isn&apos;t a PDF.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.notPdfDetail" datatype="html">
+        <source>Only PDF files can be attached.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.download" datatype="html">
+        <source>Download <x id="fileName" equiv-text="fileName"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents.removeNamed" datatype="html">
+        <source>Remove <x id="fileName" equiv-text="fileName"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-documents/application-documents.ts</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applicationStatus.DRAFT" datatype="html">
