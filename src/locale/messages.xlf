@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="notFound.title" datatype="html">
+        <source>Page not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.language" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/language-switch/language-switch.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.heading" datatype="html">
+        <source>Page not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/not-found/not-found.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.explanation" datatype="html">
+        <source> This page doesn&apos;t exist, or you may not see it. Check the address, or go back to the start page.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/not-found/not-found.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notFound.backToStart" datatype="html">
+        <source>Back to the start page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/not-found/not-found.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.skipToMain" datatype="html">
+        <source>Skip to main content</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
+          <context context-type="linenumber">7,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="layout.appName" datatype="html">
+        <source>CivicGrant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/shell/shell.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="app.unavailable" datatype="html">
+        <source>CivicGrant is unavailable right now. Please try again later.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/main.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

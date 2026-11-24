@@ -1,0 +1,19 @@
+<nav aria-label="Language" i18n-aria-label="@@layout.language" class="flex gap-2">
+  @for (language of languages; track language.locale; let last = $last) {
+    @if (language.locale === currentLocale) {
+      <span aria-current="true" class="font-semibold">{{ language.code }}</span>
+    } @else {
+      <a
+        [href]="href(language)"
+        [lang]="language.locale"
+        [attr.hreflang]="language.locale"
+        [title]="language.name"
+        class="text-primary hover:underline"
+        >{{ language.code }}</a
+      >
+    }
+    @if (!last) {
+      <span aria-hidden="true">|</span>
+    }
+  }
+</nav>

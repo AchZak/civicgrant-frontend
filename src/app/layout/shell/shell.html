@@ -1,0 +1,19 @@
+<!-- A plain href="#main" would resolve against the base href and leave the page. -->
+<a
+  href="#main"
+  class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:p-2 bg-surface-0"
+  (click)="$event.preventDefault(); main.focus()"
+  i18n="@@layout.skipToMain"
+  >Skip to main content</a
+>
+
+<header class="border-b border-surface">
+  <div class="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
+    <a routerLink="/" class="text-lg font-semibold" i18n="@@layout.appName">CivicGrant</a>
+    <app-language-switch />
+  </div>
+</header>
+
+<main #main id="main" tabindex="-1" class="mx-auto max-w-5xl px-4 py-8 outline-none">
+  <ng-content />
+</main>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="fr-BE" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="app.unavailable" datatype="html">
+        <source>CivicGrant is unavailable right now. Please try again later.</source>
+        <target>CivicGrant est momentanément indisponible. Veuillez réessayer plus tard.</target>
+      </trans-unit>
+      <trans-unit id="layout.appName" datatype="html">
+        <source>CivicGrant</source>
+        <target>CivicGrant</target>
+      </trans-unit>
+      <trans-unit id="layout.language" datatype="html">
+        <source>Language</source>
+        <target>Langue</target>
+      </trans-unit>
+      <trans-unit id="layout.skipToMain" datatype="html">
+        <source>Skip to main content</source>
+        <target>Aller au contenu principal</target>
+      </trans-unit>
+      <trans-unit id="notFound.backToStart" datatype="html">
+        <source>Back to the start page</source>
+        <target>Retour à la page d'accueil</target>
+      </trans-unit>
+      <trans-unit id="notFound.explanation" datatype="html">
+        <source>This page doesn't exist, or you may not see it. Check the address, or go back to the start page.</source>
+        <target>Cette page n'existe pas, ou vous n'y avez pas accès. Vérifiez l'adresse, ou revenez à la page d'accueil.</target>
+      </trans-unit>
+      <trans-unit id="notFound.heading" datatype="html">
+        <source>Page not found</source>
+        <target>Page introuvable</target>
+      </trans-unit>
+      <trans-unit id="notFound.title" datatype="html">
+        <source>Page not found</source>
+        <target>Page introuvable</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
