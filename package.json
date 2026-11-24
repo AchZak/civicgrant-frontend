@@ -10,7 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "playwright test",
-    "i18n:extract": "ng extract-i18n --output-path src/locale",
+    "i18n:extract": "ng extract-i18n --format json --output-path src/locale",
     "api:types": "openapi-typescript ../civicgrant-backend/api/src/main/openapi/openapi.yaml --output src/app/api/schema.ts",
     "lint": "ng lint && tsc --project tsconfig.e2e.json",
     "format": "prettier --write .",

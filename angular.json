@@ -42,11 +42,11 @@
       "i18n": {
         "locales": {
           "nl-BE": {
-            "translation": "src/locale/messages.nl-BE.xlf",
+            "translation": "src/locale/messages.nl-BE.json",
             "subPath": "nl"
           },
           "fr-BE": {
-            "translation": "src/locale/messages.fr-BE.xlf",
+            "translation": "src/locale/messages.fr-BE.json",
             "subPath": "fr"
           }
         }
