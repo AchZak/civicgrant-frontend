@@ -275,25 +275,32 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="applications.submit.done" datatype="html">
+        <source>Your application is submitted. You&apos;ll find its status and the decision here.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
+          <context context-type="linenumber">9,13</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="applications.fundingCall" datatype="html">
         <source>Funding call</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.organisation" datatype="html">
         <source>Organisation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.requestedAmount" datatype="html">
         <source>Requested amount</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
@@ -304,105 +311,112 @@
         <source>Total project budget</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.language" datatype="html">
         <source>Language of the project</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.submittedAt" datatype="html">
         <source>Submitted on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.createdAt" datatype="html">
         <source>Created on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.draft.project" datatype="html">
         <source> Your project </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">56,58</context>
+          <context context-type="linenumber">62,64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.draft.reload" datatype="html">
         <source>Reload the application</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">64,66</context>
+          <context context-type="linenumber">70,72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.draft.save" datatype="html">
         <source>Save changes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">74,76</context>
+          <context context-type="linenumber">80,82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.draft.saved" datatype="html">
         <source>Your changes are saved.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">79,81</context>
+          <context context-type="linenumber">85,87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.description" datatype="html">
         <source> Project description </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">93,95</context>
+          <context context-type="linenumber">99,101</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.documents" datatype="html">
         <source> Supporting documents </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">101,103</context>
+          <context context-type="linenumber">107,109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.heading" datatype="html">
+        <source> Submit </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
+          <context context-type="linenumber">123,125</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.decision" datatype="html">
         <source> Decision </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">114,116</context>
+          <context context-type="linenumber">138,140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.grantedAmount" datatype="html">
         <source>Granted amount</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.rejectionGround" datatype="html">
         <source>Ground for rejection</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">125,126</context>
+          <context context-type="linenumber">149,150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.decidedAt" datatype="html">
         <source>Decided on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.motivation" datatype="html">
         <source>Motivation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">137,138</context>
+          <context context-type="linenumber">161,162</context>
         </context-group>
       </trans-unit>
       <trans-unit id="documents.remove" datatype="html">
@@ -522,6 +536,62 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-status.ts</context>
           <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.explanation" datatype="html">
+        <source> Once you submit, a civil servant assesses the application and a decision maker decides on it. You follow its status here. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.button" datatype="html">
+        <source>Submit the application</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.callNotOpen" datatype="html">
+        <source>This funding call doesn&apos;t accept applications right now.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.saveFirst" datatype="html">
+        <source>Save your changes before you submit.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirmHeader" datatype="html">
+        <source>Submit the application?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirmMessage" datatype="html">
+        <source>Once it&apos;s submitted, you can no longer change the application or its documents.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirm" datatype="html">
+        <source>Submit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.submit.cancel" datatype="html">
+        <source>Not yet</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-submission/application-submission.ts</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.mine.title" datatype="html">

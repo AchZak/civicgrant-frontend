@@ -154,6 +154,46 @@
         <source>Status</source>
         <target>Statut</target>
       </trans-unit>
+      <trans-unit id="applications.submit.button" datatype="html">
+        <source>Submit the application</source>
+        <target>Introduire la demande</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.callNotOpen" datatype="html">
+        <source>This funding call doesn&apos;t accept applications right now.</source>
+        <target>Cet appel à projets n'accepte pas de demandes pour le moment.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.cancel" datatype="html">
+        <source>Not yet</source>
+        <target>Pas encore</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirm" datatype="html">
+        <source>Submit</source>
+        <target>Introduire</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirmHeader" datatype="html">
+        <source>Submit the application?</source>
+        <target>Introduire la demande ?</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirmMessage" datatype="html">
+        <source>Once it&apos;s submitted, you can no longer change the application or its documents.</source>
+        <target>Une fois la demande introduite, vous ne pourrez plus la modifier ni changer ses pièces justificatives.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.done" datatype="html">
+        <source>Your application is submitted. You&apos;ll find its status and the decision here.</source>
+        <target>Votre demande est introduite. Vous trouverez ici son statut et, plus tard, la décision.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.explanation" datatype="html">
+        <source>Once you submit, a civil servant assesses the application and a decision maker decides on it. You follow its status here.</source>
+        <target>Après l'introduction, un agent évalue la demande et un décideur statue sur celle-ci. Vous en suivez le statut ici.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.heading" datatype="html">
+        <source>Submit</source>
+        <target>Introduire</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.saveFirst" datatype="html">
+        <source>Save your changes before you submit.</source>
+        <target>Enregistrez vos modifications avant d'introduire la demande.</target>
+      </trans-unit>
       <trans-unit id="applications.submittedAt" datatype="html">
         <source>Submitted on</source>
         <target>Introduite le</target>

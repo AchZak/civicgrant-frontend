@@ -154,6 +154,46 @@
         <source>Status</source>
         <target>Status</target>
       </trans-unit>
+      <trans-unit id="applications.submit.button" datatype="html">
+        <source>Submit the application</source>
+        <target>De aanvraag indienen</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.callNotOpen" datatype="html">
+        <source>This funding call doesn&apos;t accept applications right now.</source>
+        <target>Deze projectoproep aanvaardt momenteel geen aanvragen.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.cancel" datatype="html">
+        <source>Not yet</source>
+        <target>Nog niet</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirm" datatype="html">
+        <source>Submit</source>
+        <target>Indienen</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirmHeader" datatype="html">
+        <source>Submit the application?</source>
+        <target>De aanvraag indienen?</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.confirmMessage" datatype="html">
+        <source>Once it&apos;s submitted, you can no longer change the application or its documents.</source>
+        <target>Na het indienen kunt u de aanvraag en haar bijlagen niet meer wijzigen.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.done" datatype="html">
+        <source>Your application is submitted. You&apos;ll find its status and the decision here.</source>
+        <target>Uw aanvraag is ingediend. U vindt hier haar status en later de beslissing.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.explanation" datatype="html">
+        <source>Once you submit, a civil servant assesses the application and a decision maker decides on it. You follow its status here.</source>
+        <target>Na het indienen beoordeelt een ambtenaar de aanvraag en beslist een beslissingsnemer erover. U volgt de status hier op.</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.heading" datatype="html">
+        <source>Submit</source>
+        <target>Indienen</target>
+      </trans-unit>
+      <trans-unit id="applications.submit.saveFirst" datatype="html">
+        <source>Save your changes before you submit.</source>
+        <target>Sla uw wijzigingen op voor u indient.</target>
+      </trans-unit>
       <trans-unit id="applications.submittedAt" datatype="html">
         <source>Submitted on</source>
         <target>Ingediend op</target>

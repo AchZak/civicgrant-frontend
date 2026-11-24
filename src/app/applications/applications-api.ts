@@ -52,6 +52,10 @@ export class ApplicationsApi {
     );
   }
 
+  async submit(applicationId: string): Promise<void> {
+    await firstValueFrom(this.http.post(`${applicationsUrl}/${applicationId}/submission`, null));
+  }
+
   async attachDocument(
     applicationId: string,
     file: File,

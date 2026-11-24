@@ -4,6 +4,12 @@
     <app-application-status-tag [status]="current.status" />
   </app-page-header>
 
+  @if (justSubmitted()) {
+    <p-message severity="success" class="mb-8" i18n="@@applications.submit.done"
+      >Your application is submitted. You'll find its status and the decision here.</p-message
+    >
+  }
+
   <div class="flex flex-col gap-10">
     <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
       <div app-detail label="Funding call" i18n-label="@@applications.fundingCall">
@@ -106,6 +112,24 @@
         (changed)="application.reload()"
       />
     </section>
+
+    @if (isDraft()) {
+      <section aria-labelledby="submit-heading" class="max-w-2xl">
+        <h2
+          id="submit-heading"
+          class="mb-4 text-lg font-semibold"
+          i18n="@@applications.submit.heading"
+        >
+          Submit
+        </h2>
+        <app-application-submission
+          [application]="current"
+          [unsavedChanges]="proposalForm().dirty()"
+          [callOpen]="callOpen()"
+          (submitted)="onSubmitted()"
+        />
+      </section>
+    }
 
     @if (decision.hasValue()) {
       @let taken = decision.value();

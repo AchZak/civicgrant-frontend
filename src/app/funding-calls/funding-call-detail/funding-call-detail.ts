@@ -10,6 +10,7 @@ import { LoadError } from '../../shared/load-error/load-error';
 import { LocalizedPipe } from '../../shared/localized-pipe';
 import { PageHeader } from '../../shared/page-header/page-header';
 import { fundingCallResource } from '../funding-calls-api';
+import { acceptsApplications } from '../submission-period';
 
 @Component({
   imports: [
@@ -34,11 +35,9 @@ export class FundingCallDetail {
 
   private readonly router = inject(Router);
 
-  // A hint only: the backend refuses a submission outside the period anyway.
   protected readonly acceptsApplications = computed(() => {
     const call = this.call.value();
-    const now = Date.now();
-    return call !== undefined && Date.parse(call.opensAt) <= now && now < Date.parse(call.closesAt);
+    return call !== undefined && acceptsApplications(call);
   });
 
   protected apply(fundingCallId: string): void {

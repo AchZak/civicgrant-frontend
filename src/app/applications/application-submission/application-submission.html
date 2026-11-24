@@ -1,0 +1,22 @@
+<div class="rounded-border border border-surface p-6">
+  <p class="mb-4 text-muted-color" i18n="@@applications.submit.explanation">
+    Once you submit, a civil servant assesses the application and a decision maker decides on it.
+    You follow its status here.
+  </p>
+  @if (obstacle(); as reason) {
+    <p id="submit-obstacle" class="mb-4 font-semibold">{{ reason }}</p>
+  }
+  <button
+    pButton
+    type="button"
+    [disabled]="obstacle() !== undefined || submitting()"
+    [attr.aria-describedby]="obstacle() === undefined ? null : 'submit-obstacle'"
+    (click)="confirmSubmission()"
+  >
+    <span pButtonLabel i18n="@@applications.submit.button">Submit the application</span>
+  </button>
+  @if (problem(); as message) {
+    <p-message severity="error" class="mt-4">{{ message }}</p-message>
+  }
+</div>
+<p-confirmdialog />

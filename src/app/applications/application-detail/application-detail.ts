@@ -3,9 +3,11 @@ import { Component, computed, inject, input, linkedSignal, signal } from '@angul
 import { form, FormRoot } from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
 import { ButtonDirective, ButtonLabel } from 'primeng/button';
+import { Message } from 'primeng/message';
 import { Skeleton } from 'primeng/skeleton';
 import { problemFrom } from '../../api/http-problem';
 import { fundingCallResource } from '../../funding-calls/funding-calls-api';
+import { acceptsApplications } from '../../funding-calls/submission-period';
 import { organisationResource } from '../../organisations/organisations-api';
 import { BrusselsDatePipe } from '../../shared/brussels-date-pipe';
 import { Detail } from '../../shared/detail/detail';
@@ -17,6 +19,7 @@ import { serverErrors } from '../../shared/server-errors';
 import { ApplicationStatusTag } from '../application-status-tag/application-status-tag';
 import { applicationResource, ApplicationsApi, decisionResource } from '../applications-api';
 import { ApplicationDocuments } from '../application-documents/application-documents';
+import { ApplicationSubmission } from '../application-submission/application-submission';
 import {
   emptyProposal,
   languageLabel,
@@ -36,6 +39,7 @@ import { rejectionGroundLabel } from '../rejection-ground';
     RouterLink,
     ButtonDirective,
     ButtonLabel,
+    Message,
     Skeleton,
     BrusselsDatePipe,
     Detail,
@@ -45,6 +49,7 @@ import { rejectionGroundLabel } from '../rejection-ground';
     PageHeader,
     ApplicationStatusTag,
     ApplicationDocuments,
+    ApplicationSubmission,
     ProposalForm,
   ],
   selector: 'app-application-detail',
@@ -69,8 +74,13 @@ export class ApplicationDetail {
 
   protected readonly isDraft = computed(() => this.application.value()?.status === 'DRAFT');
   protected readonly cap = computed(() => this.fundingCall.value()?.maxAmountPerApplication);
+  protected readonly callOpen = computed(() => {
+    const call = this.fundingCall.value();
+    return call === undefined || acceptsApplications(call);
+  });
   protected readonly saved = signal(false);
   protected readonly concurrentUpdate = signal(false);
+  protected readonly justSubmitted = signal(false);
 
   private readonly proposal = linkedSignal(() => {
     const application = this.application.value();
@@ -102,6 +112,11 @@ export class ApplicationDetail {
 
   protected readonly languageLabel = languageLabel;
   protected readonly rejectionGroundLabel = rejectionGroundLabel;
+
+  protected onSubmitted(): void {
+    this.justSubmitted.set(true);
+    this.application.reload();
+  }
 
   protected reload(): void {
     this.concurrentUpdate.set(false);
