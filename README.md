@@ -4,11 +4,12 @@
 
 The Angular app of CivicGrant, a grant application portal for a (fictional) Belgian public administration. Non-profits apply to a funding call, a civil servant assesses each application, and a separate decision maker approves or rejects it with a written motivation. The domain, the rules and the decisions behind them are described in the [backend's README](https://github.com/AchZak/civicgrant-backend).
 
-The app is in Dutch and French, and it's a thin presentation layer: the backend enforces every business rule and access rule, and the app shows what the API answers.
+The app is in Dutch, French and English, and it's a thin presentation layer: the backend enforces every business rule and access rule, and the app shows what the API answers.
 
 ## Status
 
-- [x] Scaffold: the shell with its language switch, PrimeNG and Tailwind, both languages, types generated from the API contract, CI
+- [x] Scaffold: the shell, PrimeNG and Tailwind, types generated from the API contract, CI
+- [x] Three languages, switched at runtime
 - [x] Sign-in with Microsoft Entra ID (the app's side; its Entra registration isn't deployed yet)
 - [x] Navigation and start page per role
 - [x] Applicant flow: funding calls, organisations, drafts, documents and submission
@@ -26,7 +27,9 @@ The API answers with codes, never with text. Statuses, legal forms, rejection gr
 
 Forms use Angular's Signal Forms with PrimeNG's inputs. The only rules checked in the browser are the ones the contract states (required fields, maximum lengths, the funding call's maximum amount), so the user sees them early; the backend still decides.
 
-Each language is its own build, with Angular's built-in i18n: Dutch under `/nl/` and French under `/fr/`. Switching language loads the other build. Every message has a fixed id, so rewording the English never loses a translation, the build fails when a translation is missing, and a lint rule fails when a template has text that isn't marked for translation.
+The texts come from Transloco, in one JSON file per language with English as the reference. The switch in the header changes the language without a reload and remembers it; a first visit gets the browser's language if it's one of the three, else Dutch. Templates and code only hold keys, grouped by feature and then by screen, so the same field label is one key wherever it shows up. Each file is imported rather than fetched, so the build gives it a hashed name and a browser never keeps an old version after a deploy. Money, dates and PrimeNG's own texts follow the language too. A funding call's title only exists in Dutch and French, so the English pages show the Dutch one, marked as Dutch for screen readers.
+
+Nothing in the build fails on a missing translation, so two checks stand in: a unit test that the three files have the same keys, and the journeys fail when a screen they visit asks for a key that doesn't exist.
 
 Sign-in uses Microsoft Entra ID with MSAL, before Angular starts: the app either runs with a signed-in user or redirects to sign in. An interceptor adds the access token to API calls only. The user's roles come from the API's `/me`, read once at startup: each role gets its own start page and navigation, and a page outside the user's roles says so. That's a courtesy, not security: the API checks the role on every call.
 
@@ -34,7 +37,7 @@ One build runs in every environment. The values that differ, the Entra registrat
 
 ### Tests
 
-The backend tests every business rule and access rule, so the frontend keeps its tests few. Unit tests cover the two pieces of logic the compiler can't check: reading an error from the API and parsing enterprise numbers. Playwright covers the journeys a user takes, against the Dutch build, with the API mocked and a fake signed-in user swapped in by a build configuration, so the production code has no test switch.
+The backend tests every business rule and access rule, so the frontend keeps its tests few. Unit tests cover what the compiler can't check: reading an error from the API, parsing enterprise numbers, and keeping the translation files in line. Playwright covers the journeys a user takes, in Dutch, with the API mocked and a fake signed-in user swapped in by a build configuration, so the production code has no test switch.
 
 ### Where to look first
 
@@ -42,6 +45,7 @@ The backend tests every business rule and access rule, so the frontend keeps its
 - [application-detail.ts](src/app/applications/application-detail/application-detail.ts): a page built from resources, with a draft form that reloads after a save and recovers from a concurrent change.
 - [start-session.ts](src/app/auth/start-session.ts) and [start-session.e2e.ts](src/app/auth/start-session.e2e.ts): the sign-in, and the fake user the journeys run with.
 - [error-handling.spec.ts](e2e/error-handling.spec.ts): a refused form and a concurrent change, tested the way a user sees them.
+- [current-language.ts](src/app/language/current-language.ts) and [en.json](src/i18n/en.json): how the language switches at runtime, and how the texts are organised.
 
 ## Running it locally
 
@@ -55,14 +59,13 @@ npm start
 
 Fill in `public/config.json` with the Entra values of a SPA registration first; the app signs in before it shows anything. `npm run start:e2e` runs the same app with a fake signed-in user instead, which is what the journeys use.
 
-The app runs on http://localhost:4200 in Dutch. `npm run start:fr` serves the French build instead; the dev server serves one language at a time, so the language switch only works in a full build.
+The app runs on http://localhost:4200.
 
-| What                              | Command                |
-| --------------------------------- | ---------------------- |
-| Lint                              | `npm run lint`         |
-| Check formatting                  | `npm run format:check` |
-| Unit tests                        | `npm test`             |
-| Playwright journeys               | `npm run e2e`          |
-| Build both languages              | `npm run build`        |
-| Regenerate the API types          | `npm run api:types`    |
-| Extract the messages to translate | `npm run i18n:extract` |
+| What                     | Command                |
+| ------------------------ | ---------------------- |
+| Lint                     | `npm run lint`         |
+| Check formatting         | `npm run format:check` |
+| Unit tests               | `npm test`             |
+| Playwright journeys      | `npm run e2e`          |
+| Build                    | `npm run build`        |
+| Regenerate the API types | `npm run api:types`    |
