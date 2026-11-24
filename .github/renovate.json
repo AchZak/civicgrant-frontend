@@ -1,0 +1,52 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:weekly",
+    ":semanticCommits",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "baseBranchPatterns": ["develop"],
+  "timezone": "Europe/Brussels",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "Use the build commit type for npm updates",
+      "matchManagers": ["npm"],
+      "semanticCommitType": "build"
+    },
+    {
+      "description": "Group minor and patch npm updates, keep majors separate",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "npm non-major"
+    },
+    {
+      "description": "Angular, angular-eslint and PrimeNG majors go through ng update, which runs their migrations",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "@angular/**",
+        "@angular-devkit/**",
+        "@schematics/angular",
+        "angular-eslint",
+        "primeng",
+        "@primeuix/**"
+      ],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "TypeScript must stay in the range Angular supports, so it moves with ng update",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["typescript"],
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    },
+    {
+      "description": "Group GitHub Actions updates under the ci commit type",
+      "matchManagers": ["github-actions"],
+      "semanticCommitType": "ci",
+      "groupName": "github actions"
+    }
+  ]
+}
