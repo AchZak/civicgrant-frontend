@@ -74,6 +74,46 @@
         <source>Motivation</source>
         <target>Motivation</target>
       </trans-unit>
+      <trans-unit id="applications.new.forCall" datatype="html">
+        <source>For the funding call <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;[&apos;/funding-calls&apos;, fundingCall.id]&quot; class=&quot;text-primary hover:underline&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{
+      fundingCall.title | localized
+    }}"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>Pour l'appel à projets <x id="START_LINK"/><x id="INTERPOLATION"/><x id="CLOSE_LINK"/>.</target>
+      </trans-unit>
+      <trans-unit id="applications.new.heading" datatype="html">
+        <source>New application</source>
+        <target>Nouvelle demande</target>
+      </trans-unit>
+      <trans-unit id="applications.new.next" datatype="html">
+        <source>You can attach documents and submit once the draft is saved.</source>
+        <target>Une fois le brouillon enregistré, vous pourrez joindre des documents et introduire la demande.</target>
+      </trans-unit>
+      <trans-unit id="applications.new.noCall" datatype="html">
+        <source>Choose a funding call first. <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/funding-calls&quot; class=&quot;text-primary hover:underline&quot;
+      &gt;"/>See the open funding calls.<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a
+    &gt;"/></source>
+        <target>Choisissez d'abord un appel à projets. <x id="START_LINK"/>Consultez les appels à projets ouverts.<x id="CLOSE_LINK"/></target>
+      </trans-unit>
+      <trans-unit id="applications.new.organisationFirst" datatype="html">
+        <source>Choose your organisation first.</source>
+        <target>Choisissez d'abord votre organisation.</target>
+      </trans-unit>
+      <trans-unit id="applications.new.organisationStep" datatype="html">
+        <source>1. Your organisation</source>
+        <target>1. Votre organisation</target>
+      </trans-unit>
+      <trans-unit id="applications.new.projectStep" datatype="html">
+        <source>2. Your project</source>
+        <target>2. Votre projet</target>
+      </trans-unit>
+      <trans-unit id="applications.new.save" datatype="html">
+        <source>Save as draft</source>
+        <target>Enregistrer comme brouillon</target>
+      </trans-unit>
+      <trans-unit id="applications.new.title" datatype="html">
+        <source>New application</source>
+        <target>Nouvelle demande</target>
+      </trans-unit>
       <trans-unit id="applications.organisation" datatype="html">
         <source>Organisation</source>
         <target>Organisation</target>
@@ -134,6 +174,10 @@
         <source>Unknown status</source>
         <target>Statut inconnu</target>
       </trans-unit>
+      <trans-unit id="fundingCalls.apply" datatype="html">
+        <source>Apply</source>
+        <target>Introduire une demande</target>
+      </trans-unit>
       <trans-unit id="fundingCalls.call" datatype="html">
         <source>Funding call</source>
         <target>Appel à projets</target>
@@ -149,6 +193,10 @@
       <trans-unit id="fundingCalls.maxAmountPerApplication" datatype="html">
         <source>Maximum per application</source>
         <target>Maximum par demande</target>
+      </trans-unit>
+      <trans-unit id="fundingCalls.notOpen" datatype="html">
+        <source>This funding call doesn&apos;t accept applications right now.</source>
+        <target>Cet appel à projets n'accepte pas de demandes pour le moment.</target>
       </trans-unit>
       <trans-unit id="fundingCalls.open.heading" datatype="html">
         <source>Open funding calls</source>
@@ -210,6 +258,30 @@
         <source>Skip to main content</source>
         <target>Aller au contenu principal</target>
       </trans-unit>
+      <trans-unit id="legalForm.COMPANY" datatype="html">
+        <source>Company</source>
+        <target>Société</target>
+      </trans-unit>
+      <trans-unit id="legalForm.FOUNDATION" datatype="html">
+        <source>Foundation</source>
+        <target>Fondation</target>
+      </trans-unit>
+      <trans-unit id="legalForm.IVZW_AISBL" datatype="html">
+        <source>International non-profit association</source>
+        <target>Association internationale sans but lucratif (aisbl)</target>
+      </trans-unit>
+      <trans-unit id="legalForm.PUBLIC_BODY" datatype="html">
+        <source>Public body</source>
+        <target>Organisme public</target>
+      </trans-unit>
+      <trans-unit id="legalForm.unknown" datatype="html">
+        <source>Other legal form</source>
+        <target>Autre forme juridique</target>
+      </trans-unit>
+      <trans-unit id="legalForm.VZW_ASBL" datatype="html">
+        <source>Non-profit association</source>
+        <target>Association sans but lucratif (asbl)</target>
+      </trans-unit>
       <trans-unit id="notFound.backToStart" datatype="html">
         <source>Back to the start page</source>
         <target>Retour à la page d'accueil</target>
@@ -225,6 +297,46 @@
       <trans-unit id="notFound.title" datatype="html">
         <source>Page not found</source>
         <target>Page introuvable</target>
+      </trans-unit>
+      <trans-unit id="organisations.chooseAnother" datatype="html">
+        <source>Choose another organisation</source>
+        <target>Choisir une autre organisation</target>
+      </trans-unit>
+      <trans-unit id="organisations.enterpriseNumber" datatype="html">
+        <source>Enterprise number</source>
+        <target>Numéro d'entreprise</target>
+      </trans-unit>
+      <trans-unit id="organisations.enterpriseNumber.hint" datatype="html">
+        <source>As in the Crossroads Bank for Enterprises, for example 0123.456.749.</source>
+        <target>Tel qu'inscrit à la Banque-Carrefour des Entreprises, par exemple 0123.456.749.</target>
+      </trans-unit>
+      <trans-unit id="organisations.enterpriseNumber.required" datatype="html">
+        <source>Enter the enterprise number.</source>
+        <target>Indiquez le numéro d'entreprise.</target>
+      </trans-unit>
+      <trans-unit id="organisations.legalForm" datatype="html">
+        <source>Legal form</source>
+        <target>Forme juridique</target>
+      </trans-unit>
+      <trans-unit id="organisations.legalForm.required" datatype="html">
+        <source>Choose the legal form.</source>
+        <target>Choisissez la forme juridique.</target>
+      </trans-unit>
+      <trans-unit id="organisations.lookUp" datatype="html">
+        <source>Look up</source>
+        <target>Rechercher</target>
+      </trans-unit>
+      <trans-unit id="organisations.name" datatype="html">
+        <source>Name of the organisation</source>
+        <target>Nom de l'organisation</target>
+      </trans-unit>
+      <trans-unit id="organisations.notRegistered" datatype="html">
+        <source>No organisation with enterprise number <x id="INTERPOLATION" equiv-text="{{ format(enterpriseNumber) }}"/> is registered yet. Register it to continue.</source>
+        <target>Aucune organisation n'est encore enregistrée avec le numéro d'entreprise <x id="INTERPOLATION"/>. Enregistrez-la pour continuer.</target>
+      </trans-unit>
+      <trans-unit id="organisations.register" datatype="html">
+        <source>Register the organisation</source>
+        <target>Enregistrer l'organisation</target>
       </trans-unit>
       <trans-unit id="problem.amountNegative" datatype="html">
         <source>An amount can&apos;t be negative.</source>
@@ -377,6 +489,46 @@
       <trans-unit id="problem.unreachable" datatype="html">
         <source>CivicGrant can&apos;t be reached right now. Check your connection and try again.</source>
         <target>CivicGrant est injoignable pour le moment. Vérifiez votre connexion et réessayez.</target>
+      </trans-unit>
+      <trans-unit id="proposal.description" datatype="html">
+        <source>Project description</source>
+        <target>Description du projet</target>
+      </trans-unit>
+      <trans-unit id="proposal.description.hint" datatype="html">
+        <source>What you&apos;ll do, for whom, where and when.</source>
+        <target>Ce que vous allez faire, pour qui, où et quand.</target>
+      </trans-unit>
+      <trans-unit id="proposal.language" datatype="html">
+        <source>Language of the project</source>
+        <target>Langue du projet</target>
+      </trans-unit>
+      <trans-unit id="proposal.language.required" datatype="html">
+        <source>Choose the language of the project.</source>
+        <target>Choisissez la langue du projet.</target>
+      </trans-unit>
+      <trans-unit id="proposal.requestedAmount" datatype="html">
+        <source>Requested amount</source>
+        <target>Montant demandé</target>
+      </trans-unit>
+      <trans-unit id="proposal.requestedAmount.cap" datatype="html">
+        <source>At most <x id="INTERPOLATION" equiv-text="{{ cap | currency }}"/> for this funding call.</source>
+        <target>Au maximum <x id="INTERPOLATION"/> pour cet appel à projets.</target>
+      </trans-unit>
+      <trans-unit id="proposal.requestedAmount.required" datatype="html">
+        <source>Enter the amount you request.</source>
+        <target>Indiquez le montant demandé.</target>
+      </trans-unit>
+      <trans-unit id="proposal.title" datatype="html">
+        <source>Project title</source>
+        <target>Titre du projet</target>
+      </trans-unit>
+      <trans-unit id="proposal.totalProjectBudget" datatype="html">
+        <source>Total project budget</source>
+        <target>Budget total du projet</target>
+      </trans-unit>
+      <trans-unit id="proposal.totalProjectBudget.required" datatype="html">
+        <source>Enter the total budget of the project.</source>
+        <target>Indiquez le budget total du projet.</target>
       </trans-unit>
       <trans-unit id="rejectionGround.BUDGET_EXHAUSTED" datatype="html">
         <source>The funding call&apos;s budget is exhausted</source>

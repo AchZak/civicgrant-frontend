@@ -1,6 +1,22 @@
 @if (call.hasValue()) {
   @let fundingCall = call.value();
-  <app-page-header [heading]="fundingCall.title | localized" [intro]="fundingCall.reference" />
+  <app-page-header [heading]="fundingCall.title | localized" [intro]="fundingCall.reference">
+    <button
+      pButton
+      type="button"
+      [disabled]="!acceptsApplications()"
+      [attr.aria-describedby]="acceptsApplications() ? null : 'call-not-open'"
+      (click)="apply(fundingCall.id)"
+    >
+      <span pButtonLabel i18n="@@fundingCalls.apply">Apply</span>
+    </button>
+  </app-page-header>
+
+  @if (!acceptsApplications()) {
+    <p-message id="call-not-open" severity="info" class="mb-8" i18n="@@fundingCalls.notOpen"
+      >This funding call doesn't accept applications right now.</p-message
+    >
+  }
 
   <dl class="grid max-w-2xl gap-x-8 gap-y-6 sm:grid-cols-2">
     <div app-detail label="Open for applications from" i18n-label="@@fundingCalls.opensAt">

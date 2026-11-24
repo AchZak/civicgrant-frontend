@@ -6,6 +6,7 @@ import { Message } from 'primeng/message';
 import { Select } from 'primeng/select';
 import { codeMessage } from '../../api/problem-messages';
 import { FieldErrors } from '../../shared/field-errors/field-errors';
+import { FormRow } from '../../shared/form-row/form-row';
 import { onceTouched, serverErrors } from '../../shared/server-errors';
 import { formatEnterpriseNumber, parseEnterpriseNumber } from '../enterprise-number';
 import { legalFormLabel, legalFormOptions } from '../legal-form';
@@ -26,6 +27,7 @@ const enterpriseNumberCodes = {
     Message,
     Select,
     FieldErrors,
+    FormRow,
   ],
   selector: 'app-organisation-picker',
   templateUrl: './organisation-picker.html',

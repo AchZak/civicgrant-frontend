@@ -1,0 +1,98 @@
+<div class="flex flex-col gap-6">
+  <app-form-row
+    label="Project title"
+    i18n-label="@@proposal.title"
+    controlId="project-title"
+    [errors]="fields().title().errors()"
+  >
+    <input
+      pInputText
+      fluid
+      id="project-title"
+      aria-describedby="project-title-errors"
+      [attr.aria-invalid]="fields().title().invalid()"
+      [formField]="fields().title"
+    />
+  </app-form-row>
+
+  <app-form-row
+    label="Project description"
+    i18n-label="@@proposal.description"
+    controlId="project-description"
+    hint="What you'll do, for whom, where and when."
+    i18n-hint="@@proposal.description.hint"
+    [errors]="fields().description().errors()"
+  >
+    <textarea
+      pTextarea
+      fluid
+      autoResize
+      rows="8"
+      id="project-description"
+      aria-describedby="project-description-hint project-description-errors"
+      [attr.aria-invalid]="fields().description().invalid()"
+      [formField]="fields().description"
+    ></textarea>
+  </app-form-row>
+
+  <div class="grid gap-6 sm:grid-cols-2">
+    <app-form-row
+      label="Requested amount"
+      i18n-label="@@proposal.requestedAmount"
+      controlId="requested-amount"
+      [errors]="fields().requestedAmount().errors()"
+    >
+      <p-inputnumber
+        inputId="requested-amount"
+        mode="currency"
+        currency="EUR"
+        fluid
+        ariaDescribedBy="requested-amount-cap requested-amount-errors"
+        [locale]="locale"
+        [formField]="fields().requestedAmount"
+      />
+      @if (capPerApplication(); as cap) {
+        <small
+          id="requested-amount-cap"
+          class="text-muted-color"
+          i18n="@@proposal.requestedAmount.cap"
+          >At most {{ cap | currency }} for this funding call.</small
+        >
+      }
+    </app-form-row>
+
+    <app-form-row
+      label="Total project budget"
+      i18n-label="@@proposal.totalProjectBudget"
+      controlId="total-project-budget"
+      [errors]="fields().totalProjectBudget().errors()"
+    >
+      <p-inputnumber
+        inputId="total-project-budget"
+        mode="currency"
+        currency="EUR"
+        fluid
+        ariaDescribedBy="total-project-budget-errors"
+        [locale]="locale"
+        [formField]="fields().totalProjectBudget"
+      />
+    </app-form-row>
+  </div>
+
+  <app-form-row
+    label="Language of the project"
+    i18n-label="@@proposal.language"
+    controlId="project-language"
+    [errors]="fields().language().errors()"
+  >
+    <p-select
+      inputId="project-language"
+      ariaLabelledBy="project-language-label"
+      optionLabel="label"
+      optionValue="value"
+      class="sm:w-1/2"
+      [options]="languages"
+      [formField]="fields().language"
+    />
+  </app-form-row>
+</div>
