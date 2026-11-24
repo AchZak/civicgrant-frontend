@@ -5,7 +5,7 @@ import { InputText } from 'primeng/inputtext';
 import { Message } from 'primeng/message';
 import { Select } from 'primeng/select';
 import { codeMessage } from '../../api/problem-messages';
-import { FieldErrors } from '../../shared/field-errors/field-errors';
+import { FormErrors } from '../../shared/form-errors/form-errors';
 import { FormRow } from '../../shared/form-row/form-row';
 import { onceTouched, serverErrors } from '../../shared/server-errors';
 import { formatEnterpriseNumber, parseEnterpriseNumber } from '../enterprise-number';
@@ -26,7 +26,7 @@ const enterpriseNumberCodes = {
     InputText,
     Message,
     Select,
-    FieldErrors,
+    FormErrors,
     FormRow,
   ],
   selector: 'app-organisation-picker',

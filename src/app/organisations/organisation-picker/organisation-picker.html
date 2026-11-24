@@ -36,7 +36,7 @@
         </button>
       </div>
     </app-form-row>
-    <app-field-errors [errors]="lookupForm().errors()" />
+    <app-form-errors [errors]="lookupForm().errors()" />
   </form>
 
   @if (unregisteredNumber(); as enterpriseNumber) {
@@ -76,7 +76,7 @@
           [formField]="registerForm.legalForm"
         />
       </app-form-row>
-      <app-field-errors [errors]="registerForm().errors()" />
+      <app-form-errors [errors]="registerForm().errors()" />
       <div>
         <button pButton type="submit" [disabled]="registerForm().submitting()">
           <span pButtonLabel i18n="@@organisations.register">Register the organisation</span>

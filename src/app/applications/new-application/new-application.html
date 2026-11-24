@@ -35,7 +35,7 @@
             [fields]="draftForm"
             [capPerApplication]="fundingCall.maxAmountPerApplication"
           />
-          <app-field-errors [errors]="draftForm().errors()" />
+          <app-form-errors [errors]="draftForm().errors()" />
           <div class="flex flex-wrap items-center gap-4">
             <button pButton type="submit" [disabled]="draftForm().submitting()">
               <span pButtonLabel i18n="@@applications.new.save">Save as draft</span>

@@ -6,7 +6,7 @@ import { Skeleton } from 'primeng/skeleton';
 import { fundingCallResource } from '../../funding-calls/funding-calls-api';
 import { OrganisationPicker } from '../../organisations/organisation-picker/organisation-picker';
 import { Organisation } from '../../organisations/organisations-api';
-import { FieldErrors } from '../../shared/field-errors/field-errors';
+import { FormErrors } from '../../shared/form-errors/form-errors';
 import { LoadError } from '../../shared/load-error/load-error';
 import { LocalizedPipe } from '../../shared/localized-pipe';
 import { PageHeader } from '../../shared/page-header/page-header';
@@ -29,7 +29,7 @@ import { ProposalForm } from '../proposal-form/proposal-form';
     ButtonLabel,
     Skeleton,
     OrganisationPicker,
-    FieldErrors,
+    FormErrors,
     LoadError,
     LocalizedPipe,
     PageHeader,
