@@ -95,6 +95,14 @@
             },
             "fr": {
               "localize": ["fr-BE"]
+            },
+            "e2e": {
+              "fileReplacements": [
+                {
+                  "replace": "src/app/auth/start-session.ts",
+                  "with": "src/app/auth/start-session.e2e.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -113,6 +121,9 @@
             },
             "fr": {
               "buildTarget": "civicgrant-frontend:build:development,fr"
+            },
+            "e2e": {
+              "buildTarget": "civicgrant-frontend:build:development,nl,e2e"
             }
           },
           "defaultConfiguration": "development"
