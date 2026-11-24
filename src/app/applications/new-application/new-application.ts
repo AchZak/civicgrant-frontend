@@ -1,9 +1,11 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
 import { form, FormRoot } from '@angular/forms/signals';
 import { Router, RouterLink } from '@angular/router';
+import { TranslocoDirective } from '@jsverse/transloco';
 import { ButtonDirective, ButtonLabel } from 'primeng/button';
 import { Skeleton } from 'primeng/skeleton';
 import { fundingCallResource } from '../../funding-calls/funding-calls-api';
+import { CurrentLanguage } from '../../language/current-language';
 import { OrganisationPicker } from '../../organisations/organisation-picker/organisation-picker';
 import { Organisation } from '../../organisations/organisations-api';
 import { FormErrors } from '../../shared/form-errors/form-errors';
@@ -25,6 +27,7 @@ import { ProposalForm } from '../proposal-form/proposal-form';
   imports: [
     FormRoot,
     RouterLink,
+    TranslocoDirective,
     ButtonDirective,
     ButtonLabel,
     Skeleton,
@@ -45,6 +48,7 @@ export class NewApplication {
   private readonly router = inject(Router);
 
   protected readonly call = fundingCallResource(this.fundingCallId);
+  protected readonly localizedTextLang = inject(CurrentLanguage).localizedTextLang;
   protected readonly organisation = signal<Organisation | undefined>(undefined);
   private readonly cap = computed(() => this.call.value()?.maxAmountPerApplication);
 

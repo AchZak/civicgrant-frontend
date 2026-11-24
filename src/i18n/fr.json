@@ -1,0 +1,301 @@
+{
+  "common": {
+    "actions": {
+      "backToStart": "Retour à la page d'accueil"
+    }
+  },
+  "layout": {
+    "shell": {
+      "actions": {
+        "skipToMain": "Aller au contenu principal"
+      },
+      "navigation": {
+        "allApplications": "Demandes",
+        "myApplications": "Mes demandes",
+        "fundingCalls": "Appels à projets"
+      },
+      "ariaLabels": {
+        "navigation": "Menu principal"
+      }
+    },
+    "languageSwitch": {
+      "ariaLabels": {
+        "navigation": "Langue"
+      }
+    },
+    "userMenu": {
+      "actions": {
+        "signOut": "Se déconnecter"
+      }
+    },
+    "notFound": {
+      "title": "Page introuvable",
+      "heading": "Page introuvable",
+      "intro": "Cette page n'existe pas, ou vous n'y avez pas accès. Vérifiez l'adresse, ou revenez à la page d'accueil."
+    },
+    "noAccess": {
+      "title": "Accès refusé",
+      "heading": "Accès refusé",
+      "intro": "Votre compte n'a pas le rôle requis pour cette page. Si vous pensez qu'il devrait l'avoir, contactez l'administration."
+    }
+  },
+  "fundingCalls": {
+    "fields": {
+      "title": "Appel à projets",
+      "opensAt": "Ouvert aux demandes à partir du",
+      "closesAt": "Clôture le",
+      "maxAmountPerApplication": "Maximum par demande",
+      "remainingBudget": "Budget restant"
+    },
+    "open": {
+      "title": "Appels à projets ouverts",
+      "heading": "Appels à projets ouverts",
+      "intro": "Choisissez un appel à projets pour en lire les conditions et introduire une demande.",
+      "empty": "Il n'y a pas d'appel à projets ouvert pour le moment."
+    },
+    "detail": {
+      "title": "Appel à projets",
+      "notOpen": "Cet appel à projets n'accepte pas de demandes pour le moment.",
+      "actions": {
+        "apply": "Introduire une demande"
+      }
+    }
+  },
+  "organisations": {
+    "fields": {
+      "enterpriseNumber": "Numéro d'entreprise",
+      "name": "Nom de l'organisation",
+      "legalForm": "Forme juridique"
+    },
+    "hints": {
+      "enterpriseNumber": "Tel qu'inscrit à la Banque-Carrefour des Entreprises, par exemple 0123.456.749."
+    },
+    "validation": {
+      "enterpriseNumberRequired": "Indiquez le numéro d'entreprise.",
+      "legalFormRequired": "Choisissez la forme juridique."
+    },
+    "legalForm": {
+      "vzwAsbl": "Association sans but lucratif (asbl)",
+      "ivzwAisbl": "Association internationale sans but lucratif (aisbl)",
+      "foundation": "Fondation",
+      "company": "Société",
+      "publicBody": "Organisme public",
+      "unknown": "Autre forme juridique"
+    },
+    "picker": {
+      "notRegistered": "Aucune organisation n'est encore enregistrée avec le numéro d'entreprise {{ enterpriseNumber }}. Enregistrez-la pour continuer.",
+      "actions": {
+        "lookUp": "Rechercher",
+        "register": "Enregistrer l'organisation",
+        "chooseAnother": "Choisir une autre organisation"
+      }
+    }
+  },
+  "applications": {
+    "fields": {
+      "reference": "Référence",
+      "fundingCall": "Appel à projets",
+      "organisation": "Organisation",
+      "project": "Projet",
+      "title": "Titre du projet",
+      "description": "Description du projet",
+      "requestedAmount": "Montant demandé",
+      "totalProjectBudget": "Budget total du projet",
+      "language": "Langue du projet",
+      "status": "Statut",
+      "createdAt": "Créée le",
+      "submittedAt": "Introduite le",
+      "updatedAt": "Dernière modification"
+    },
+    "hints": {
+      "description": "Ce que vous allez faire, pour qui, où et quand.",
+      "requestedAmount": "Au maximum {{ amount }} pour cet appel à projets."
+    },
+    "validation": {
+      "requestedAmountRequired": "Indiquez le montant demandé.",
+      "totalProjectBudgetRequired": "Indiquez le budget total du projet.",
+      "languageRequired": "Choisissez la langue du projet."
+    },
+    "status": {
+      "draft": "Brouillon",
+      "submitted": "Introduite",
+      "assessed": "Évaluée",
+      "approved": "Approuvée",
+      "rejected": "Refusée",
+      "unknown": "Statut inconnu"
+    },
+    "language": {
+      "nl": "Néerlandais",
+      "fr": "Français"
+    },
+    "rejectionGround": {
+      "ineligible": "La demande n'est pas recevable",
+      "budgetExhausted": "Le budget de l'appel à projets est épuisé",
+      "incomplete": "La demande est incomplète",
+      "insufficientQuality": "La qualité du projet est insuffisante",
+      "unknown": "Un autre motif"
+    },
+    "actions": {
+      "seeOpenCalls": "Consultez les appels à projets ouverts."
+    },
+    "list": {
+      "mine": {
+        "title": "Mes demandes",
+        "heading": "Mes demandes",
+        "intro": "Suivez vos demandes, ou poursuivez un brouillon.",
+        "empty": "Vous n'avez pas encore créé de demande."
+      },
+      "all": {
+        "title": "Demandes",
+        "heading": "Demandes",
+        "intro": "Demandes introduites, les plus récemment modifiées d'abord.",
+        "empty": "Il n'y a pas encore de demande introduite."
+      },
+      "actions": {
+        "newApplication": "Nouvelle demande"
+      }
+    },
+    "new": {
+      "title": "Nouvelle demande",
+      "heading": "Nouvelle demande",
+      "forCall": {
+        "before": "Pour l'appel à projets",
+        "after": "."
+      },
+      "noCall": "Choisissez d'abord un appel à projets.",
+      "organisationFirst": "Choisissez d'abord votre organisation.",
+      "afterSaving": "Une fois le brouillon enregistré, vous pourrez joindre des documents et introduire la demande.",
+      "sections": {
+        "organisation": "1. Votre organisation",
+        "project": "2. Votre projet"
+      },
+      "actions": {
+        "saveDraft": "Enregistrer comme brouillon"
+      }
+    },
+    "detail": {
+      "title": "Demande",
+      "submitted": "Votre demande est introduite. Vous trouverez ici son statut et, plus tard, la décision.",
+      "saved": "Vos modifications sont enregistrées.",
+      "sections": {
+        "proposal": "Votre projet",
+        "documents": "Pièces justificatives",
+        "submission": "Introduire",
+        "decision": "Décision"
+      },
+      "actions": {
+        "save": "Enregistrer les modifications",
+        "reload": "Recharger la demande"
+      }
+    },
+    "documents": {
+      "empty": "Aucune pièce justificative jointe pour l'instant.",
+      "hint": "Un fichier PDF de 10 Mo au maximum à la fois.",
+      "invalidFileSize": {
+        "summary": "{0} est trop volumineux.",
+        "detail": "Un document peut faire au maximum {0}."
+      },
+      "invalidFileType": {
+        "summary": "{0} n'est pas un PDF.",
+        "detail": "Seuls les fichiers PDF peuvent être joints."
+      },
+      "actions": {
+        "attach": "Joindre un PDF",
+        "remove": "Supprimer"
+      },
+      "ariaLabels": {
+        "download": "Télécharger {{ fileName }}",
+        "remove": "Supprimer {{ fileName }}",
+        "uploadProgress": "Progression du téléversement"
+      }
+    },
+    "submission": {
+      "intro": "Après l'introduction, un agent évalue la demande et un décideur statue sur celle-ci. Vous en suivez le statut ici.",
+      "callNotOpen": "Cet appel à projets n'accepte pas de demandes pour le moment.",
+      "saveFirst": "Enregistrez vos modifications avant d'introduire la demande.",
+      "actions": {
+        "submit": "Introduire la demande"
+      },
+      "confirm": {
+        "heading": "Introduire la demande ?",
+        "message": "Une fois la demande introduite, vous ne pourrez plus la modifier ni changer ses pièces justificatives.",
+        "accept": "Introduire",
+        "reject": "Pas encore"
+      }
+    },
+    "decision": {
+      "fields": {
+        "grantedAmount": "Montant octroyé",
+        "rejectionGround": "Motif du refus",
+        "decidedAt": "Décidé le",
+        "motivation": "Motivation"
+      }
+    }
+  },
+  "problems": {
+    "code": {
+      "concurrentUpdate": "Quelqu'un d'autre a modifié ceci en même temps. Rechargez la page pour voir la dernière version, puis réessayez.",
+      "roleRequired": "Votre compte n'a pas le rôle requis pour cette action.",
+      "payloadTooLarge": "Le fichier est trop volumineux. Un document peut faire au maximum 10 Mo.",
+      "notTheApplicant": "Seule la personne qui a créé cette demande peut la modifier.",
+      "applicationNotDraft": "Cette demande a été introduite et ne peut plus être modifiée.",
+      "fundingCallClosed": "Cet appel à projets est clôturé.",
+      "submissionBeforeOpeningDate": "Cet appel à projets n'est pas encore ouvert.",
+      "submissionAfterClosingDate": "Cet appel à projets est clôturé et n'accepte plus de demandes.",
+      "supportingDocumentRequired": "Joignez au moins un document PDF avant d'introduire votre demande.",
+      "requestedAmountExceedsCap": "Le montant demandé dépasse le maximum par demande de cet appel à projets.",
+      "requestedAmountExceedsProjectBudget": "Le montant demandé ne peut pas dépasser le budget total du projet.",
+      "requestedAmountNotPositive": "Le montant demandé doit être supérieur à zéro.",
+      "legalFormNotEligible": "Seules les organisations sans but lucratif peuvent introduire une demande : associations et fondations.",
+      "projectTitleRequired": "Indiquez un titre de projet.",
+      "projectTitleTooLong": "Le titre du projet peut compter au maximum 200 caractères.",
+      "projectDescriptionRequired": "Décrivez le projet.",
+      "projectDescriptionTooLong": "La description peut compter au maximum 10 000 caractères.",
+      "amountNegative": "Un montant ne peut pas être négatif.",
+      "amountTooPrecise": "Un montant compte au maximum deux décimales.",
+      "documentNotPdf": "Seuls les fichiers PDF peuvent être joints.",
+      "documentEmpty": "Ce fichier est vide.",
+      "documentTooLarge": "Un document peut faire au maximum 10 Mo.",
+      "documentNameInvalid": "Le nom du fichier n'est pas valide. Renommez le fichier et réessayez.",
+      "enterpriseNumberInvalidFormat": "Un numéro d'entreprise compte 10 chiffres, par exemple 0123.456.749.",
+      "enterpriseNumberInvalidChecksum": "Ce numéro d'entreprise n'est pas valide. Vérifiez qu'il ne contient pas de faute de frappe.",
+      "organisationNameRequired": "Indiquez le nom de l'organisation.",
+      "organisationNameTooLong": "Le nom de l'organisation peut compter au maximum 200 caractères.",
+      "organisationAlreadyRegistered": "Cette organisation est déjà enregistrée. Recherchez-la avec son numéro d'entreprise.",
+      "schemaViolation": "Cette valeur n'est pas valide.",
+      "invalidInput": "Cette valeur n'est pas valide.",
+      "referencedResourceNotFound": "Cet élément n'existe plus. Rechargez la page et réessayez."
+    },
+    "fallback": {
+      "unreachable": "CivicGrant est injoignable pour le moment. Vérifiez votre connexion et réessayez.",
+      "signInAgain": "Votre session a expiré. Reconnectez-vous pour continuer.",
+      "forbidden": "Vous n'êtes pas autorisé à effectuer cette action.",
+      "notFound": "Cet élément n'existe pas, ou vous n'y avez pas accès.",
+      "conflict": "Cette action n'est pas possible dans l'état actuel. Rechargez la page et vérifiez le statut.",
+      "invalid": "Certaines données ne sont pas valides. Vérifiez-les et réessayez.",
+      "serverError": "Une erreur s'est produite de notre côté. Réessayez dans quelques minutes."
+    }
+  },
+  "primeng": {
+    "fileSizeTypes": "o,Ko,Mo,Go,To,Po,Eo,Zo,Yo",
+    "choose": "Choisir",
+    "upload": "Téléverser",
+    "cancel": "Annuler",
+    "emptyMessage": "Aucune option disponible",
+    "emptySearchMessage": "Aucun résultat trouvé",
+    "aria": {
+      "close": "Fermer",
+      "browseFiles": "Parcourir les fichiers",
+      "removeLabel": "Supprimer",
+      "pageLabel": "Page {page}",
+      "firstPageLabel": "Première page",
+      "lastPageLabel": "Dernière page",
+      "nextPageLabel": "Page suivante",
+      "prevPageLabel": "Page précédente",
+      "previousPageLabel": "Page précédente",
+      "rowsPerPageLabel": "Lignes par page",
+      "jumpToPageDropdownLabel": "Aller à la page",
+      "jumpToPageInputLabel": "Aller à la page"
+    }
+  }
+}

@@ -1,43 +1,45 @@
-@if (call.hasValue()) {
-  @let fundingCall = call.value();
-  <app-page-header [heading]="fundingCall.title | localized" [intro]="fundingCall.reference">
-    <button
-      pButton
-      type="button"
-      [disabled]="!acceptsApplications()"
-      [attr.aria-describedby]="acceptsApplications() ? null : 'call-not-open'"
-      (click)="apply(fundingCall.id)"
+<ng-container *transloco="let t">
+  @if (call.hasValue()) {
+    @let fundingCall = call.value();
+    <app-page-header
+      [heading]="fundingCall.title | localized"
+      [headingLang]="localizedTextLang()"
+      [intro]="fundingCall.reference"
     >
-      <span pButtonLabel i18n="@@fundingCalls.apply">Apply</span>
-    </button>
-  </app-page-header>
+      <button
+        pButton
+        type="button"
+        [disabled]="!acceptsApplications()"
+        [attr.aria-describedby]="acceptsApplications() ? null : 'call-not-open'"
+        (click)="apply(fundingCall.id)"
+      >
+        <span pButtonLabel>{{ t('fundingCalls.detail.actions.apply') }}</span>
+      </button>
+    </app-page-header>
 
-  @if (!acceptsApplications()) {
-    <p-message id="call-not-open" severity="info" class="mb-8" i18n="@@fundingCalls.notOpen"
-      >This funding call doesn't accept applications right now.</p-message
-    >
+    @if (!acceptsApplications()) {
+      <p-message id="call-not-open" severity="info" class="mb-8">{{
+        t('fundingCalls.detail.notOpen')
+      }}</p-message>
+    }
+
+    <dl class="grid max-w-2xl gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div app-detail [label]="t('fundingCalls.fields.opensAt')">
+        {{ fundingCall.opensAt | brusselsDate }}
+      </div>
+      <div app-detail [label]="t('fundingCalls.fields.closesAt')">
+        {{ fundingCall.closesAt | brusselsDate }}
+      </div>
+      <div app-detail [label]="t('fundingCalls.fields.maxAmountPerApplication')">
+        {{ fundingCall.maxAmountPerApplication | money }}
+      </div>
+      <div app-detail [label]="t('fundingCalls.fields.remainingBudget')">
+        {{ fundingCall.remainingBudget | money }}
+      </div>
+    </dl>
+  } @else if (call.error(); as error) {
+    <app-load-error [error]="error" />
+  } @else {
+    <p-skeleton width="24rem" height="2rem" />
   }
-
-  <dl class="grid max-w-2xl gap-x-8 gap-y-6 sm:grid-cols-2">
-    <div app-detail label="Open for applications from" i18n-label="@@fundingCalls.opensAt">
-      {{ fundingCall.opensAt | brusselsDate }}
-    </div>
-    <div app-detail label="Closes on" i18n-label="@@fundingCalls.closesAt">
-      {{ fundingCall.closesAt | brusselsDate }}
-    </div>
-    <div
-      app-detail
-      label="Maximum per application"
-      i18n-label="@@fundingCalls.maxAmountPerApplication"
-    >
-      {{ fundingCall.maxAmountPerApplication | currency }}
-    </div>
-    <div app-detail label="Remaining budget" i18n-label="@@fundingCalls.remainingBudget">
-      {{ fundingCall.remainingBudget | currency }}
-    </div>
-  </dl>
-} @else if (call.error(); as error) {
-  <app-load-error [error]="error" />
-} @else {
-  <p-skeleton width="24rem" height="2rem" />
-}
+</ng-container>

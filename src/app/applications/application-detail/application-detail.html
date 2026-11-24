@@ -1,174 +1,158 @@
-@if (application.hasValue()) {
-  @let current = application.value();
-  <app-page-header [heading]="current.proposal.title" [intro]="current.reference">
-    <app-application-status-tag [status]="current.status" />
-  </app-page-header>
+<ng-container *transloco="let t">
+  @if (application.hasValue()) {
+    @let current = application.value();
+    <app-page-header [heading]="current.proposal.title" [intro]="current.reference">
+      <app-application-status-tag [status]="current.status" />
+    </app-page-header>
 
-  @if (justSubmitted()) {
-    <p-message severity="success" class="mb-8" i18n="@@applications.submit.done"
-      >Your application is submitted. You'll find its status and the decision here.</p-message
-    >
-  }
-
-  <div class="flex flex-col gap-10">
-    <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-      <div app-detail label="Funding call" i18n-label="@@applications.fundingCall">
-        @if (fundingCall.hasValue()) {
-          <a
-            [routerLink]="['/funding-calls', current.fundingCallId]"
-            class="text-primary hover:underline"
-            >{{ fundingCall.value().title | localized }}</a
-          >
-        } @else {
-          <p-skeleton width="12rem" />
-        }
-      </div>
-      <div app-detail label="Organisation" i18n-label="@@applications.organisation">
-        @if (organisation.hasValue()) {
-          {{ organisation.value().name }}
-        } @else {
-          <p-skeleton width="12rem" />
-        }
-      </div>
-      @if (!isDraft()) {
-        <div app-detail label="Requested amount" i18n-label="@@applications.requestedAmount">
-          {{ current.proposal.requestedAmount | currency }}
-        </div>
-        <div app-detail label="Total project budget" i18n-label="@@applications.totalProjectBudget">
-          {{ current.proposal.totalProjectBudget | currency }}
-        </div>
-        <div app-detail label="Language of the project" i18n-label="@@applications.language">
-          {{ languageLabel(current.proposal.language) }}
-        </div>
-      }
-      @if (current.submittedAt; as submittedAt) {
-        <div app-detail label="Submitted on" i18n-label="@@applications.submittedAt">
-          {{ submittedAt | brusselsDate }}
-        </div>
-      } @else {
-        <div app-detail label="Created on" i18n-label="@@applications.createdAt">
-          {{ current.createdAt | brusselsDate }}
-        </div>
-      }
-    </dl>
-
-    @if (isDraft()) {
-      <section aria-labelledby="proposal-heading" class="max-w-2xl">
-        <h2
-          id="proposal-heading"
-          class="mb-4 text-lg font-semibold"
-          i18n="@@applications.draft.project"
-        >
-          Your project
-        </h2>
-        <form [formRoot]="proposalForm" class="flex flex-col gap-6">
-          <app-proposal-form [fields]="proposalForm" [capPerApplication]="cap()" />
-          <app-form-errors [errors]="proposalForm().errors()" />
-          @if (concurrentUpdate()) {
-            <div>
-              <button pButton type="button" outlined (click)="reload()">
-                <span pButtonLabel i18n="@@applications.draft.reload">Reload the application</span>
-              </button>
-            </div>
-          }
-          <div class="flex flex-wrap items-center gap-4">
-            <button
-              pButton
-              type="submit"
-              [disabled]="proposalForm().submitting() || !proposalForm().dirty()"
-            >
-              <span pButtonLabel i18n="@@applications.draft.save">Save changes</span>
-            </button>
-            <span role="status" class="text-sm text-muted-color">
-              @if (saved() && !proposalForm().dirty()) {
-                <ng-container i18n="@@applications.draft.saved"
-                  >Your changes are saved.</ng-container
-                >
-              }
-            </span>
-          </div>
-        </form>
-      </section>
-    } @else {
-      <section aria-labelledby="description-heading">
-        <h2
-          id="description-heading"
-          class="mb-2 text-lg font-semibold"
-          i18n="@@applications.description"
-        >
-          Project description
-        </h2>
-        <p class="whitespace-pre-line">{{ current.proposal.description }}</p>
-      </section>
+    @if (justSubmitted()) {
+      <p-message severity="success" class="mb-8">{{
+        t('applications.detail.submitted')
+      }}</p-message>
     }
 
-    <section aria-labelledby="documents-heading">
-      <h2 id="documents-heading" class="mb-2 text-lg font-semibold" i18n="@@applications.documents">
-        Supporting documents
-      </h2>
-      <app-application-documents
-        [application]="current"
-        [editable]="isDraft()"
-        (changed)="application.reload()"
-      />
-    </section>
+    <div class="flex flex-col gap-10">
+      <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div app-detail [label]="t('applications.fields.fundingCall')">
+          @if (fundingCall.hasValue()) {
+            <a
+              [routerLink]="['/funding-calls', current.fundingCallId]"
+              [attr.lang]="localizedTextLang()"
+              class="text-primary hover:underline"
+              >{{ fundingCall.value().title | localized }}</a
+            >
+          } @else {
+            <p-skeleton width="12rem" />
+          }
+        </div>
+        <div app-detail [label]="t('applications.fields.organisation')">
+          @if (organisation.hasValue()) {
+            {{ organisation.value().name }}
+          } @else {
+            <p-skeleton width="12rem" />
+          }
+        </div>
+        @if (!isDraft()) {
+          <div app-detail [label]="t('applications.fields.requestedAmount')">
+            {{ current.proposal.requestedAmount | money }}
+          </div>
+          <div app-detail [label]="t('applications.fields.totalProjectBudget')">
+            {{ current.proposal.totalProjectBudget | money }}
+          </div>
+          <div app-detail [label]="t('applications.fields.language')">
+            {{ t(languageKey(current.proposal.language)) }}
+          </div>
+        }
+        @if (current.submittedAt; as submittedAt) {
+          <div app-detail [label]="t('applications.fields.submittedAt')">
+            {{ submittedAt | brusselsDate }}
+          </div>
+        } @else {
+          <div app-detail [label]="t('applications.fields.createdAt')">
+            {{ current.createdAt | brusselsDate }}
+          </div>
+        }
+      </dl>
 
-    @if (isDraft()) {
-      <section aria-labelledby="submit-heading" class="max-w-2xl">
-        <h2
-          id="submit-heading"
-          class="mb-4 text-lg font-semibold"
-          i18n="@@applications.submit.heading"
-        >
-          Submit
+      @if (isDraft()) {
+        <section aria-labelledby="proposal-heading" class="max-w-2xl">
+          <h2 id="proposal-heading" class="mb-4 text-lg font-semibold">
+            {{ t('applications.detail.sections.proposal') }}
+          </h2>
+          <form [formRoot]="proposalForm" class="flex flex-col gap-6">
+            <app-proposal-form [fields]="proposalForm" [capPerApplication]="cap()" />
+            <app-form-errors [errors]="proposalForm().errors()" />
+            @if (concurrentUpdate()) {
+              <div>
+                <button pButton type="button" outlined (click)="reload()">
+                  <span pButtonLabel>{{ t('applications.detail.actions.reload') }}</span>
+                </button>
+              </div>
+            }
+            <div class="flex flex-wrap items-center gap-4">
+              <button
+                pButton
+                type="submit"
+                [disabled]="proposalForm().submitting() || !proposalForm().dirty()"
+              >
+                <span pButtonLabel>{{ t('applications.detail.actions.save') }}</span>
+              </button>
+              <span role="status" class="text-sm text-muted-color">
+                @if (saved() && !proposalForm().dirty()) {
+                  {{ t('applications.detail.saved') }}
+                }
+              </span>
+            </div>
+          </form>
+        </section>
+      } @else {
+        <section aria-labelledby="description-heading">
+          <h2 id="description-heading" class="mb-2 text-lg font-semibold">
+            {{ t('applications.fields.description') }}
+          </h2>
+          <p class="whitespace-pre-line">{{ current.proposal.description }}</p>
+        </section>
+      }
+
+      <section aria-labelledby="documents-heading">
+        <h2 id="documents-heading" class="mb-2 text-lg font-semibold">
+          {{ t('applications.detail.sections.documents') }}
         </h2>
-        <app-application-submission
+        <app-application-documents
           [application]="current"
-          [unsavedChanges]="proposalForm().dirty()"
-          [callOpen]="callOpen()"
-          (submitted)="onSubmitted()"
+          [editable]="isDraft()"
+          (changed)="application.reload()"
         />
       </section>
-    }
 
-    @if (decision.hasValue()) {
-      @let taken = decision.value();
-      <section aria-labelledby="decision-heading">
-        <h2 id="decision-heading" class="mb-2 text-lg font-semibold" i18n="@@applications.decision">
-          Decision
-        </h2>
-        <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-          @if (taken.grantedAmount !== undefined) {
-            <div app-detail label="Granted amount" i18n-label="@@applications.grantedAmount">
-              {{ taken.grantedAmount | currency }}
+      @if (isDraft()) {
+        <section aria-labelledby="submit-heading" class="max-w-2xl">
+          <h2 id="submit-heading" class="mb-4 text-lg font-semibold">
+            {{ t('applications.detail.sections.submission') }}
+          </h2>
+          <app-application-submission
+            [application]="current"
+            [unsavedChanges]="proposalForm().dirty()"
+            [callOpen]="callOpen()"
+            (submitted)="onSubmitted()"
+          />
+        </section>
+      }
+
+      @if (decision.hasValue()) {
+        @let taken = decision.value();
+        <section aria-labelledby="decision-heading">
+          <h2 id="decision-heading" class="mb-2 text-lg font-semibold">
+            {{ t('applications.detail.sections.decision') }}
+          </h2>
+          <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            @if (taken.grantedAmount !== undefined) {
+              <div app-detail [label]="t('applications.decision.fields.grantedAmount')">
+                {{ taken.grantedAmount | money }}
+              </div>
+            }
+            @if (taken.rejectionGround; as ground) {
+              <div app-detail [label]="t('applications.decision.fields.rejectionGround')">
+                {{ t(rejectionGroundKey(ground)) }}
+              </div>
+            }
+            <div app-detail [label]="t('applications.decision.fields.decidedAt')">
+              {{ taken.decidedAt | brusselsDate }}
             </div>
-          }
-          @if (taken.rejectionGround; as ground) {
             <div
               app-detail
-              label="Ground for rejection"
-              i18n-label="@@applications.rejectionGround"
+              class="sm:col-span-2"
+              [label]="t('applications.decision.fields.motivation')"
             >
-              {{ rejectionGroundLabel(ground) }}
+              <span class="whitespace-pre-line font-normal">{{ taken.motivation }}</span>
             </div>
-          }
-          <div app-detail label="Decided on" i18n-label="@@applications.decidedAt">
-            {{ taken.decidedAt | brusselsDate }}
-          </div>
-          <div
-            app-detail
-            class="sm:col-span-2"
-            label="Motivation"
-            i18n-label="@@applications.motivation"
-          >
-            <span class="whitespace-pre-line font-normal">{{ taken.motivation }}</span>
-          </div>
-        </dl>
-      </section>
-    }
-  </div>
-} @else if (application.error(); as error) {
-  <app-load-error [error]="error" />
-} @else {
-  <p-skeleton width="24rem" height="2rem" />
-}
+          </dl>
+        </section>
+      }
+    </div>
+  } @else if (application.error(); as error) {
+    <app-load-error [error]="error" />
+  } @else {
+    <p-skeleton width="24rem" height="2rem" />
+  }
+</ng-container>

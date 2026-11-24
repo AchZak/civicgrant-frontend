@@ -1,0 +1,301 @@
+{
+  "common": {
+    "actions": {
+      "backToStart": "Terug naar de startpagina"
+    }
+  },
+  "layout": {
+    "shell": {
+      "actions": {
+        "skipToMain": "Naar de hoofdinhoud"
+      },
+      "navigation": {
+        "allApplications": "Aanvragen",
+        "myApplications": "Mijn aanvragen",
+        "fundingCalls": "Projectoproepen"
+      },
+      "ariaLabels": {
+        "navigation": "Hoofdmenu"
+      }
+    },
+    "languageSwitch": {
+      "ariaLabels": {
+        "navigation": "Taal"
+      }
+    },
+    "userMenu": {
+      "actions": {
+        "signOut": "Afmelden"
+      }
+    },
+    "notFound": {
+      "title": "Pagina niet gevonden",
+      "heading": "Pagina niet gevonden",
+      "intro": "Deze pagina bestaat niet, of u mag ze niet bekijken. Controleer het adres, of ga terug naar de startpagina."
+    },
+    "noAccess": {
+      "title": "Geen toegang",
+      "heading": "Geen toegang",
+      "intro": "Uw account heeft niet de rol die deze pagina vraagt. Denkt u dat dat niet klopt, neem dan contact op met de administratie."
+    }
+  },
+  "fundingCalls": {
+    "fields": {
+      "title": "Projectoproep",
+      "opensAt": "Open voor aanvragen vanaf",
+      "closesAt": "Sluit op",
+      "maxAmountPerApplication": "Maximum per aanvraag",
+      "remainingBudget": "Resterend budget"
+    },
+    "open": {
+      "title": "Open projectoproepen",
+      "heading": "Open projectoproepen",
+      "intro": "Kies een projectoproep om de voorwaarden te lezen en een aanvraag in te dienen.",
+      "empty": "Er zijn momenteel geen open projectoproepen."
+    },
+    "detail": {
+      "title": "Projectoproep",
+      "notOpen": "Deze projectoproep aanvaardt momenteel geen aanvragen.",
+      "actions": {
+        "apply": "Aanvraag indienen"
+      }
+    }
+  },
+  "organisations": {
+    "fields": {
+      "enterpriseNumber": "Ondernemingsnummer",
+      "name": "Naam van de organisatie",
+      "legalForm": "Rechtsvorm"
+    },
+    "hints": {
+      "enterpriseNumber": "Zoals in de Kruispuntbank van Ondernemingen, bijvoorbeeld 0123.456.749."
+    },
+    "validation": {
+      "enterpriseNumberRequired": "Vul het ondernemingsnummer in.",
+      "legalFormRequired": "Kies de rechtsvorm."
+    },
+    "legalForm": {
+      "vzwAsbl": "Vereniging zonder winstoogmerk (vzw)",
+      "ivzwAisbl": "Internationale vereniging zonder winstoogmerk (ivzw)",
+      "foundation": "Stichting",
+      "company": "Vennootschap",
+      "publicBody": "Overheidsinstelling",
+      "unknown": "Andere rechtsvorm"
+    },
+    "picker": {
+      "notRegistered": "Er is nog geen organisatie geregistreerd met ondernemingsnummer {{ enterpriseNumber }}. Registreer ze om verder te gaan.",
+      "actions": {
+        "lookUp": "Opzoeken",
+        "register": "Organisatie registreren",
+        "chooseAnother": "Een andere organisatie kiezen"
+      }
+    }
+  },
+  "applications": {
+    "fields": {
+      "reference": "Referentie",
+      "fundingCall": "Projectoproep",
+      "organisation": "Organisatie",
+      "project": "Project",
+      "title": "Projecttitel",
+      "description": "Projectbeschrijving",
+      "requestedAmount": "Gevraagd bedrag",
+      "totalProjectBudget": "Totale projectbegroting",
+      "language": "Taal van het project",
+      "status": "Status",
+      "createdAt": "Aangemaakt op",
+      "submittedAt": "Ingediend op",
+      "updatedAt": "Laatst gewijzigd"
+    },
+    "hints": {
+      "description": "Wat u gaat doen, voor wie, waar en wanneer.",
+      "requestedAmount": "Hoogstens {{ amount }} voor deze projectoproep."
+    },
+    "validation": {
+      "requestedAmountRequired": "Vul het gevraagde bedrag in.",
+      "totalProjectBudgetRequired": "Vul de totale begroting van het project in.",
+      "languageRequired": "Kies de taal van het project."
+    },
+    "status": {
+      "draft": "Ontwerp",
+      "submitted": "Ingediend",
+      "assessed": "Beoordeeld",
+      "approved": "Goedgekeurd",
+      "rejected": "Afgewezen",
+      "unknown": "Onbekende status"
+    },
+    "language": {
+      "nl": "Nederlands",
+      "fr": "Frans"
+    },
+    "rejectionGround": {
+      "ineligible": "De aanvraag komt niet in aanmerking",
+      "budgetExhausted": "Het budget van de projectoproep is uitgeput",
+      "incomplete": "De aanvraag is onvolledig",
+      "insufficientQuality": "De kwaliteit van het project is onvoldoende",
+      "unknown": "Een andere grond"
+    },
+    "actions": {
+      "seeOpenCalls": "Bekijk de open projectoproepen."
+    },
+    "list": {
+      "mine": {
+        "title": "Mijn aanvragen",
+        "heading": "Mijn aanvragen",
+        "intro": "Volg uw aanvragen op, of werk een ontwerp verder af.",
+        "empty": "U hebt nog geen aanvraag aangemaakt."
+      },
+      "all": {
+        "title": "Aanvragen",
+        "heading": "Aanvragen",
+        "intro": "Ingediende aanvragen, de laatst gewijzigde eerst.",
+        "empty": "Er zijn nog geen ingediende aanvragen."
+      },
+      "actions": {
+        "newApplication": "Nieuwe aanvraag"
+      }
+    },
+    "new": {
+      "title": "Nieuwe aanvraag",
+      "heading": "Nieuwe aanvraag",
+      "forCall": {
+        "before": "Voor de projectoproep",
+        "after": "."
+      },
+      "noCall": "Kies eerst een projectoproep.",
+      "organisationFirst": "Kies eerst uw organisatie.",
+      "afterSaving": "Zodra het ontwerp is opgeslagen, kunt u bijlagen toevoegen en de aanvraag indienen.",
+      "sections": {
+        "organisation": "1. Uw organisatie",
+        "project": "2. Uw project"
+      },
+      "actions": {
+        "saveDraft": "Opslaan als ontwerp"
+      }
+    },
+    "detail": {
+      "title": "Aanvraag",
+      "submitted": "Uw aanvraag is ingediend. U vindt hier haar status en later de beslissing.",
+      "saved": "Uw wijzigingen zijn opgeslagen.",
+      "sections": {
+        "proposal": "Uw project",
+        "documents": "Bijlagen",
+        "submission": "Indienen",
+        "decision": "Beslissing"
+      },
+      "actions": {
+        "save": "Wijzigingen opslaan",
+        "reload": "De aanvraag opnieuw laden"
+      }
+    },
+    "documents": {
+      "empty": "Nog geen bijlagen toegevoegd.",
+      "hint": "Telkens één pdf-bestand van hoogstens 10 MB.",
+      "invalidFileSize": {
+        "summary": "{0} is te groot.",
+        "detail": "Een document mag hoogstens {0} zijn."
+      },
+      "invalidFileType": {
+        "summary": "{0} is geen pdf.",
+        "detail": "Alleen pdf-bestanden kunnen worden toegevoegd."
+      },
+      "actions": {
+        "attach": "Een pdf toevoegen",
+        "remove": "Verwijderen"
+      },
+      "ariaLabels": {
+        "download": "{{ fileName }} downloaden",
+        "remove": "{{ fileName }} verwijderen",
+        "uploadProgress": "Voortgang van de upload"
+      }
+    },
+    "submission": {
+      "intro": "Na het indienen beoordeelt een ambtenaar de aanvraag en beslist een beslissingsnemer erover. U volgt de status hier op.",
+      "callNotOpen": "Deze projectoproep aanvaardt momenteel geen aanvragen.",
+      "saveFirst": "Sla uw wijzigingen op voor u indient.",
+      "actions": {
+        "submit": "De aanvraag indienen"
+      },
+      "confirm": {
+        "heading": "De aanvraag indienen?",
+        "message": "Na het indienen kunt u de aanvraag en haar bijlagen niet meer wijzigen.",
+        "accept": "Indienen",
+        "reject": "Nog niet"
+      }
+    },
+    "decision": {
+      "fields": {
+        "grantedAmount": "Toegekend bedrag",
+        "rejectionGround": "Grond voor afwijzing",
+        "decidedAt": "Beslist op",
+        "motivation": "Motivering"
+      }
+    }
+  },
+  "problems": {
+    "code": {
+      "concurrentUpdate": "Iemand anders heeft dit tegelijk gewijzigd. Laad de pagina opnieuw om de laatste versie te zien en probeer het dan opnieuw.",
+      "roleRequired": "Uw account heeft niet de rol die hiervoor nodig is.",
+      "payloadTooLarge": "Het bestand is te groot. Een document mag hoogstens 10 MB zijn.",
+      "notTheApplicant": "Alleen wie deze aanvraag heeft aangemaakt, kan ze wijzigen.",
+      "applicationNotDraft": "Deze aanvraag is ingediend en kan niet meer gewijzigd worden.",
+      "fundingCallClosed": "Deze projectoproep is afgesloten.",
+      "submissionBeforeOpeningDate": "Deze projectoproep staat nog niet open voor aanvragen.",
+      "submissionAfterClosingDate": "Deze projectoproep is afgesloten en aanvaardt geen aanvragen meer.",
+      "supportingDocumentRequired": "Voeg minstens één pdf-document toe voor u indient.",
+      "requestedAmountExceedsCap": "Het gevraagde bedrag is hoger dan het maximum per aanvraag van deze projectoproep.",
+      "requestedAmountExceedsProjectBudget": "Het gevraagde bedrag mag niet hoger zijn dan de totale projectbegroting.",
+      "requestedAmountNotPositive": "Het gevraagde bedrag moet groter zijn dan nul.",
+      "legalFormNotEligible": "Alleen organisaties zonder winstoogmerk kunnen een aanvraag indienen: verenigingen en stichtingen.",
+      "projectTitleRequired": "Vul een projecttitel in.",
+      "projectTitleTooLong": "De projecttitel mag hoogstens 200 tekens lang zijn.",
+      "projectDescriptionRequired": "Beschrijf het project.",
+      "projectDescriptionTooLong": "De beschrijving mag hoogstens 10.000 tekens lang zijn.",
+      "amountNegative": "Een bedrag mag niet negatief zijn.",
+      "amountTooPrecise": "Een bedrag heeft hoogstens twee decimalen.",
+      "documentNotPdf": "Alleen pdf-bestanden kunnen worden toegevoegd.",
+      "documentEmpty": "Dit bestand is leeg.",
+      "documentTooLarge": "Een document mag hoogstens 10 MB zijn.",
+      "documentNameInvalid": "De bestandsnaam is niet geldig. Geef het bestand een andere naam en probeer het opnieuw.",
+      "enterpriseNumberInvalidFormat": "Een ondernemingsnummer heeft 10 cijfers, zoals 0123.456.749.",
+      "enterpriseNumberInvalidChecksum": "Dit ondernemingsnummer is niet geldig. Controleer het op tikfouten.",
+      "organisationNameRequired": "Vul de naam van de organisatie in.",
+      "organisationNameTooLong": "De naam van de organisatie mag hoogstens 200 tekens lang zijn.",
+      "organisationAlreadyRegistered": "Deze organisatie is al geregistreerd. Zoek ze op met haar ondernemingsnummer.",
+      "schemaViolation": "Deze waarde is niet geldig.",
+      "invalidInput": "Deze waarde is niet geldig.",
+      "referencedResourceNotFound": "Dit bestaat niet meer. Laad de pagina opnieuw en probeer het opnieuw."
+    },
+    "fallback": {
+      "unreachable": "CivicGrant is momenteel niet bereikbaar. Controleer uw verbinding en probeer het opnieuw.",
+      "signInAgain": "Uw sessie is verlopen. Meld u opnieuw aan om verder te gaan.",
+      "forbidden": "U mag dit niet doen.",
+      "notFound": "Dit bestaat niet, of u mag het niet bekijken.",
+      "conflict": "Dit kan niet in de huidige status. Laad de pagina opnieuw en controleer de status.",
+      "invalid": "Sommige gegevens zijn niet geldig. Controleer ze en probeer het opnieuw.",
+      "serverError": "Er ging bij ons iets mis. Probeer het over enkele minuten opnieuw."
+    }
+  },
+  "primeng": {
+    "fileSizeTypes": "B,kB,MB,GB,TB,PB,EB,ZB,YB",
+    "choose": "Kiezen",
+    "upload": "Uploaden",
+    "cancel": "Annuleren",
+    "emptyMessage": "Geen opties beschikbaar",
+    "emptySearchMessage": "Geen resultaten gevonden",
+    "aria": {
+      "close": "Sluiten",
+      "browseFiles": "Bestanden kiezen",
+      "removeLabel": "Verwijderen",
+      "pageLabel": "Pagina {page}",
+      "firstPageLabel": "Eerste pagina",
+      "lastPageLabel": "Laatste pagina",
+      "nextPageLabel": "Volgende pagina",
+      "prevPageLabel": "Vorige pagina",
+      "previousPageLabel": "Vorige pagina",
+      "rowsPerPageLabel": "Rijen per pagina",
+      "jumpToPageDropdownLabel": "Naar pagina",
+      "jumpToPageInputLabel": "Naar pagina"
+    }
+  }
+}

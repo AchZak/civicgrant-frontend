@@ -1,19 +1,21 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component, computed, inject, input, linkedSignal, signal } from '@angular/core';
 import { form, FormRoot } from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
+import { TranslocoDirective } from '@jsverse/transloco';
 import { ButtonDirective, ButtonLabel } from 'primeng/button';
 import { Message } from 'primeng/message';
 import { Skeleton } from 'primeng/skeleton';
 import { problemFrom } from '../../api/http-problem';
 import { fundingCallResource } from '../../funding-calls/funding-calls-api';
 import { acceptsApplications } from '../../funding-calls/submission-period';
+import { CurrentLanguage } from '../../language/current-language';
 import { organisationResource } from '../../organisations/organisations-api';
 import { BrusselsDatePipe } from '../../shared/brussels-date-pipe';
 import { Detail } from '../../shared/detail/detail';
 import { FormErrors } from '../../shared/form-errors/form-errors';
 import { LoadError } from '../../shared/load-error/load-error';
 import { LocalizedPipe } from '../../shared/localized-pipe';
+import { MoneyPipe } from '../../shared/money-pipe';
 import { PageHeader } from '../../shared/page-header/page-header';
 import { serverErrors } from '../../shared/server-errors';
 import { ApplicationStatusTag } from '../application-status-tag/application-status-tag';
@@ -22,7 +24,7 @@ import { ApplicationDocuments } from '../application-documents/application-docum
 import { ApplicationSubmission } from '../application-submission/application-submission';
 import {
   emptyProposal,
-  languageLabel,
+  languageKey,
   proposalFieldOfCode,
   proposalFields,
   proposalModelOf,
@@ -30,13 +32,13 @@ import {
   proposalSchema,
 } from '../proposal';
 import { ProposalForm } from '../proposal-form/proposal-form';
-import { rejectionGroundLabel } from '../rejection-ground';
+import { rejectionGroundKey } from '../rejection-ground';
 
 @Component({
   imports: [
-    CurrencyPipe,
     FormRoot,
     RouterLink,
+    TranslocoDirective,
     ButtonDirective,
     ButtonLabel,
     Message,
@@ -46,6 +48,7 @@ import { rejectionGroundLabel } from '../rejection-ground';
     FormErrors,
     LoadError,
     LocalizedPipe,
+    MoneyPipe,
     PageHeader,
     ApplicationStatusTag,
     ApplicationDocuments,
@@ -110,8 +113,9 @@ export class ApplicationDetail {
     },
   });
 
-  protected readonly languageLabel = languageLabel;
-  protected readonly rejectionGroundLabel = rejectionGroundLabel;
+  protected readonly localizedTextLang = inject(CurrentLanguage).localizedTextLang;
+  protected readonly languageKey = languageKey;
+  protected readonly rejectionGroundKey = rejectionGroundKey;
 
   protected onSubmitted(): void {
     this.justSubmitted.set(true);

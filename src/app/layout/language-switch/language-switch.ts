@@ -1,35 +1,34 @@
-import { Component, computed, inject, LOCALE_ID } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { TranslocoDirective } from '@jsverse/transloco';
+import { CurrentLanguage } from '../../language/current-language';
+import { localeOf, UiLanguage } from '../../language/ui-language';
 
-interface Language {
-  readonly locale: string;
+interface LanguageChoice {
+  readonly language: UiLanguage;
   readonly code: string;
   readonly name: string;
-  readonly basePath: string;
 }
 
-// basePath matches each locale's subPath in angular.json.
-const languages: readonly Language[] = [
-  { locale: 'nl-BE', code: 'NL', name: 'Nederlands', basePath: '/nl' },
-  { locale: 'fr-BE', code: 'FR', name: 'Français', basePath: '/fr' },
+// Each language's name in that language, so a reader finds their own.
+const choices: readonly LanguageChoice[] = [
+  { language: 'nl', code: 'NL', name: 'Nederlands' },
+  { language: 'fr', code: 'FR', name: 'Français' },
+  { language: 'en', code: 'EN', name: 'English' },
 ];
 
 @Component({
+  imports: [TranslocoDirective],
   selector: 'app-language-switch',
   templateUrl: './language-switch.html',
 })
 export class LanguageSwitch {
-  private readonly router = inject(Router);
+  private readonly currentLanguage = inject(CurrentLanguage);
 
-  protected readonly currentLocale = inject(LOCALE_ID);
-  protected readonly languages = languages;
+  protected readonly choices = choices;
+  protected readonly language = this.currentLanguage.language;
+  protected readonly localeOf = localeOf;
 
-  private readonly currentPath = computed(() => {
-    const finalUrl = this.router.lastSuccessfulNavigation()?.finalUrl;
-    return finalUrl ? this.router.serializeUrl(finalUrl) : '/';
-  });
-
-  protected href(language: Language): string {
-    return language.basePath + this.currentPath();
+  protected choose(language: UiLanguage): void {
+    void this.currentLanguage.choose(language);
   }
 }

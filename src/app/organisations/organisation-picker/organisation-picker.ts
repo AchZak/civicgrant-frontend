@@ -1,15 +1,17 @@
 import { Component, inject, model, signal } from '@angular/core';
 import { form, FormField, FormRoot, maxLength, required } from '@angular/forms/signals';
+import { TranslocoDirective } from '@jsverse/transloco';
 import { ButtonDirective, ButtonLabel } from 'primeng/button';
 import { InputText } from 'primeng/inputtext';
 import { Message } from 'primeng/message';
 import { Select } from 'primeng/select';
-import { codeMessage } from '../../api/problem-messages';
+import { codeKey } from '../../api/problem-messages';
+import { translatedOptions } from '../../language/translated-options';
 import { FormErrors } from '../../shared/form-errors/form-errors';
 import { FormRow } from '../../shared/form-row/form-row';
 import { onceTouched, serverErrors } from '../../shared/server-errors';
 import { formatEnterpriseNumber, parseEnterpriseNumber } from '../enterprise-number';
-import { legalFormLabel, legalFormOptions } from '../legal-form';
+import { legalFormKey, legalForms } from '../legal-form';
 import { LegalForm, Organisation, OrganisationsApi } from '../organisations-api';
 
 const enterpriseNumberCodes = {
@@ -21,6 +23,7 @@ const enterpriseNumberCodes = {
   imports: [
     FormField,
     FormRoot,
+    TranslocoDirective,
     ButtonDirective,
     ButtonLabel,
     InputText,
@@ -37,8 +40,8 @@ export class OrganisationPicker {
 
   private readonly api = inject(OrganisationsApi);
 
-  protected readonly legalForms = legalFormOptions;
-  protected readonly legalFormLabel = legalFormLabel;
+  protected readonly legalForms = translatedOptions(legalForms, legalFormKey);
+  protected readonly legalFormKey = legalFormKey;
   protected readonly format = formatEnterpriseNumber;
   protected readonly unregisteredNumber = signal<string | undefined>(undefined);
 
@@ -47,7 +50,7 @@ export class OrganisationPicker {
     (path) => {
       required(path.enterpriseNumber, {
         when: onceTouched,
-        message: $localize`:@@organisations.enterpriseNumber.required:Enter the enterprise number.`,
+        message: 'organisations.validation.enterpriseNumberRequired',
       });
     },
     {
@@ -57,7 +60,7 @@ export class OrganisationPicker {
           if (enterpriseNumber === undefined) {
             return {
               kind: 'format',
-              message: codeMessage('enterpriseNumberInvalidFormat'),
+              message: codeKey('enterpriseNumberInvalidFormat'),
               fieldTree: fields.enterpriseNumber,
             };
           }
@@ -83,12 +86,12 @@ export class OrganisationPicker {
     (path) => {
       required(path.name, {
         when: onceTouched,
-        message: codeMessage('organisationNameRequired'),
+        message: codeKey('organisationNameRequired'),
       });
-      maxLength(path.name, 200, { message: codeMessage('organisationNameTooLong') });
+      maxLength(path.name, 200, { message: codeKey('organisationNameTooLong') });
       required(path.legalForm, {
         when: onceTouched,
-        message: $localize`:@@organisations.legalForm.required:Choose the legal form.`,
+        message: 'organisations.validation.legalFormRequired',
       });
     },
     {

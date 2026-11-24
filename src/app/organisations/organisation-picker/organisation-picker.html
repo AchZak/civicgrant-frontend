@@ -1,87 +1,84 @@
-@if (organisation(); as chosen) {
-  <div class="rounded-border border border-surface p-4">
-    <div class="flex flex-wrap items-center justify-between gap-4">
-      <div>
-        <p class="font-semibold">{{ chosen.name }}</p>
-        <p class="text-sm text-muted-color">
-          {{ legalFormLabel(chosen.legalForm) }} · {{ format(chosen.enterpriseNumber) }}
-        </p>
+<ng-container *transloco="let t">
+  @if (organisation(); as chosen) {
+    <div class="rounded-border border border-surface p-4">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="font-semibold">{{ chosen.name }}</p>
+          <p class="text-sm text-muted-color">
+            {{ t(legalFormKey(chosen.legalForm)) }} · {{ format(chosen.enterpriseNumber) }}
+          </p>
+        </div>
+        <button pButton type="button" text (click)="chooseAnother()">
+          <span pButtonLabel>{{ t('organisations.picker.actions.chooseAnother') }}</span>
+        </button>
       </div>
-      <button pButton type="button" text (click)="chooseAnother()">
-        <span pButtonLabel i18n="@@organisations.chooseAnother">Choose another organisation</span>
-      </button>
     </div>
-  </div>
-} @else {
-  <form [formRoot]="lookupForm" class="flex flex-col gap-4">
-    <app-form-row
-      label="Enterprise number"
-      i18n-label="@@organisations.enterpriseNumber"
-      controlId="enterprise-number"
-      hint="As in the Crossroads Bank for Enterprises, for example 0123.456.749."
-      i18n-hint="@@organisations.enterpriseNumber.hint"
-      [errors]="lookupForm.enterpriseNumber().errors()"
-    >
-      <div class="flex flex-wrap gap-2">
-        <input
-          pInputText
-          id="enterprise-number"
-          autocomplete="off"
-          aria-describedby="enterprise-number-hint enterprise-number-errors"
-          [attr.aria-invalid]="lookupForm.enterpriseNumber().invalid()"
-          [formField]="lookupForm.enterpriseNumber"
-        />
-        <button pButton type="submit" outlined [disabled]="lookupForm().submitting()">
-          <span pButtonLabel i18n="@@organisations.lookUp">Look up</span>
-        </button>
-      </div>
-    </app-form-row>
-    <app-form-errors [errors]="lookupForm().errors()" />
-  </form>
-
-  @if (unregisteredNumber(); as enterpriseNumber) {
-    <form [formRoot]="registerForm" class="mt-6 flex flex-col gap-4">
-      <p-message severity="info" i18n="@@organisations.notRegistered"
-        >No organisation with enterprise number {{ format(enterpriseNumber) }} is registered yet.
-        Register it to continue.</p-message
-      >
+  } @else {
+    <form [formRoot]="lookupForm" class="flex flex-col gap-4">
       <app-form-row
-        label="Name of the organisation"
-        i18n-label="@@organisations.name"
-        controlId="organisation-name"
-        [errors]="registerForm.name().errors()"
+        [label]="t('organisations.fields.enterpriseNumber')"
+        controlId="enterprise-number"
+        [hint]="t('organisations.hints.enterpriseNumber')"
+        [errors]="lookupForm.enterpriseNumber().errors()"
       >
-        <input
-          pInputText
-          fluid
-          id="organisation-name"
-          aria-describedby="organisation-name-errors"
-          [attr.aria-invalid]="registerForm.name().invalid()"
-          [formField]="registerForm.name"
-        />
+        <div class="flex flex-wrap gap-2">
+          <input
+            pInputText
+            id="enterprise-number"
+            autocomplete="off"
+            aria-describedby="enterprise-number-hint enterprise-number-errors"
+            [attr.aria-invalid]="lookupForm.enterpriseNumber().invalid()"
+            [formField]="lookupForm.enterpriseNumber"
+          />
+          <button pButton type="submit" outlined [disabled]="lookupForm().submitting()">
+            <span pButtonLabel>{{ t('organisations.picker.actions.lookUp') }}</span>
+          </button>
+        </div>
       </app-form-row>
-      <app-form-row
-        label="Legal form"
-        i18n-label="@@organisations.legalForm"
-        controlId="legal-form"
-        [errors]="registerForm.legalForm().errors()"
-      >
-        <p-select
-          inputId="legal-form"
-          ariaLabelledBy="legal-form-label"
-          optionLabel="label"
-          optionValue="value"
-          fluid
-          [options]="legalForms"
-          [formField]="registerForm.legalForm"
-        />
-      </app-form-row>
-      <app-form-errors [errors]="registerForm().errors()" />
-      <div>
-        <button pButton type="submit" [disabled]="registerForm().submitting()">
-          <span pButtonLabel i18n="@@organisations.register">Register the organisation</span>
-        </button>
-      </div>
+      <app-form-errors [errors]="lookupForm().errors()" />
     </form>
+
+    @if (unregisteredNumber(); as enterpriseNumber) {
+      <form [formRoot]="registerForm" class="mt-6 flex flex-col gap-4">
+        <p-message severity="info">{{
+          t('organisations.picker.notRegistered', { enterpriseNumber: format(enterpriseNumber) })
+        }}</p-message>
+        <app-form-row
+          [label]="t('organisations.fields.name')"
+          controlId="organisation-name"
+          [errors]="registerForm.name().errors()"
+        >
+          <input
+            pInputText
+            fluid
+            id="organisation-name"
+            aria-describedby="organisation-name-errors"
+            [attr.aria-invalid]="registerForm.name().invalid()"
+            [formField]="registerForm.name"
+          />
+        </app-form-row>
+        <app-form-row
+          [label]="t('organisations.fields.legalForm')"
+          controlId="legal-form"
+          [errors]="registerForm.legalForm().errors()"
+        >
+          <p-select
+            inputId="legal-form"
+            ariaLabelledBy="legal-form-label"
+            optionLabel="label"
+            optionValue="value"
+            fluid
+            [options]="legalForms()"
+            [formField]="registerForm.legalForm"
+          />
+        </app-form-row>
+        <app-form-errors [errors]="registerForm().errors()" />
+        <div>
+          <button pButton type="submit" [disabled]="registerForm().submitting()">
+            <span pButtonLabel>{{ t('organisations.picker.actions.register') }}</span>
+          </button>
+        </div>
+      </form>
+    }
   }
-}
+</ng-container>

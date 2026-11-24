@@ -1,20 +1,22 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component, computed, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslocoDirective } from '@jsverse/transloco';
 import { ButtonDirective, ButtonLabel } from 'primeng/button';
 import { Message } from 'primeng/message';
 import { Skeleton } from 'primeng/skeleton';
+import { CurrentLanguage } from '../../language/current-language';
 import { BrusselsDatePipe } from '../../shared/brussels-date-pipe';
 import { Detail } from '../../shared/detail/detail';
 import { LoadError } from '../../shared/load-error/load-error';
 import { LocalizedPipe } from '../../shared/localized-pipe';
+import { MoneyPipe } from '../../shared/money-pipe';
 import { PageHeader } from '../../shared/page-header/page-header';
 import { fundingCallResource } from '../funding-calls-api';
 import { acceptsApplications } from '../submission-period';
 
 @Component({
   imports: [
-    CurrencyPipe,
+    TranslocoDirective,
     ButtonDirective,
     ButtonLabel,
     Message,
@@ -23,6 +25,7 @@ import { acceptsApplications } from '../submission-period';
     Detail,
     LoadError,
     LocalizedPipe,
+    MoneyPipe,
     PageHeader,
   ],
   selector: 'app-funding-call-detail',
@@ -32,6 +35,7 @@ export class FundingCallDetail {
   readonly fundingCallId = input.required<string>();
 
   protected readonly call = fundingCallResource(this.fundingCallId);
+  protected readonly localizedTextLang = inject(CurrentLanguage).localizedTextLang;
 
   private readonly router = inject(Router);
 

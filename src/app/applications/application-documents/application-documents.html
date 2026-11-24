@@ -1,72 +1,72 @@
-<ul class="flex flex-col gap-2">
-  @for (document of application().documents; track document.id) {
-    <li class="flex flex-wrap items-center gap-x-2">
-      <button
-        pButton
-        link
-        type="button"
-        class="p-0"
-        [attr.aria-label]="downloadLabel(document.fileName)"
-        (click)="download(document)"
-      >
-        <span pButtonLabel>{{ document.fileName }}</span>
-      </button>
-      <span class="text-sm text-muted-color"
-        >{{ document.sizeInBytes | fileSize }} · {{ document.uploadedAt | brusselsDate }}</span
-      >
-      @if (editable()) {
+<ng-container *transloco="let t">
+  <ul class="flex flex-col gap-2">
+    @for (document of application().documents; track document.id) {
+      <li class="flex flex-wrap items-center gap-x-2">
         <button
           pButton
-          text
-          severity="danger"
-          size="small"
+          link
           type="button"
-          [attr.aria-label]="removeLabel(document.fileName)"
-          (click)="remove(document)"
+          class="p-0"
+          [attr.aria-label]="
+            t('applications.documents.ariaLabels.download', { fileName: document.fileName })
+          "
+          (click)="download(document)"
         >
-          <span pButtonLabel i18n="@@documents.remove">Remove</span>
+          <span pButtonLabel>{{ document.fileName }}</span>
         </button>
-      }
-    </li>
-  } @empty {
-    <li class="text-muted-color" i18n="@@applications.documents.none">
-      No documents attached yet.
-    </li>
-  }
-</ul>
-
-@if (editable()) {
-  <div class="mt-4 flex flex-col items-start gap-2">
-    <p-fileupload
-      #uploader
-      mode="basic"
-      accept="application/pdf"
-      auto
-      customUpload
-      chooseLabel="Attach a PDF"
-      i18n-chooseLabel="@@documents.choose"
-      [invalidFileSizeMessageSummary]="uploadMessages.tooLarge"
-      [invalidFileSizeMessageDetail]="uploadMessages.tooLargeDetail"
-      [invalidFileTypeMessageSummary]="uploadMessages.notPdf"
-      [invalidFileTypeMessageDetail]="uploadMessages.notPdfDetail"
-      [maxFileSize]="maxFileSize"
-      [disabled]="progress() !== undefined"
-      (uploadHandler)="attach($event, uploader)"
-    />
-    <small class="text-muted-color" i18n="@@documents.hint"
-      >One PDF file of at most 10 MB at a time.</small
-    >
-    @if (progress() !== undefined) {
-      <p-progressbar
-        class="w-full max-w-sm"
-        aria-label="Upload progress"
-        i18n-aria-label="@@documents.progress"
-        [value]="progress()"
-      />
+        <span class="text-sm text-muted-color"
+          >{{ document.sizeInBytes | fileSize }} · {{ document.uploadedAt | brusselsDate }}</span
+        >
+        @if (editable()) {
+          <button
+            pButton
+            text
+            severity="danger"
+            size="small"
+            type="button"
+            [attr.aria-label]="
+              t('applications.documents.ariaLabels.remove', { fileName: document.fileName })
+            "
+            (click)="remove(document)"
+          >
+            <span pButtonLabel>{{ t('applications.documents.actions.remove') }}</span>
+          </button>
+        }
+      </li>
+    } @empty {
+      <li class="text-muted-color">{{ t('applications.documents.empty') }}</li>
     }
-  </div>
-}
+  </ul>
 
-@if (problem(); as message) {
-  <p-message severity="error" class="mt-4">{{ message }}</p-message>
-}
+  @if (editable()) {
+    <div class="mt-4 flex flex-col items-start gap-2">
+      <p-fileupload
+        #uploader
+        mode="basic"
+        accept="application/pdf"
+        auto
+        customUpload
+        [chooseLabel]="t('applications.documents.actions.attach')"
+        [invalidFileSizeMessageSummary]="t('applications.documents.invalidFileSize.summary')"
+        [invalidFileSizeMessageDetail]="t('applications.documents.invalidFileSize.detail')"
+        [invalidFileTypeMessageSummary]="t('applications.documents.invalidFileType.summary')"
+        [invalidFileTypeMessageDetail]="t('applications.documents.invalidFileType.detail')"
+        [maxFileSize]="maxFileSize"
+        [disabled]="progress() !== undefined"
+        (uploadHandler)="attach($event, uploader)"
+      />
+      <small class="text-muted-color">{{ t('applications.documents.hint') }}</small>
+      @if (progress() !== undefined) {
+        <p-progressbar
+          class="w-full max-w-sm"
+          [attr.aria-label]="t('applications.documents.ariaLabels.uploadProgress')"
+          [value]="progress()"
+        />
+      }
+    </div>
+  }
+
+  @if (problemKey(); as key) {
+    <p-message severity="error" class="mt-4">{{ t(key) }}</p-message>
+  }
+</ng-container>

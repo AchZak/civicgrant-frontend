@@ -1,7 +1,6 @@
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-6" *transloco="let t">
   <app-form-row
-    label="Project title"
-    i18n-label="@@proposal.title"
+    [label]="t('applications.fields.title')"
     controlId="project-title"
     [errors]="fields().title().errors()"
   >
@@ -16,11 +15,9 @@
   </app-form-row>
 
   <app-form-row
-    label="Project description"
-    i18n-label="@@proposal.description"
+    [label]="t('applications.fields.description')"
     controlId="project-description"
-    hint="What you'll do, for whom, where and when."
-    i18n-hint="@@proposal.description.hint"
+    [hint]="t('applications.hints.description')"
     [errors]="fields().description().errors()"
   >
     <textarea
@@ -37,8 +34,7 @@
 
   <div class="grid gap-6 sm:grid-cols-2">
     <app-form-row
-      label="Requested amount"
-      i18n-label="@@proposal.requestedAmount"
+      [label]="t('applications.fields.requestedAmount')"
       controlId="requested-amount"
       [errors]="fields().requestedAmount().errors()"
     >
@@ -48,22 +44,18 @@
         currency="EUR"
         fluid
         ariaDescribedBy="requested-amount-cap requested-amount-errors"
-        [locale]="locale"
+        [locale]="locale()"
         [formField]="fields().requestedAmount"
       />
       @if (capPerApplication(); as cap) {
-        <small
-          id="requested-amount-cap"
-          class="text-muted-color"
-          i18n="@@proposal.requestedAmount.cap"
-          >At most {{ cap | currency }} for this funding call.</small
-        >
+        <small id="requested-amount-cap" class="text-muted-color">{{
+          t('applications.hints.requestedAmount', { amount: (cap | money) })
+        }}</small>
       }
     </app-form-row>
 
     <app-form-row
-      label="Total project budget"
-      i18n-label="@@proposal.totalProjectBudget"
+      [label]="t('applications.fields.totalProjectBudget')"
       controlId="total-project-budget"
       [errors]="fields().totalProjectBudget().errors()"
     >
@@ -73,15 +65,14 @@
         currency="EUR"
         fluid
         ariaDescribedBy="total-project-budget-errors"
-        [locale]="locale"
+        [locale]="locale()"
         [formField]="fields().totalProjectBudget"
       />
     </app-form-row>
   </div>
 
   <app-form-row
-    label="Language of the project"
-    i18n-label="@@proposal.language"
+    [label]="t('applications.fields.language')"
     controlId="project-language"
     [errors]="fields().language().errors()"
   >
@@ -91,7 +82,7 @@
       optionLabel="label"
       optionValue="value"
       class="sm:w-1/2"
-      [options]="languages"
+      [options]="languages()"
       [formField]="fields().language"
     />
   </app-form-row>

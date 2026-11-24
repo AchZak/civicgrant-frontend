@@ -6,7 +6,7 @@ import {
   required,
   schema,
 } from '@angular/forms/signals';
-import { codeMessage } from '../api/problem-messages';
+import { codeKey } from '../api/problem-messages';
 import { components } from '../api/schema';
 import { onceTouched } from '../shared/server-errors';
 import { ProjectProposal } from './applications-api';
@@ -21,17 +21,15 @@ export interface ProposalModel {
   language: Language | null;
 }
 
-const languageLabels: Readonly<Record<Language, string>> = {
-  NL: $localize`:@@language.NL:Dutch`,
-  FR: $localize`:@@language.FR:French`,
+const languageKeys: Readonly<Record<Language, string>> = {
+  NL: 'applications.language.nl',
+  FR: 'applications.language.fr',
 };
 
-const languages: readonly Language[] = ['NL', 'FR'];
+export const languages: readonly Language[] = ['NL', 'FR'];
 
-export const languageOptions = languages.map((value) => ({ label: languageLabels[value], value }));
-
-export function languageLabel(language: Language): string {
-  return Object.hasOwn(languageLabels, language) ? languageLabels[language] : language;
+export function languageKey(language: Language): string {
+  return languageKeys[language];
 }
 
 export function emptyProposal(): ProposalModel {
@@ -59,27 +57,27 @@ export function proposalOf(model: ProposalModel): ProjectProposal | undefined {
 
 export function proposalSchema(capPerApplication: () => number | undefined) {
   return schema<ProposalModel>((path) => {
-    required(path.title, { when: onceTouched, message: codeMessage('projectTitleRequired') });
-    maxLength(path.title, 200, { message: codeMessage('projectTitleTooLong') });
+    required(path.title, { when: onceTouched, message: codeKey('projectTitleRequired') });
+    maxLength(path.title, 200, { message: codeKey('projectTitleTooLong') });
     required(path.description, {
       when: onceTouched,
-      message: codeMessage('projectDescriptionRequired'),
+      message: codeKey('projectDescriptionRequired'),
     });
-    maxLength(path.description, 10000, { message: codeMessage('projectDescriptionTooLong') });
+    maxLength(path.description, 10000, { message: codeKey('projectDescriptionTooLong') });
     required(path.requestedAmount, {
       when: onceTouched,
-      message: $localize`:@@proposal.requestedAmount.required:Enter the amount you request.`,
+      message: 'applications.validation.requestedAmountRequired',
     });
     max(path.requestedAmount, capPerApplication, {
-      message: codeMessage('requestedAmountExceedsCap'),
+      message: codeKey('requestedAmountExceedsCap'),
     });
     required(path.totalProjectBudget, {
       when: onceTouched,
-      message: $localize`:@@proposal.totalProjectBudget.required:Enter the total budget of the project.`,
+      message: 'applications.validation.totalProjectBudgetRequired',
     });
     required(path.language, {
       when: onceTouched,
-      message: $localize`:@@proposal.language.required:Choose the language of the project.`,
+      message: 'applications.validation.languageRequired',
     });
   });
 }

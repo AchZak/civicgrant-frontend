@@ -1,0 +1,301 @@
+{
+  "common": {
+    "actions": {
+      "backToStart": "Back to the start page"
+    }
+  },
+  "layout": {
+    "shell": {
+      "actions": {
+        "skipToMain": "Skip to main content"
+      },
+      "navigation": {
+        "allApplications": "Applications",
+        "myApplications": "My applications",
+        "fundingCalls": "Funding calls"
+      },
+      "ariaLabels": {
+        "navigation": "Main"
+      }
+    },
+    "languageSwitch": {
+      "ariaLabels": {
+        "navigation": "Language"
+      }
+    },
+    "userMenu": {
+      "actions": {
+        "signOut": "Sign out"
+      }
+    },
+    "notFound": {
+      "title": "Page not found",
+      "heading": "Page not found",
+      "intro": "This page doesn't exist, or you may not see it. Check the address, or go back to the start page."
+    },
+    "noAccess": {
+      "title": "No access",
+      "heading": "No access",
+      "intro": "Your account doesn't have the role this page needs. If you think it should, contact the administration."
+    }
+  },
+  "fundingCalls": {
+    "fields": {
+      "title": "Funding call",
+      "opensAt": "Open for applications from",
+      "closesAt": "Closes on",
+      "maxAmountPerApplication": "Maximum per application",
+      "remainingBudget": "Remaining budget"
+    },
+    "open": {
+      "title": "Open funding calls",
+      "heading": "Open funding calls",
+      "intro": "Choose a funding call to read its conditions and apply.",
+      "empty": "There are no open funding calls right now."
+    },
+    "detail": {
+      "title": "Funding call",
+      "notOpen": "This funding call doesn't accept applications right now.",
+      "actions": {
+        "apply": "Apply"
+      }
+    }
+  },
+  "organisations": {
+    "fields": {
+      "enterpriseNumber": "Enterprise number",
+      "name": "Name of the organisation",
+      "legalForm": "Legal form"
+    },
+    "hints": {
+      "enterpriseNumber": "As in the Crossroads Bank for Enterprises, for example 0123.456.749."
+    },
+    "validation": {
+      "enterpriseNumberRequired": "Enter the enterprise number.",
+      "legalFormRequired": "Choose the legal form."
+    },
+    "legalForm": {
+      "vzwAsbl": "Non-profit association",
+      "ivzwAisbl": "International non-profit association",
+      "foundation": "Foundation",
+      "company": "Company",
+      "publicBody": "Public body",
+      "unknown": "Other legal form"
+    },
+    "picker": {
+      "notRegistered": "No organisation with enterprise number {{ enterpriseNumber }} is registered yet. Register it to continue.",
+      "actions": {
+        "lookUp": "Look up",
+        "register": "Register the organisation",
+        "chooseAnother": "Choose another organisation"
+      }
+    }
+  },
+  "applications": {
+    "fields": {
+      "reference": "Reference",
+      "fundingCall": "Funding call",
+      "organisation": "Organisation",
+      "project": "Project",
+      "title": "Project title",
+      "description": "Project description",
+      "requestedAmount": "Requested amount",
+      "totalProjectBudget": "Total project budget",
+      "language": "Language of the project",
+      "status": "Status",
+      "createdAt": "Created on",
+      "submittedAt": "Submitted on",
+      "updatedAt": "Last change"
+    },
+    "hints": {
+      "description": "What you'll do, for whom, where and when.",
+      "requestedAmount": "At most {{ amount }} for this funding call."
+    },
+    "validation": {
+      "requestedAmountRequired": "Enter the amount you request.",
+      "totalProjectBudgetRequired": "Enter the total budget of the project.",
+      "languageRequired": "Choose the language of the project."
+    },
+    "status": {
+      "draft": "Draft",
+      "submitted": "Submitted",
+      "assessed": "Assessed",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "unknown": "Unknown status"
+    },
+    "language": {
+      "nl": "Dutch",
+      "fr": "French"
+    },
+    "rejectionGround": {
+      "ineligible": "The application isn't eligible",
+      "budgetExhausted": "The funding call's budget is exhausted",
+      "incomplete": "The application is incomplete",
+      "insufficientQuality": "The project's quality is insufficient",
+      "unknown": "Another ground"
+    },
+    "actions": {
+      "seeOpenCalls": "See the open funding calls."
+    },
+    "list": {
+      "mine": {
+        "title": "My applications",
+        "heading": "My applications",
+        "intro": "Follow your applications, or continue a draft.",
+        "empty": "You haven't started an application yet."
+      },
+      "all": {
+        "title": "Applications",
+        "heading": "Applications",
+        "intro": "Submitted applications, the most recently changed first.",
+        "empty": "There are no submitted applications yet."
+      },
+      "actions": {
+        "newApplication": "New application"
+      }
+    },
+    "new": {
+      "title": "New application",
+      "heading": "New application",
+      "forCall": {
+        "before": "For the funding call",
+        "after": "."
+      },
+      "noCall": "Choose a funding call first.",
+      "organisationFirst": "Choose your organisation first.",
+      "afterSaving": "You can attach documents and submit once the draft is saved.",
+      "sections": {
+        "organisation": "1. Your organisation",
+        "project": "2. Your project"
+      },
+      "actions": {
+        "saveDraft": "Save as draft"
+      }
+    },
+    "detail": {
+      "title": "Application",
+      "submitted": "Your application is submitted. You'll find its status and the decision here.",
+      "saved": "Your changes are saved.",
+      "sections": {
+        "proposal": "Your project",
+        "documents": "Supporting documents",
+        "submission": "Submit",
+        "decision": "Decision"
+      },
+      "actions": {
+        "save": "Save changes",
+        "reload": "Reload the application"
+      }
+    },
+    "documents": {
+      "empty": "No documents attached yet.",
+      "hint": "One PDF file of at most 10 MB at a time.",
+      "invalidFileSize": {
+        "summary": "{0} is too large.",
+        "detail": "A document can be at most {0}."
+      },
+      "invalidFileType": {
+        "summary": "{0} isn't a PDF.",
+        "detail": "Only PDF files can be attached."
+      },
+      "actions": {
+        "attach": "Attach a PDF",
+        "remove": "Remove"
+      },
+      "ariaLabels": {
+        "download": "Download {{ fileName }}",
+        "remove": "Remove {{ fileName }}",
+        "uploadProgress": "Upload progress"
+      }
+    },
+    "submission": {
+      "intro": "Once you submit, a civil servant assesses the application and a decision maker decides on it. You follow its status here.",
+      "callNotOpen": "This funding call doesn't accept applications right now.",
+      "saveFirst": "Save your changes before you submit.",
+      "actions": {
+        "submit": "Submit the application"
+      },
+      "confirm": {
+        "heading": "Submit the application?",
+        "message": "Once it's submitted, you can no longer change the application or its documents.",
+        "accept": "Submit",
+        "reject": "Not yet"
+      }
+    },
+    "decision": {
+      "fields": {
+        "grantedAmount": "Granted amount",
+        "rejectionGround": "Ground for rejection",
+        "decidedAt": "Decided on",
+        "motivation": "Motivation"
+      }
+    }
+  },
+  "problems": {
+    "code": {
+      "concurrentUpdate": "Someone else changed this at the same time. Reload the page to see the latest version, then try again.",
+      "roleRequired": "Your account doesn't have the role this needs.",
+      "payloadTooLarge": "The file is too large. A document can be at most 10 MB.",
+      "notTheApplicant": "Only the person who created this application can change it.",
+      "applicationNotDraft": "This application has been submitted and can no longer be changed.",
+      "fundingCallClosed": "This funding call is closed.",
+      "submissionBeforeOpeningDate": "This funding call isn't open for applications yet.",
+      "submissionAfterClosingDate": "This funding call has closed and no longer accepts applications.",
+      "supportingDocumentRequired": "Attach at least one PDF document before you submit.",
+      "requestedAmountExceedsCap": "The requested amount is more than this funding call's maximum per application.",
+      "requestedAmountExceedsProjectBudget": "The requested amount can't be more than the total project budget.",
+      "requestedAmountNotPositive": "The requested amount must be more than zero.",
+      "legalFormNotEligible": "Only non-profits can apply: associations and foundations.",
+      "projectTitleRequired": "Enter a project title.",
+      "projectTitleTooLong": "The project title can be at most 200 characters long.",
+      "projectDescriptionRequired": "Describe the project.",
+      "projectDescriptionTooLong": "The description can be at most 10,000 characters long.",
+      "amountNegative": "An amount can't be negative.",
+      "amountTooPrecise": "An amount has at most two decimals.",
+      "documentNotPdf": "Only PDF files can be attached.",
+      "documentEmpty": "This file is empty.",
+      "documentTooLarge": "A document can be at most 10 MB.",
+      "documentNameInvalid": "The file name isn't valid. Rename the file and try again.",
+      "enterpriseNumberInvalidFormat": "An enterprise number has 10 digits, such as 0123.456.749.",
+      "enterpriseNumberInvalidChecksum": "This enterprise number isn't valid. Check it for typing errors.",
+      "organisationNameRequired": "Enter the organisation's name.",
+      "organisationNameTooLong": "The organisation's name can be at most 200 characters long.",
+      "organisationAlreadyRegistered": "This organisation is already registered. Look it up by its enterprise number.",
+      "schemaViolation": "This value isn't valid.",
+      "invalidInput": "This value isn't valid.",
+      "referencedResourceNotFound": "This no longer exists. Reload the page and try again."
+    },
+    "fallback": {
+      "unreachable": "CivicGrant can't be reached right now. Check your connection and try again.",
+      "signInAgain": "Your session has expired. Sign in again to continue.",
+      "forbidden": "You're not allowed to do this.",
+      "notFound": "This doesn't exist, or you may not see it.",
+      "conflict": "This can't be done in the current state. Reload the page and check the status.",
+      "invalid": "Some of the information isn't valid. Check it and try again.",
+      "serverError": "Something went wrong on our side. Try again in a few minutes."
+    }
+  },
+  "primeng": {
+    "fileSizeTypes": "B,KB,MB,GB,TB,PB,EB,ZB,YB",
+    "choose": "Choose",
+    "upload": "Upload",
+    "cancel": "Cancel",
+    "emptyMessage": "No options available",
+    "emptySearchMessage": "No results found",
+    "aria": {
+      "close": "Close",
+      "browseFiles": "Browse files",
+      "removeLabel": "Remove",
+      "pageLabel": "Page {page}",
+      "firstPageLabel": "First page",
+      "lastPageLabel": "Last page",
+      "nextPageLabel": "Next page",
+      "prevPageLabel": "Previous page",
+      "previousPageLabel": "Previous page",
+      "rowsPerPageLabel": "Rows per page",
+      "jumpToPageDropdownLabel": "Jump to page",
+      "jumpToPageInputLabel": "Jump to page"
+    }
+  }
+}

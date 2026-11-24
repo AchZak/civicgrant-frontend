@@ -39,18 +39,6 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "locales": {
-          "nl-BE": {
-            "translation": "src/locale/messages.nl-BE.json",
-            "subPath": "nl"
-          },
-          "fr-BE": {
-            "translation": "src/locale/messages.fr-BE.json",
-            "subPath": "fr"
-          }
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -64,10 +52,7 @@
                 "ignore": ["config.example.json"]
               }
             ],
-            "styles": ["src/styles.css"],
-            "polyfills": ["@angular/localize/init"],
-            "localize": ["nl-BE", "fr-BE"],
-            "i18nMissingTranslation": "error"
+            "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -90,12 +75,6 @@
               "extractLicenses": false,
               "sourceMap": true
             },
-            "nl": {
-              "localize": ["nl-BE"]
-            },
-            "fr": {
-              "localize": ["fr-BE"]
-            },
             "e2e": {
               "fileReplacements": [
                 {
@@ -114,16 +93,13 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "civicgrant-frontend:build:production,nl"
+              "buildTarget": "civicgrant-frontend:build:production"
             },
             "development": {
-              "buildTarget": "civicgrant-frontend:build:development,nl"
-            },
-            "fr": {
-              "buildTarget": "civicgrant-frontend:build:development,fr"
+              "buildTarget": "civicgrant-frontend:build:development"
             },
             "e2e": {
-              "buildTarget": "civicgrant-frontend:build:development,nl,e2e"
+              "buildTarget": "civicgrant-frontend:build:development,e2e"
             }
           },
           "defaultConfiguration": "development"

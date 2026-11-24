@@ -1,16 +1,21 @@
-<nav aria-label="Language" i18n-aria-label="@@layout.language" class="flex gap-2">
-  @for (language of languages; track language.locale; let last = $last) {
-    @if (language.locale === currentLocale) {
-      <span aria-current="true" class="font-semibold">{{ language.code }}</span>
+<nav
+  *transloco="let t"
+  [attr.aria-label]="t('layout.languageSwitch.ariaLabels.navigation')"
+  class="flex gap-2"
+>
+  @for (choice of choices; track choice.language; let last = $last) {
+    @if (choice.language === language()) {
+      <span aria-current="true" class="font-semibold">{{ choice.code }}</span>
     } @else {
-      <a
-        [href]="href(language)"
-        [lang]="language.locale"
-        [attr.hreflang]="language.locale"
-        [title]="language.name"
-        class="text-primary hover:underline"
-        >{{ language.code }}</a
+      <button
+        type="button"
+        class="cursor-pointer text-primary hover:underline"
+        [lang]="localeOf[choice.language]"
+        [title]="choice.name"
+        (click)="choose(choice.language)"
       >
+        {{ choice.code }}
+      </button>
     }
     @if (!last) {
       <span aria-hidden="true">|</span>

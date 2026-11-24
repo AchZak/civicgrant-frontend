@@ -19,12 +19,12 @@ export const routes: Routes = [
   },
   {
     path: 'no-access',
-    title: $localize`:@@noAccess.title:No access`,
+    title: 'layout.noAccess.title',
     loadComponent: () => import('./layout/no-access/no-access').then((m) => m.NoAccess),
   },
   {
     path: '**',
-    title: $localize`:@@notFound.title:Page not found`,
+    title: 'layout.notFound.title',
     loadComponent: () => import('./layout/not-found/not-found').then((m) => m.NotFound),
   },
 ];

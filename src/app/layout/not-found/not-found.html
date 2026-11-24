@@ -1,7 +1,5 @@
-<h1 class="text-2xl font-semibold mb-4" i18n="@@notFound.heading">Page not found</h1>
-<p class="mb-6" i18n="@@notFound.explanation">
-  This page doesn't exist, or you may not see it. Check the address, or go back to the start page.
-</p>
-<a routerLink="/" class="text-primary hover:underline" i18n="@@notFound.backToStart"
-  >Back to the start page</a
->
+<ng-container *transloco="let t">
+  <h1 class="text-2xl font-semibold mb-4">{{ t('layout.notFound.heading') }}</h1>
+  <p class="mb-6">{{ t('layout.notFound.intro') }}</p>
+  <a routerLink="/" class="text-primary hover:underline">{{ t('common.actions.backToStart') }}</a>
+</ng-container>

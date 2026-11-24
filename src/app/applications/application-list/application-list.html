@@ -1,67 +1,62 @@
-<app-page-header [heading]="heading()" [intro]="intro()">
-  @if (user.isApplicant()) {
-    <a pButton routerLink="/funding-calls">
-      <span pButtonLabel i18n="@@applications.mine.new">New application</span>
-    </a>
-  }
-</app-page-header>
+<ng-container *transloco="let t">
+  <app-page-header [heading]="t(texts().heading)" [intro]="t(texts().intro)">
+    @if (user.isApplicant()) {
+      <a pButton routerLink="/funding-calls">
+        <span pButtonLabel>{{ t('applications.list.actions.newApplication') }}</span>
+      </a>
+    }
+  </app-page-header>
 
-@if (applications.error(); as error) {
-  <app-load-error [error]="error" />
-} @else {
-  <p-table
-    [value]="items()"
-    [loading]="applications.isLoading()"
-    [lazy]="true"
-    [lazyLoadOnInit]="false"
-    [paginator]="total() > pageSize"
-    [rows]="pageSize"
-    [totalRecords]="total()"
-    (onLazyLoad)="showPage($event)"
-    dataKey="id"
-  >
-    <ng-template #header>
-      <tr>
-        <th scope="col" i18n="@@applications.reference">Reference</th>
-        <th scope="col" i18n="@@applications.project">Project</th>
-        <th scope="col" i18n="@@applications.status">Status</th>
-        <th scope="col" class="text-right" i18n="@@applications.requestedAmount">
-          Requested amount
-        </th>
-        <th scope="col" i18n="@@applications.updatedAt">Last change</th>
-      </tr>
-    </ng-template>
-    <ng-template #body let-application>
-      <tr>
-        <td>
-          <a
-            [routerLink]="['/applications', application.id]"
-            class="font-semibold text-primary hover:underline"
-            >{{ application.reference }}</a
-          >
-        </td>
-        <td>{{ application.projectTitle }}</td>
-        <td><app-application-status-tag [status]="application.status" /></td>
-        <td class="text-right">{{ application.requestedAmount | currency }}</td>
-        <td>{{ application.updatedAt | brusselsDate: 'date' }}</td>
-      </tr>
-    </ng-template>
-    <ng-template #emptymessage>
-      <tr>
-        <td colspan="5">
-          @if (user.isStaff()) {
-            <span i18n="@@applications.all.none">There are no submitted applications yet.</span>
-          } @else {
-            <span i18n="@@applications.mine.none">You haven't started an application yet.</span>
+  @if (applications.error(); as error) {
+    <app-load-error [error]="error" />
+  } @else {
+    <p-table
+      [value]="items()"
+      [loading]="applications.isLoading()"
+      [lazy]="true"
+      [lazyLoadOnInit]="false"
+      [paginator]="total() > pageSize"
+      [rows]="pageSize"
+      [totalRecords]="total()"
+      (onLazyLoad)="showPage($event)"
+      dataKey="id"
+    >
+      <ng-template #header>
+        <tr>
+          <th scope="col">{{ t('applications.fields.reference') }}</th>
+          <th scope="col">{{ t('applications.fields.project') }}</th>
+          <th scope="col">{{ t('applications.fields.status') }}</th>
+          <th scope="col" class="text-right">{{ t('applications.fields.requestedAmount') }}</th>
+          <th scope="col">{{ t('applications.fields.updatedAt') }}</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-application>
+        <tr>
+          <td>
             <a
-              routerLink="/funding-calls"
-              class="ml-1 text-primary hover:underline"
-              i18n="@@applications.mine.seeCalls"
-              >See the open funding calls.</a
+              [routerLink]="['/applications', application.id]"
+              class="font-semibold text-primary hover:underline"
+              >{{ application.reference }}</a
             >
-          }
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-}
+          </td>
+          <td>{{ application.projectTitle }}</td>
+          <td><app-application-status-tag [status]="application.status" /></td>
+          <td class="text-right">{{ application.requestedAmount | money }}</td>
+          <td>{{ application.updatedAt | brusselsDate: 'date' }}</td>
+        </tr>
+      </ng-template>
+      <ng-template #emptymessage>
+        <tr>
+          <td colspan="5">
+            {{ t(texts().empty) }}
+            @if (!user.isStaff()) {
+              <a routerLink="/funding-calls" class="ml-1 text-primary hover:underline">{{
+                t('applications.actions.seeOpenCalls')
+              }}</a>
+            }
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  }
+</ng-container>

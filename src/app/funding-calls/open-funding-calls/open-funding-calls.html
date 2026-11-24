@@ -1,45 +1,44 @@
-<app-page-header
-  heading="Open funding calls"
-  i18n-heading="@@fundingCalls.open.heading"
-  intro="Choose a funding call to read its conditions and apply."
-  i18n-intro="@@fundingCalls.open.intro"
-/>
+<ng-container *transloco="let t">
+  <app-page-header
+    [heading]="t('fundingCalls.open.heading')"
+    [intro]="t('fundingCalls.open.intro')"
+  />
 
-@if (calls.error(); as error) {
-  <app-load-error [error]="error" />
-} @else {
-  <p-table [value]="items()" [loading]="calls.isLoading()" dataKey="id">
-    <ng-template #header>
-      <tr>
-        <th scope="col" i18n="@@fundingCalls.call">Funding call</th>
-        <th scope="col" i18n="@@fundingCalls.closesAt">Closes on</th>
-        <th scope="col" class="text-right" i18n="@@fundingCalls.maxAmountPerApplication">
-          Maximum per application
-        </th>
-        <th scope="col" class="text-right" i18n="@@fundingCalls.remainingBudget">
-          Remaining budget
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template #body let-call>
-      <tr>
-        <td>
-          <a [routerLink]="call.id" class="font-semibold text-primary hover:underline">{{
-            call.title | localized
-          }}</a>
-          <div class="text-sm text-muted-color">{{ call.reference }}</div>
-        </td>
-        <td>{{ call.closesAt | brusselsDate }}</td>
-        <td class="text-right">{{ call.maxAmountPerApplication | currency }}</td>
-        <td class="text-right">{{ call.remainingBudget | currency }}</td>
-      </tr>
-    </ng-template>
-    <ng-template #emptymessage>
-      <tr>
-        <td colspan="4" i18n="@@fundingCalls.open.none">
-          There are no open funding calls right now.
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-}
+  @if (calls.error(); as error) {
+    <app-load-error [error]="error" />
+  } @else {
+    <p-table [value]="items()" [loading]="calls.isLoading()" dataKey="id">
+      <ng-template #header>
+        <tr>
+          <th scope="col">{{ t('fundingCalls.fields.title') }}</th>
+          <th scope="col">{{ t('fundingCalls.fields.closesAt') }}</th>
+          <th scope="col" class="text-right">
+            {{ t('fundingCalls.fields.maxAmountPerApplication') }}
+          </th>
+          <th scope="col" class="text-right">{{ t('fundingCalls.fields.remainingBudget') }}</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-call>
+        <tr>
+          <td>
+            <a
+              [routerLink]="call.id"
+              [attr.lang]="localizedTextLang()"
+              class="font-semibold text-primary hover:underline"
+              >{{ call.title | localized }}</a
+            >
+            <div class="text-sm text-muted-color">{{ call.reference }}</div>
+          </td>
+          <td>{{ call.closesAt | brusselsDate }}</td>
+          <td class="text-right">{{ call.maxAmountPerApplication | money }}</td>
+          <td class="text-right">{{ call.remainingBudget | money }}</td>
+        </tr>
+      </ng-template>
+      <ng-template #emptymessage>
+        <tr>
+          <td colspan="4">{{ t('fundingCalls.open.empty') }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  }
+</ng-container>

@@ -1,5 +1,5 @@
 @if (problem().status === 404) {
   <app-not-found />
 } @else {
-  <p-message severity="error">{{ message() }}</p-message>
+  <p-message severity="error" *transloco="let t">{{ t(messageKey()) }}</p-message>
 }

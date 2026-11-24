@@ -1,54 +1,52 @@
-<!-- A plain href="#main" would resolve against the base href and leave the page. -->
-<a
-  href="#main"
-  class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:p-2 bg-surface-0"
-  (click)="$event.preventDefault(); main.focus()"
-  i18n="@@layout.skipToMain"
-  >Skip to main content</a
->
+<ng-container *transloco="let t">
+  <!-- A plain href="#main" would resolve against the base href and leave the page. -->
+  <a
+    href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:p-2 bg-surface-0"
+    (click)="$event.preventDefault(); main.focus()"
+    >{{ t('layout.shell.actions.skipToMain') }}</a
+  >
 
-<header class="border-b border-surface">
-  <div class="mx-auto max-w-5xl px-4">
-    <div class="flex flex-wrap items-center justify-between gap-4 py-3">
-      <div class="flex flex-wrap items-center gap-8">
-        <a routerLink="/" class="text-lg font-semibold" i18n="@@layout.appName">CivicGrant</a>
-        @if (user.hasAnyRole()) {
-          <nav aria-label="Main" i18n-aria-label="@@layout.mainNavigation" class="flex gap-6">
-            @if (user.isStaff()) {
+  <header class="border-b border-surface">
+    <div class="mx-auto max-w-5xl px-4">
+      <div class="flex flex-wrap items-center justify-between gap-4 py-3">
+        <div class="flex flex-wrap items-center gap-8">
+          <a routerLink="/" class="text-lg font-semibold">CivicGrant</a>
+          @if (user.hasAnyRole()) {
+            <nav [attr.aria-label]="t('layout.shell.ariaLabels.navigation')" class="flex gap-6">
+              @if (user.isStaff()) {
+                <a
+                  routerLink="/applications"
+                  routerLinkActive="font-semibold text-primary"
+                  ariaCurrentWhenActive="page"
+                  >{{ t('layout.shell.navigation.allApplications') }}</a
+                >
+              } @else if (user.isApplicant()) {
+                <a
+                  routerLink="/applications"
+                  routerLinkActive="font-semibold text-primary"
+                  ariaCurrentWhenActive="page"
+                  >{{ t('layout.shell.navigation.myApplications') }}</a
+                >
+              }
               <a
-                routerLink="/applications"
+                routerLink="/funding-calls"
                 routerLinkActive="font-semibold text-primary"
                 ariaCurrentWhenActive="page"
-                i18n="@@layout.nav.allApplications"
-                >Applications</a
+                >{{ t('layout.shell.navigation.fundingCalls') }}</a
               >
-            } @else if (user.isApplicant()) {
-              <a
-                routerLink="/applications"
-                routerLinkActive="font-semibold text-primary"
-                ariaCurrentWhenActive="page"
-                i18n="@@layout.nav.applications"
-                >My applications</a
-              >
-            }
-            <a
-              routerLink="/funding-calls"
-              routerLinkActive="font-semibold text-primary"
-              ariaCurrentWhenActive="page"
-              i18n="@@layout.nav.fundingCalls"
-              >Funding calls</a
-            >
-          </nav>
-        }
-      </div>
-      <div class="flex items-center gap-4">
-        <app-language-switch />
-        <app-user-menu />
+            </nav>
+          }
+        </div>
+        <div class="flex items-center gap-4">
+          <app-language-switch />
+          <app-user-menu />
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main #main id="main" tabindex="-1" class="mx-auto max-w-5xl px-4 py-8 outline-none">
-  <ng-content />
-</main>
+  <main #main id="main" tabindex="-1" class="mx-auto max-w-5xl px-4 py-8 outline-none">
+    <ng-content />
+  </main>
+</ng-container>

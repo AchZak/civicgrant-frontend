@@ -1,66 +1,58 @@
-<app-page-header heading="New application" i18n-heading="@@applications.new.heading" />
+<ng-container *transloco="let t">
+  <app-page-header [heading]="t('applications.new.heading')" />
 
-@if (call.hasValue()) {
-  @let fundingCall = call.value();
-  <p class="-mt-4 mb-10 text-muted-color" i18n="@@applications.new.forCall">
-    For the funding call
-    <a [routerLink]="['/funding-calls', fundingCall.id]" class="text-primary hover:underline">{{
-      fundingCall.title | localized
-    }}</a>.
-  </p>
+  @if (call.hasValue()) {
+    @let fundingCall = call.value();
+    <p class="-mt-4 mb-10 text-muted-color">
+      {{ t('applications.new.forCall.before') }}
+      <a
+        [routerLink]="['/funding-calls', fundingCall.id]"
+        [attr.lang]="localizedTextLang()"
+        class="text-primary hover:underline"
+        >{{ fundingCall.title | localized }}</a>{{ t('applications.new.forCall.after') }}
+    </p>
 
-  <div class="flex max-w-2xl flex-col gap-12">
-    <section aria-labelledby="organisation-heading">
-      <h2
-        id="organisation-heading"
-        class="mb-4 text-lg font-semibold"
-        i18n="@@applications.new.organisationStep"
-      >
-        1. Your organisation
-      </h2>
-      <app-organisation-picker [(organisation)]="organisation" />
-    </section>
+    <div class="flex max-w-2xl flex-col gap-12">
+      <section aria-labelledby="organisation-heading">
+        <h2 id="organisation-heading" class="mb-4 text-lg font-semibold">
+          {{ t('applications.new.sections.organisation') }}
+        </h2>
+        <app-organisation-picker [(organisation)]="organisation" />
+      </section>
 
-    <section aria-labelledby="project-heading">
-      <h2
-        id="project-heading"
-        class="mb-4 text-lg font-semibold"
-        i18n="@@applications.new.projectStep"
-      >
-        2. Your project
-      </h2>
-      @if (organisation()) {
-        <form [formRoot]="draftForm" class="flex flex-col gap-6">
-          <app-proposal-form
-            [fields]="draftForm"
-            [capPerApplication]="fundingCall.maxAmountPerApplication"
-          />
-          <app-form-errors [errors]="draftForm().errors()" />
-          <div class="flex flex-wrap items-center gap-4">
-            <button pButton type="submit" [disabled]="draftForm().submitting()">
-              <span pButtonLabel i18n="@@applications.new.save">Save as draft</span>
-            </button>
-            <span class="text-sm text-muted-color" i18n="@@applications.new.next">
-              You can attach documents and submit once the draft is saved.
-            </span>
-          </div>
-        </form>
-      } @else {
-        <p class="text-muted-color" i18n="@@applications.new.organisationFirst">
-          Choose your organisation first.
-        </p>
-      }
-    </section>
-  </div>
-} @else if (call.error(); as error) {
-  <app-load-error [error]="error" />
-} @else if (!fundingCallId()) {
-  <p i18n="@@applications.new.noCall">
-    Choose a funding call first.
-    <a routerLink="/funding-calls" class="text-primary hover:underline"
-      >See the open funding calls.</a
-    >
-  </p>
-} @else {
-  <p-skeleton width="24rem" height="2rem" />
-}
+      <section aria-labelledby="project-heading">
+        <h2 id="project-heading" class="mb-4 text-lg font-semibold">
+          {{ t('applications.new.sections.project') }}
+        </h2>
+        @if (organisation()) {
+          <form [formRoot]="draftForm" class="flex flex-col gap-6">
+            <app-proposal-form
+              [fields]="draftForm"
+              [capPerApplication]="fundingCall.maxAmountPerApplication"
+            />
+            <app-form-errors [errors]="draftForm().errors()" />
+            <div class="flex flex-wrap items-center gap-4">
+              <button pButton type="submit" [disabled]="draftForm().submitting()">
+                <span pButtonLabel>{{ t('applications.new.actions.saveDraft') }}</span>
+              </button>
+              <span class="text-sm text-muted-color">{{ t('applications.new.afterSaving') }}</span>
+            </div>
+          </form>
+        } @else {
+          <p class="text-muted-color">{{ t('applications.new.organisationFirst') }}</p>
+        }
+      </section>
+    </div>
+  } @else if (call.error(); as error) {
+    <app-load-error [error]="error" />
+  } @else if (!fundingCallId()) {
+    <p>
+      {{ t('applications.new.noCall') }}
+      <a routerLink="/funding-calls" class="text-primary hover:underline">{{
+        t('applications.actions.seeOpenCalls')
+      }}</a>
+    </p>
+  } @else {
+    <p-skeleton width="24rem" height="2rem" />
+  }
+</ng-container>

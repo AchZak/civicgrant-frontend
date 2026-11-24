@@ -6,5 +6,6 @@ import { Component, input } from '@angular/core';
 })
 export class PageHeader {
   readonly heading = input.required<string>();
+  readonly headingLang = input<string | null>(null);
   readonly intro = input<string>();
 }

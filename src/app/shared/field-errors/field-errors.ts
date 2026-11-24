@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
 import { ValidationError } from '@angular/forms/signals';
+import { TranslocoDirective } from '@jsverse/transloco';
 import { Message } from 'primeng/message';
 
 @Component({
-  imports: [Message],
+  imports: [TranslocoDirective, Message],
   selector: 'app-field-errors',
   templateUrl: './field-errors.html',
 })

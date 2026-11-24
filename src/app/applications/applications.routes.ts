@@ -11,19 +11,19 @@ export const applicationsRoutes: Routes = [
     path: '',
     title: () =>
       inject(CurrentUser).isStaff()
-        ? $localize`:@@applications.all.title:Applications`
-        : $localize`:@@applications.mine.title:My applications`,
+        ? 'applications.list.all.title'
+        : 'applications.list.mine.title',
     component: ApplicationList,
   },
   {
     path: 'new',
-    title: $localize`:@@applications.new.title:New application`,
+    title: 'applications.new.title',
     canActivate: [requireAnyRole('APPLICANT')],
     component: NewApplication,
   },
   {
     path: ':applicationId',
-    title: $localize`:@@applications.detail.title:Application`,
+    title: 'applications.detail.title',
     component: ApplicationDetail,
   },
 ];

@@ -1,3 +1,5 @@
-@for (error of errors(); track $index) {
-  <p-message severity="error">{{ error.message }}</p-message>
-}
+<ng-container *transloco="let t">
+  @for (error of errors(); track $index) {
+    <p-message severity="error">{{ t(error.message ?? '') }}</p-message>
+  }
+</ng-container>
