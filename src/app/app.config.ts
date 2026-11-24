@@ -1,5 +1,9 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import {
+  ApplicationConfig,
+  DEFAULT_CURRENCY_CODE,
+  provideBrowserGlobalErrorListeners,
+} from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
@@ -15,6 +19,7 @@ export function appConfig(config: RuntimeConfig, session: Session): ApplicationC
       provideRouter(routes, withComponentInputBinding()),
       provideHttpClient(withInterceptors([accessTokenInterceptor])),
       { provide: Session, useValue: session },
+      { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
       providePrimeNG({
         license: config.primeUiLicenseKey,
         theme: {
