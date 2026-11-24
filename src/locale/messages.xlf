@@ -996,6 +996,132 @@
           <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="primeng.fileSizeTypes" datatype="html">
+        <source>B,KB,MB,GB,TB,PB,EB,ZB,YB</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.choose" datatype="html">
+        <source>Choose</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.upload" datatype="html">
+        <source>Upload</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.emptyMessage" datatype="html">
+        <source>No options available</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.emptySearchMessage" datatype="html">
+        <source>No results found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.close" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.browseFiles" datatype="html">
+        <source>Browse files</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.removeLabel" datatype="html">
+        <source>Remove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.pageLabel" datatype="html">
+        <source>Page {page}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.firstPageLabel" datatype="html">
+        <source>First page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.lastPageLabel" datatype="html">
+        <source>Last page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.nextPageLabel" datatype="html">
+        <source>Next page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.prevPageLabel" datatype="html">
+        <source>Previous page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.previousPageLabel" datatype="html">
+        <source>Previous page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.rowsPerPageLabel" datatype="html">
+        <source>Rows per page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.jumpToPageDropdownLabel" datatype="html">
+        <source>Jump to page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="primeng.aria.jumpToPageInputLabel" datatype="html">
+        <source>Jump to page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/primeng-translation.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="app.unavailable" datatype="html">
         <source>CivicGrant is unavailable right now. Please try again later.</source>
         <context-group purpose="location">

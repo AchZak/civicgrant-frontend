@@ -354,6 +354,78 @@
         <source>Register the organisation</source>
         <target>Enregistrer l'organisation</target>
       </trans-unit>
+      <trans-unit id="primeng.aria.browseFiles" datatype="html">
+        <source>Browse files</source>
+        <target>Parcourir les fichiers</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.close" datatype="html">
+        <source>Close</source>
+        <target>Fermer</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.firstPageLabel" datatype="html">
+        <source>First page</source>
+        <target>Première page</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.jumpToPageDropdownLabel" datatype="html">
+        <source>Jump to page</source>
+        <target>Aller à la page</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.jumpToPageInputLabel" datatype="html">
+        <source>Jump to page</source>
+        <target>Aller à la page</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.lastPageLabel" datatype="html">
+        <source>Last page</source>
+        <target>Dernière page</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.nextPageLabel" datatype="html">
+        <source>Next page</source>
+        <target>Page suivante</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.pageLabel" datatype="html">
+        <source>Page {page}</source>
+        <target>Page {page}</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.previousPageLabel" datatype="html">
+        <source>Previous page</source>
+        <target>Page précédente</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.prevPageLabel" datatype="html">
+        <source>Previous page</source>
+        <target>Page précédente</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.removeLabel" datatype="html">
+        <source>Remove</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="primeng.aria.rowsPerPageLabel" datatype="html">
+        <source>Rows per page</source>
+        <target>Lignes par page</target>
+      </trans-unit>
+      <trans-unit id="primeng.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Annuler</target>
+      </trans-unit>
+      <trans-unit id="primeng.choose" datatype="html">
+        <source>Choose</source>
+        <target>Choisir</target>
+      </trans-unit>
+      <trans-unit id="primeng.emptyMessage" datatype="html">
+        <source>No options available</source>
+        <target>Aucune option disponible</target>
+      </trans-unit>
+      <trans-unit id="primeng.emptySearchMessage" datatype="html">
+        <source>No results found</source>
+        <target>Aucun résultat trouvé</target>
+      </trans-unit>
+      <trans-unit id="primeng.fileSizeTypes" datatype="html">
+        <source>B,KB,MB,GB,TB,PB,EB,ZB,YB</source>
+        <target>o,Ko,Mo,Go,To,Po,Eo,Zo,Yo</target>
+      </trans-unit>
+      <trans-unit id="primeng.upload" datatype="html">
+        <source>Upload</source>
+        <target>Téléverser</target>
+      </trans-unit>
       <trans-unit id="problem.amountNegative" datatype="html">
         <source>An amount can&apos;t be negative.</source>
         <target>Un montant ne peut pas être négatif.</target>

@@ -10,6 +10,7 @@ import { routes } from './app.routes';
 import { accessTokenInterceptor } from './auth/access-token-interceptor';
 import { Session } from './auth/session';
 import { civicGrantPreset } from './civicgrant-preset';
+import { primeNgTranslation } from './primeng-translation';
 import { RuntimeConfig } from './runtime-config';
 
 export function appConfig(config: RuntimeConfig, session: Session): ApplicationConfig {
@@ -22,6 +23,7 @@ export function appConfig(config: RuntimeConfig, session: Session): ApplicationC
       { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
       providePrimeNG({
         license: config.primeUiLicenseKey,
+        translation: primeNgTranslation,
         theme: {
           preset: civicGrantPreset,
           options: {
