@@ -44,4 +44,10 @@ export class ApplicationsApi {
   create(request: CreateApplicationRequest): Promise<Application> {
     return firstValueFrom(this.http.post<Application>(applicationsUrl, request));
   }
+
+  editProposal(applicationId: string, proposal: ProjectProposal): Promise<Application> {
+    return firstValueFrom(
+      this.http.put<Application>(`${applicationsUrl}/${applicationId}/proposal`, proposal),
+    );
+  }
 }

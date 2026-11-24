@@ -34,6 +34,22 @@
         <source>No documents attached yet.</source>
         <target>Aucune pièce justificative jointe pour l'instant.</target>
       </trans-unit>
+      <trans-unit id="applications.draft.project" datatype="html">
+        <source>Your project</source>
+        <target>Votre projet</target>
+      </trans-unit>
+      <trans-unit id="applications.draft.reload" datatype="html">
+        <source>Reload the application</source>
+        <target>Recharger la demande</target>
+      </trans-unit>
+      <trans-unit id="applications.draft.save" datatype="html">
+        <source>Save changes</source>
+        <target>Enregistrer les modifications</target>
+      </trans-unit>
+      <trans-unit id="applications.draft.saved" datatype="html">
+        <source>Your changes are saved.</source>
+        <target>Vos modifications sont enregistrées.</target>
+      </trans-unit>
       <trans-unit id="applications.fundingCall" datatype="html">
         <source>Funding call</source>
         <target>Appel à projets</target>

@@ -293,7 +293,7 @@
         <source>Requested amount</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/my-applications/my-applications.html</context>
@@ -304,84 +304,112 @@
         <source>Total project budget</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.language" datatype="html">
         <source>Language of the project</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.submittedAt" datatype="html">
         <source>Submitted on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.createdAt" datatype="html">
         <source>Created on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.draft.project" datatype="html">
+        <source> Your project </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.draft.reload" datatype="html">
+        <source>Reload the application</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
+          <context context-type="linenumber">64,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.draft.save" datatype="html">
+        <source>Save changes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
+          <context context-type="linenumber">74,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="applications.draft.saved" datatype="html">
+        <source>Your changes are saved.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
+          <context context-type="linenumber">79,81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.description" datatype="html">
         <source> Project description </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">53,55</context>
+          <context context-type="linenumber">93,95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.documents" datatype="html">
         <source> Supporting documents </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">60,62</context>
+          <context context-type="linenumber">101,103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.documents.none" datatype="html">
         <source> No documents attached yet. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">73,76</context>
+          <context context-type="linenumber">114,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.decision" datatype="html">
         <source> Decision </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">83,85</context>
+          <context context-type="linenumber">124,126</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.grantedAmount" datatype="html">
         <source>Granted amount</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.rejectionGround" datatype="html">
         <source>Ground for rejection</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">94,95</context>
+          <context context-type="linenumber">135,136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.decidedAt" datatype="html">
         <source>Decided on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applications.motivation" datatype="html">
         <source>Motivation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/application-detail/application-detail.html</context>
-          <context context-type="linenumber">106,107</context>
+          <context context-type="linenumber">147,148</context>
         </context-group>
       </trans-unit>
       <trans-unit id="applicationStatus.DRAFT" datatype="html">
@@ -581,42 +609,42 @@
         <source>Project description</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/proposal-form/proposal-form.html</context>
-          <context context-type="linenumber">18,19</context>
+          <context context-type="linenumber">19,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="proposal.description.hint" datatype="html">
         <source>What you&apos;ll do, for whom, where and when.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/proposal-form/proposal-form.html</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="proposal.requestedAmount" datatype="html">
         <source>Requested amount</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/proposal-form/proposal-form.html</context>
-          <context context-type="linenumber">38,39</context>
+          <context context-type="linenumber">40,41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="proposal.requestedAmount.cap" datatype="html">
         <source>At most <x id="INTERPOLATION" equiv-text="{{ cap | currency }}"/> for this funding call.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/proposal-form/proposal-form.html</context>
-          <context context-type="linenumber">57,58</context>
+          <context context-type="linenumber">59,60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="proposal.totalProjectBudget" datatype="html">
         <source>Total project budget</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/proposal-form/proposal-form.html</context>
-          <context context-type="linenumber">63,64</context>
+          <context context-type="linenumber">65,66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="proposal.language" datatype="html">
         <source>Language of the project</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/applications/proposal-form/proposal-form.html</context>
-          <context context-type="linenumber">81,82</context>
+          <context context-type="linenumber">83,84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="language.NL" datatype="html">
@@ -923,35 +951,35 @@
         <source>Look up</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/organisations/organisation-picker/organisation-picker.html</context>
-          <context context-type="linenumber">34,36</context>
+          <context context-type="linenumber">35,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="organisations.notRegistered" datatype="html">
         <source>No organisation with enterprise number <x id="INTERPOLATION" equiv-text="{{ format(enterpriseNumber) }}"/> is registered yet. Register it to continue.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/organisations/organisation-picker/organisation-picker.html</context>
-          <context context-type="linenumber">44,45</context>
+          <context context-type="linenumber">45,46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="organisations.name" datatype="html">
         <source>Name of the organisation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/organisations/organisation-picker/organisation-picker.html</context>
-          <context context-type="linenumber">48,49</context>
+          <context context-type="linenumber">49,50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="organisations.legalForm" datatype="html">
         <source>Legal form</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/organisations/organisation-picker/organisation-picker.html</context>
-          <context context-type="linenumber">62,63</context>
+          <context context-type="linenumber">64,65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="organisations.register" datatype="html">
         <source>Register the organisation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/organisations/organisation-picker/organisation-picker.html</context>
-          <context context-type="linenumber">79,81</context>
+          <context context-type="linenumber">82,84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="organisations.enterpriseNumber.required" datatype="html">

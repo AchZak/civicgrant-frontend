@@ -34,6 +34,22 @@
         <source>No documents attached yet.</source>
         <target>Nog geen bijlagen toegevoegd.</target>
       </trans-unit>
+      <trans-unit id="applications.draft.project" datatype="html">
+        <source>Your project</source>
+        <target>Uw project</target>
+      </trans-unit>
+      <trans-unit id="applications.draft.reload" datatype="html">
+        <source>Reload the application</source>
+        <target>De aanvraag opnieuw laden</target>
+      </trans-unit>
+      <trans-unit id="applications.draft.save" datatype="html">
+        <source>Save changes</source>
+        <target>Wijzigingen opslaan</target>
+      </trans-unit>
+      <trans-unit id="applications.draft.saved" datatype="html">
+        <source>Your changes are saved.</source>
+        <target>Uw wijzigingen zijn opgeslagen.</target>
+      </trans-unit>
       <trans-unit id="applications.fundingCall" datatype="html">
         <source>Funding call</source>
         <target>Projectoproep</target>

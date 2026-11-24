@@ -24,15 +24,17 @@
           <p-skeleton width="12rem" />
         }
       </div>
-      <div app-detail label="Requested amount" i18n-label="@@applications.requestedAmount">
-        {{ current.proposal.requestedAmount | currency }}
-      </div>
-      <div app-detail label="Total project budget" i18n-label="@@applications.totalProjectBudget">
-        {{ current.proposal.totalProjectBudget | currency }}
-      </div>
-      <div app-detail label="Language of the project" i18n-label="@@applications.language">
-        {{ languageLabel(current.proposal.language) }}
-      </div>
+      @if (!isDraft()) {
+        <div app-detail label="Requested amount" i18n-label="@@applications.requestedAmount">
+          {{ current.proposal.requestedAmount | currency }}
+        </div>
+        <div app-detail label="Total project budget" i18n-label="@@applications.totalProjectBudget">
+          {{ current.proposal.totalProjectBudget | currency }}
+        </div>
+        <div app-detail label="Language of the project" i18n-label="@@applications.language">
+          {{ languageLabel(current.proposal.language) }}
+        </div>
+      }
       @if (current.submittedAt; as submittedAt) {
         <div app-detail label="Submitted on" i18n-label="@@applications.submittedAt">
           {{ submittedAt | brusselsDate }}
@@ -44,16 +46,55 @@
       }
     </dl>
 
-    <section aria-labelledby="description-heading">
-      <h2
-        id="description-heading"
-        class="mb-2 text-lg font-semibold"
-        i18n="@@applications.description"
-      >
-        Project description
-      </h2>
-      <p class="whitespace-pre-line">{{ current.proposal.description }}</p>
-    </section>
+    @if (isDraft()) {
+      <section aria-labelledby="proposal-heading" class="max-w-2xl">
+        <h2
+          id="proposal-heading"
+          class="mb-4 text-lg font-semibold"
+          i18n="@@applications.draft.project"
+        >
+          Your project
+        </h2>
+        <form [formRoot]="proposalForm" class="flex flex-col gap-6">
+          <app-proposal-form [fields]="proposalForm" [capPerApplication]="cap()" />
+          <app-form-errors [errors]="proposalForm().errors()" />
+          @if (concurrentUpdate()) {
+            <div>
+              <button pButton type="button" outlined (click)="reload()">
+                <span pButtonLabel i18n="@@applications.draft.reload">Reload the application</span>
+              </button>
+            </div>
+          }
+          <div class="flex flex-wrap items-center gap-4">
+            <button
+              pButton
+              type="submit"
+              [disabled]="proposalForm().submitting() || !proposalForm().dirty()"
+            >
+              <span pButtonLabel i18n="@@applications.draft.save">Save changes</span>
+            </button>
+            <span role="status" class="text-sm text-muted-color">
+              @if (saved() && !proposalForm().dirty()) {
+                <ng-container i18n="@@applications.draft.saved"
+                  >Your changes are saved.</ng-container
+                >
+              }
+            </span>
+          </div>
+        </form>
+      </section>
+    } @else {
+      <section aria-labelledby="description-heading">
+        <h2
+          id="description-heading"
+          class="mb-2 text-lg font-semibold"
+          i18n="@@applications.description"
+        >
+          Project description
+        </h2>
+        <p class="whitespace-pre-line">{{ current.proposal.description }}</p>
+      </section>
+    }
 
     <section aria-labelledby="documents-heading">
       <h2 id="documents-heading" class="mb-2 text-lg font-semibold" i18n="@@applications.documents">
