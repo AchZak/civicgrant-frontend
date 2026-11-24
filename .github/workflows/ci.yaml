@@ -1,4 +1,5 @@
-# Pull requests and pushes to develop or main are checked: formatting, lint, unit tests and the build.
+# Pull requests and pushes to develop or main are checked: formatting, lint, unit tests, the
+# build, and the Playwright journeys against the Dutch build with a mocked API.
 name: CI
 
 on:
@@ -50,3 +51,33 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  end-to-end:
+    name: End-to-end tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run the journeys
+        run: npx playwright test --forbid-only --retries=1 --reporter=github,html
+
+      - name: Keep the report
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
