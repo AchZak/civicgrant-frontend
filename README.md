@@ -10,7 +10,7 @@ The app is in Dutch and French, and it's a thin presentation layer: the backend 
 
 - [x] Scaffold: the shell with its language switch, PrimeNG and Tailwind, both languages, types generated from the API contract, CI
 - [x] Sign-in with Microsoft Entra ID (the app's side; its Entra registration isn't deployed yet)
-- [ ] Navigation per role
+- [x] Navigation and start page per role
 - [x] Applicant flow: funding calls, organisations, drafts, documents and submission
 - [ ] Assessment and decision
 - [ ] Opening a funding call
@@ -28,7 +28,7 @@ Forms use Angular's Signal Forms with PrimeNG's inputs. The only rules checked i
 
 Each language is its own build, with Angular's built-in i18n: Dutch under `/nl/` and French under `/fr/`. Switching language loads the other build. Every message has a fixed id, so rewording the English never loses a translation, the build fails when a translation is missing, and a lint rule fails when a template has text that isn't marked for translation.
 
-Sign-in uses Microsoft Entra ID with MSAL, before Angular starts: the app either runs with a signed-in user or redirects to sign in. An interceptor adds the access token to API calls only.
+Sign-in uses Microsoft Entra ID with MSAL, before Angular starts: the app either runs with a signed-in user or redirects to sign in. An interceptor adds the access token to API calls only. The user's roles come from the API's `/me`, read once at startup: each role gets its own start page and navigation, and a page outside the user's roles says so. That's a courtesy, not security: the API checks the role on every call.
 
 One build runs in every environment. The values that differ, the Entra registration and PrimeNG's licence key, come from `/config.json`, which the app loads before it starts and the deployment writes.
 
