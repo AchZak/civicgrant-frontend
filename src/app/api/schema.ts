@@ -385,6 +385,28 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get the signed-in user
+         * @description Roles: any. The caller's id and their CivicGrant roles, read from the access token,
+         *     so a client can show only what the user may use. Every other operation checks the
+         *     roles again.
+         */
+        get: operations["getCurrentUser"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -694,6 +716,23 @@ export interface components {
             motivation: string;
             /** Format: date-time */
             decidedAt: string;
+        };
+        /**
+         * @description An app role a user holds in Microsoft Entra ID
+         * @enum {string}
+         */
+        Role: "APPLICANT" | "ASSESSOR" | "DECISION_MAKER" | "PROGRAMME_MANAGER";
+        /**
+         * @description The signed-in user. `roles` lists each role CivicGrant knows once, in the order of
+         *     `Role`; roles it doesn't know are left out.
+         */
+        CurrentUser: {
+            /**
+             * @description The user's object id in Microsoft Entra ID
+             * @example 3f1c2b7e-5a4d-4c3b-9e2f-1a0b9c8d7e6f
+             */
+            id: string;
+            roles: components["schemas"]["Role"][];
         };
         /**
          * @description A Problem Details object (RFC 9457).
@@ -1493,6 +1532,28 @@ export interface operations {
             403: components["responses"]["Forbidden"];
             404: components["responses"]["NotFound"];
             409: components["responses"]["Conflict"];
+            default: components["responses"]["ProblemResponse"];
+        };
+    };
+    getCurrentUser: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The signed-in user */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CurrentUser"];
+                };
+            };
+            401: components["responses"]["Unauthorized"];
             default: components["responses"]["ProblemResponse"];
         };
     };
