@@ -3,27 +3,21 @@
   <app-page-header [heading]="fundingCall.title | localized" [intro]="fundingCall.reference" />
 
   <dl class="grid max-w-2xl gap-x-8 gap-y-6 sm:grid-cols-2">
-    <div>
-      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.opensAt">
-        Open for applications from
-      </dt>
-      <dd class="font-semibold">{{ fundingCall.opensAt | brusselsDate }}</dd>
+    <div app-detail label="Open for applications from" i18n-label="@@fundingCalls.opensAt">
+      {{ fundingCall.opensAt | brusselsDate }}
     </div>
-    <div>
-      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.closesAt">Closes on</dt>
-      <dd class="font-semibold">{{ fundingCall.closesAt | brusselsDate }}</dd>
+    <div app-detail label="Closes on" i18n-label="@@fundingCalls.closesAt">
+      {{ fundingCall.closesAt | brusselsDate }}
     </div>
-    <div>
-      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.maxAmountPerApplication">
-        Maximum per application
-      </dt>
-      <dd class="font-semibold">{{ fundingCall.maxAmountPerApplication | currency }}</dd>
+    <div
+      app-detail
+      label="Maximum per application"
+      i18n-label="@@fundingCalls.maxAmountPerApplication"
+    >
+      {{ fundingCall.maxAmountPerApplication | currency }}
     </div>
-    <div>
-      <dt class="text-sm text-muted-color" i18n="@@fundingCalls.remainingBudget">
-        Remaining budget
-      </dt>
-      <dd class="font-semibold">{{ fundingCall.remainingBudget | currency }}</dd>
+    <div app-detail label="Remaining budget" i18n-label="@@fundingCalls.remainingBudget">
+      {{ fundingCall.remainingBudget | currency }}
     </div>
   </dl>
 } @else if (call.error(); as error) {
