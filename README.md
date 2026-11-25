@@ -13,7 +13,7 @@ The app is in Dutch, French and English, and it's a thin presentation layer: the
 - [x] Sign-in with Microsoft Entra ID (the app's side; its Entra registration isn't deployed yet)
 - [x] Navigation and start page per role
 - [x] Applicant flow: funding calls, organisations, drafts, documents and submission
-- [ ] Assessment and decision
+- [x] Assessment and decision
 - [ ] Opening a funding call
 - [ ] Deployment to Azure Static Web Apps
 
@@ -25,7 +25,9 @@ The API contract in the backend repository is the single source of truth. `npm r
 
 The API answers with codes, never with text. Statuses, legal forms, rejection grounds and problem types are translated in the app, one list per kind, and an unknown code falls back to a generic message, so a new code in the backend never breaks a page. When the backend refuses a form, the problem's input issues and field-specific codes appear next to the field concerned, and everything else above the form. A change made by someone else at the same time gives a 409, and the page offers to reload.
 
-Forms use Angular's Signal Forms with PrimeNG's inputs. The only rules checked in the browser are the ones the contract states (required fields, maximum lengths, the funding call's maximum amount), so the user sees them early; the backend still decides.
+Forms use Angular's Signal Forms with PrimeNG's inputs. The only rules checked in the browser are the ones the contract states (required fields, maximum lengths, the funding call's maximum amount, an amount only when approving), so the user sees them early; the backend still decides.
+
+Staff work from the same application page as applicants. An assessor gets the assessment form while an application is submitted, and a decision maker the decision form once it's assessed, with the assessor's proposed amount filled in and a confirmation first, since a decision is final. The page can't know who assessed an application, so a decision maker who did sees the form and the backend's refusal above it. Staff can filter the list by status, and the filter stays in the address bar.
 
 The texts come from Transloco, in one JSON file per language with English as the reference. The switch in the header changes the language without a reload and remembers it; a first visit gets the browser's language if it's one of the three, else Dutch. Templates and code only hold keys, grouped by feature and then by screen, so the same field label is one key wherever it shows up. Each file is imported rather than fetched, so the build gives it a hashed name and a browser never keeps an old version after a deploy. Money, dates and PrimeNG's own texts follow the language too. A funding call's title only exists in Dutch and French, so the English pages show the Dutch one, marked as Dutch for screen readers.
 
@@ -45,6 +47,7 @@ The backend tests every business rule and access rule, so the frontend keeps its
 - [application-detail.ts](src/app/applications/application-detail/application-detail.ts): a page built from resources, with a draft form that reloads after a save and recovers from a concurrent change.
 - [start-session.ts](src/app/auth/start-session.ts) and [start-session.e2e.ts](src/app/auth/start-session.e2e.ts): the sign-in, and the fake user the journeys run with.
 - [error-handling.spec.ts](e2e/error-handling.spec.ts): a refused form and a concurrent change, tested the way a user sees them.
+- [decision.ts](src/app/applications/decision.ts) and [application-decision.ts](src/app/applications/application-decision/application-decision.ts): a form whose rules depend on the chosen outcome, and a final step confirmed before it's sent.
 - [current-language.ts](src/app/language/current-language.ts) and [en.json](src/i18n/en.json): how the language switches at runtime, and how the texts are organised.
 
 ## Running it locally
