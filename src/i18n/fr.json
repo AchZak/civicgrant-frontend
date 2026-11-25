@@ -55,7 +55,11 @@
       "title": "Appels à projets ouverts",
       "heading": "Appels à projets ouverts",
       "intro": "Choisissez un appel à projets pour en lire les conditions et introduire une demande.",
-      "empty": "Il n'y a pas d'appel à projets ouvert pour le moment."
+      "managerIntro": "Les appels à projets qui acceptent des demandes maintenant. Un appel que vous ouvrez apparaît ici à partir de son jour d'ouverture.",
+      "empty": "Il n'y a pas d'appel à projets ouvert pour le moment.",
+      "actions": {
+        "openCall": "Ouvrir un appel à projets"
+      }
     },
     "detail": {
       "title": "Appel à projets",

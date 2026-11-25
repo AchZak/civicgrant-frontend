@@ -4,6 +4,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
 import { ButtonDirective, ButtonLabel } from 'primeng/button';
 import { Message } from 'primeng/message';
 import { Skeleton } from 'primeng/skeleton';
+import { CurrentUser } from '../../auth/current-user';
 import { CurrentLanguage } from '../../language/current-language';
 import { BrusselsDatePipe } from '../../shared/brussels-date-pipe';
 import { Detail } from '../../shared/detail/detail';
@@ -34,6 +35,7 @@ import { acceptsApplications } from '../submission-period';
 export class FundingCallDetail {
   readonly fundingCallId = input.required<string>();
 
+  protected readonly user = inject(CurrentUser);
   protected readonly call = fundingCallResource(this.fundingCallId);
   protected readonly localizedTextLang = inject(CurrentLanguage).localizedTextLang;
 

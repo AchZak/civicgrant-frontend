@@ -55,7 +55,11 @@
       "title": "Open funding calls",
       "heading": "Open funding calls",
       "intro": "Choose a funding call to read its conditions and apply.",
-      "empty": "There are no open funding calls right now."
+      "managerIntro": "The funding calls that accept applications now. A call you open appears here from its opening day.",
+      "empty": "There are no open funding calls right now.",
+      "actions": {
+        "openCall": "Open a funding call"
+      }
     },
     "detail": {
       "title": "Funding call",

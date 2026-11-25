@@ -40,6 +40,22 @@ test('an assessor lands on the submitted applications', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Nieuwe aanvraag' })).toBeHidden();
 });
 
+test('a programme manager lands on the open funding calls', async ({ page }) => {
+  // given
+  await mockApi(page, {
+    ...signedInAs('PROGRAMME_MANAGER'),
+    'GET /api/v1/fundingCalls': json({ items: [fundingCall] }),
+  });
+
+  // when
+  await page.goto('/');
+
+  // then
+  await expect(page.getByRole('heading', { name: 'Open projectoproepen' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Een projectoproep openen' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Buurtprojecten 2026' })).toBeVisible();
+});
+
 test('an assessor who opens a page for applicants is refused', async ({ page }) => {
   // given
   await mockApi(page, { ...signedInAs('ASSESSOR'), ...referenceData() });

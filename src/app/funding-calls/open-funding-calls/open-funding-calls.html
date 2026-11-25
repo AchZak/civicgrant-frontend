@@ -1,8 +1,11 @@
 <ng-container *transloco="let t">
-  <app-page-header
-    [heading]="t('fundingCalls.open.heading')"
-    [intro]="t('fundingCalls.open.intro')"
-  />
+  <app-page-header [heading]="t('fundingCalls.open.heading')" [intro]="t(introKey())">
+    @if (user.isProgrammeManager()) {
+      <a pButton routerLink="new">
+        <span pButtonLabel>{{ t('fundingCalls.open.actions.openCall') }}</span>
+      </a>
+    }
+  </app-page-header>
 
   @if (calls.error(); as error) {
     <app-load-error [error]="error" />

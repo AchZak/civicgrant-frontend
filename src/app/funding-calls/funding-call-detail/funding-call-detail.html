@@ -6,15 +6,17 @@
       [headingLang]="localizedTextLang()"
       [intro]="fundingCall.reference"
     >
-      <button
-        pButton
-        type="button"
-        [disabled]="!acceptsApplications()"
-        [attr.aria-describedby]="acceptsApplications() ? null : 'call-not-open'"
-        (click)="apply(fundingCall.id)"
-      >
-        <span pButtonLabel>{{ t('fundingCalls.detail.actions.apply') }}</span>
-      </button>
+      @if (user.isApplicant()) {
+        <button
+          pButton
+          type="button"
+          [disabled]="!acceptsApplications()"
+          [attr.aria-describedby]="acceptsApplications() ? null : 'call-not-open'"
+          (click)="apply(fundingCall.id)"
+        >
+          <span pButtonLabel>{{ t('fundingCalls.detail.actions.apply') }}</span>
+        </button>
+      }
     </app-page-header>
 
     @if (!acceptsApplications()) {

@@ -18,6 +18,7 @@ export class CurrentUser {
   readonly isStaff = computed(() => this.roles().some((role) => staffRoles.includes(role)));
   readonly isAssessor = computed(() => this.roles().includes('ASSESSOR'));
   readonly isDecisionMaker = computed(() => this.roles().includes('DECISION_MAKER'));
+  readonly isProgrammeManager = computed(() => this.roles().includes('PROGRAMME_MANAGER'));
   readonly hasAnyRole = computed(() => this.roles().length > 0);
 
   async load(): Promise<void> {

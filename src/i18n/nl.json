@@ -55,7 +55,11 @@
       "title": "Open projectoproepen",
       "heading": "Open projectoproepen",
       "intro": "Kies een projectoproep om de voorwaarden te lezen en een aanvraag in te dienen.",
-      "empty": "Er zijn momenteel geen open projectoproepen."
+      "managerIntro": "De projectoproepen die nu aanvragen aanvaarden. Een oproep die u opent, verschijnt hier vanaf de openingsdag.",
+      "empty": "Er zijn momenteel geen open projectoproepen.",
+      "actions": {
+        "openCall": "Een projectoproep openen"
+      }
     },
     "detail": {
       "title": "Projectoproep",
