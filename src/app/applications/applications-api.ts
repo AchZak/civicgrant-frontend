@@ -7,7 +7,12 @@ export type Application = components['schemas']['Application'];
 export type ApplicationSummary = components['schemas']['ApplicationSummary'];
 export type ApplicationStatus = components['schemas']['ApplicationStatus'];
 export type ProjectProposal = components['schemas']['ProjectProposal'];
+export type Assessment = components['schemas']['Assessment'];
+export type AssessmentRequest = components['schemas']['AssessmentRequest'];
+export type Recommendation = components['schemas']['Recommendation'];
 export type Decision = components['schemas']['Decision'];
+export type DecisionRequest = components['schemas']['DecisionRequest'];
+export type DecisionOutcome = components['schemas']['DecisionOutcome'];
 export type RejectionGround = components['schemas']['RejectionGround'];
 export type SupportingDocument = components['schemas']['SupportingDocument'];
 type ApplicationPage = components['schemas']['ApplicationPage'];
@@ -16,19 +21,31 @@ type CreateApplicationRequest = components['schemas']['CreateApplicationRequest'
 export interface ApplicationsQuery {
   readonly page: number;
   readonly pageSize: number;
+  readonly status?: ApplicationStatus;
 }
 
 const applicationsUrl = '/api/v1/applications';
 
 export function applicationPageResource(query: () => ApplicationsQuery) {
-  return httpResource<ApplicationPage>(() => ({
-    url: applicationsUrl,
-    params: { page: query().page, pageSize: query().pageSize },
-  }));
+  return httpResource<ApplicationPage>(() => {
+    const { page, pageSize, status } = query();
+    const params: Record<string, string | number> = { page, pageSize };
+    if (status !== undefined) {
+      params['status'] = status;
+    }
+    return { url: applicationsUrl, params };
+  });
 }
 
 export function applicationResource(applicationId: () => string) {
   return httpResource<Application>(() => `${applicationsUrl}/${applicationId()}`);
+}
+
+export function assessmentResource(applicationId: () => string | undefined) {
+  return httpResource<Assessment>(() => {
+    const id = applicationId();
+    return id === undefined ? undefined : `${applicationsUrl}/${id}/assessment`;
+  });
 }
 
 export function decisionResource(applicationId: () => string | undefined) {
@@ -54,6 +71,14 @@ export class ApplicationsApi {
 
   async submit(applicationId: string): Promise<void> {
     await firstValueFrom(this.http.post(`${applicationsUrl}/${applicationId}/submission`, null));
+  }
+
+  async recordAssessment(applicationId: string, request: AssessmentRequest): Promise<void> {
+    await firstValueFrom(this.http.post(`${applicationsUrl}/${applicationId}/assessment`, request));
+  }
+
+  async decide(applicationId: string, request: DecisionRequest): Promise<void> {
+    await firstValueFrom(this.http.post(`${applicationsUrl}/${applicationId}/decision`, request));
   }
 
   async attachDocument(

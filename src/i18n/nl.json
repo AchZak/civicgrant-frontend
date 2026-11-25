@@ -2,6 +2,10 @@
   "common": {
     "actions": {
       "backToStart": "Terug naar de startpagina"
+    },
+    "answers": {
+      "yes": "Ja",
+      "no": "Nee"
     }
   },
   "layout": {
@@ -135,6 +139,14 @@
       "insufficientQuality": "De kwaliteit van het project is onvoldoende",
       "unknown": "Een andere grond"
     },
+    "recommendation": {
+      "approve": "Goedkeuren",
+      "reject": "Afwijzen"
+    },
+    "decisionOutcome": {
+      "approved": "Goedkeuren",
+      "rejected": "Afwijzen"
+    },
     "actions": {
       "seeOpenCalls": "Bekijk de open projectoproepen."
     },
@@ -150,6 +162,10 @@
         "heading": "Aanvragen",
         "intro": "Ingediende aanvragen, de laatst gewijzigde eerst.",
         "empty": "Er zijn nog geen ingediende aanvragen."
+      },
+      "filter": {
+        "label": "Status",
+        "all": "Alle statussen"
       },
       "actions": {
         "newApplication": "Nieuwe aanvraag"
@@ -181,6 +197,7 @@
         "proposal": "Uw project",
         "documents": "Bijlagen",
         "submission": "Indienen",
+        "assessment": "Beoordeling",
         "decision": "Beslissing"
       },
       "actions": {
@@ -223,12 +240,52 @@
         "reject": "Nog niet"
       }
     },
+    "assessment": {
+      "fields": {
+        "eligible": "Komt in aanmerking",
+        "recommendation": "Advies",
+        "proposedAmount": "Voorgesteld bedrag",
+        "comment": "Toelichting",
+        "assessedAt": "Beoordeeld op"
+      },
+      "hints": {
+        "proposedAmount": "Hoogstens het gevraagde bedrag, {{ amount }}."
+      },
+      "validation": {
+        "eligibleRequired": "Geef aan of de aanvraag in aanmerking komt.",
+        "recommendationRequired": "Kies een advies.",
+        "proposedAmountRequired": "Vul het voorgestelde bedrag in."
+      },
+      "actions": {
+        "record": "Beoordeling registreren"
+      }
+    },
     "decision": {
       "fields": {
+        "outcome": "Uw beslissing",
         "grantedAmount": "Toegekend bedrag",
         "rejectionGround": "Grond voor afwijzing",
         "decidedAt": "Beslist op",
         "motivation": "Motivering"
+      },
+      "hints": {
+        "grantedAmount": "Hoogstens het gevraagde bedrag, {{ amount }}.",
+        "remainingBudget": "Nog beschikbaar in het budget van de projectoproep: {{ amount }}.",
+        "motivation": "Wettelijk verplicht: leg de beslissing uit zodat de aanvrager ze begrijpt."
+      },
+      "validation": {
+        "outcomeRequired": "Kies goedkeuren of afwijzen.",
+        "grantedAmountRequired": "Vul het toegekende bedrag in.",
+        "rejectionGroundRequired": "Kies de grond voor afwijzing."
+      },
+      "actions": {
+        "decide": "Beslissing registreren"
+      },
+      "confirm": {
+        "heading": "Deze beslissing registreren?",
+        "message": "Een beslissing is definitief: ze kan achteraf niet meer gewijzigd worden, en een goedkeuring gaat af van het budget van de projectoproep.",
+        "accept": "Beslissing registreren",
+        "reject": "Nog niet"
       }
     }
   },
@@ -264,7 +321,22 @@
       "organisationAlreadyRegistered": "Deze organisatie is al geregistreerd. Zoek ze op met haar ondernemingsnummer.",
       "schemaViolation": "Deze waarde is niet geldig.",
       "invalidInput": "Deze waarde is niet geldig.",
-      "referencedResourceNotFound": "Dit bestaat niet meer. Laad de pagina opnieuw en probeer het opnieuw."
+      "referencedResourceNotFound": "Dit bestaat niet meer. Laad de pagina opnieuw en probeer het opnieuw.",
+      "assessmentCommentRequired": "Schrijf een toelichting bij de beoordeling.",
+      "assessmentCommentTooLong": "De toelichting mag hoogstens 4.000 tekens lang zijn.",
+      "approvalRecommendationRequiresEligibility": "Alleen een aanvraag die in aanmerking komt, kan voor goedkeuring worden aanbevolen.",
+      "proposedAmountNotPositive": "Het voorgestelde bedrag moet groter zijn dan nul.",
+      "proposedAmountExceedsRequested": "Het voorgestelde bedrag mag niet hoger zijn dan het gevraagde bedrag.",
+      "conflictOfInterest": "U kunt een aanvraag die u zelf hebt ingediend niet beoordelen of erover beslissen.",
+      "applicationNotSubmitted": "Deze aanvraag wacht niet meer op een beoordeling. Laad de pagina opnieuw om haar status te zien.",
+      "motivationRequired": "Schrijf de motivering van de beslissing.",
+      "motivationTooLong": "De motivering mag hoogstens 4.000 tekens lang zijn.",
+      "ineligibleApplicationCannotBeApproved": "Deze aanvraag werd beoordeeld als niet in aanmerking komend, dus ze kan alleen afgewezen worden.",
+      "grantedAmountNotPositive": "Het toegekende bedrag moet groter zijn dan nul.",
+      "grantedAmountExceedsRequested": "Het toegekende bedrag mag niet hoger zijn dan het gevraagde bedrag.",
+      "grantExceedsRemainingBudget": "Er blijft niet genoeg over in het budget van de projectoproep voor dit bedrag.",
+      "separationOfDuties": "U hebt deze aanvraag beoordeeld, dus iemand anders moet erover beslissen.",
+      "applicationNotAssessed": "Deze aanvraag wacht niet meer op een beslissing. Laad de pagina opnieuw om haar status te zien."
     },
     "fallback": {
       "unreachable": "CivicGrant is momenteel niet bereikbaar. Controleer uw verbinding en probeer het opnieuw.",

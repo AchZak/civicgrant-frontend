@@ -2,6 +2,10 @@
   "common": {
     "actions": {
       "backToStart": "Retour à la page d'accueil"
+    },
+    "answers": {
+      "yes": "Oui",
+      "no": "Non"
     }
   },
   "layout": {
@@ -135,6 +139,14 @@
       "insufficientQuality": "La qualité du projet est insuffisante",
       "unknown": "Un autre motif"
     },
+    "recommendation": {
+      "approve": "Approuver",
+      "reject": "Refuser"
+    },
+    "decisionOutcome": {
+      "approved": "Approuver",
+      "rejected": "Refuser"
+    },
     "actions": {
       "seeOpenCalls": "Consultez les appels à projets ouverts."
     },
@@ -150,6 +162,10 @@
         "heading": "Demandes",
         "intro": "Demandes introduites, les plus récemment modifiées d'abord.",
         "empty": "Il n'y a pas encore de demande introduite."
+      },
+      "filter": {
+        "label": "Statut",
+        "all": "Tous les statuts"
       },
       "actions": {
         "newApplication": "Nouvelle demande"
@@ -181,6 +197,7 @@
         "proposal": "Votre projet",
         "documents": "Pièces justificatives",
         "submission": "Introduire",
+        "assessment": "Évaluation",
         "decision": "Décision"
       },
       "actions": {
@@ -223,12 +240,52 @@
         "reject": "Pas encore"
       }
     },
+    "assessment": {
+      "fields": {
+        "eligible": "Recevable",
+        "recommendation": "Avis",
+        "proposedAmount": "Montant proposé",
+        "comment": "Commentaire",
+        "assessedAt": "Évaluée le"
+      },
+      "hints": {
+        "proposedAmount": "Au maximum le montant demandé, {{ amount }}."
+      },
+      "validation": {
+        "eligibleRequired": "Indiquez si la demande est recevable.",
+        "recommendationRequired": "Choisissez un avis.",
+        "proposedAmountRequired": "Indiquez le montant proposé."
+      },
+      "actions": {
+        "record": "Enregistrer l'évaluation"
+      }
+    },
     "decision": {
       "fields": {
+        "outcome": "Votre décision",
         "grantedAmount": "Montant octroyé",
         "rejectionGround": "Motif du refus",
         "decidedAt": "Décidé le",
         "motivation": "Motivation"
+      },
+      "hints": {
+        "grantedAmount": "Au maximum le montant demandé, {{ amount }}.",
+        "remainingBudget": "Reste dans le budget de l'appel à projets : {{ amount }}.",
+        "motivation": "Obligatoire en vertu de la loi : expliquez la décision pour que le demandeur la comprenne."
+      },
+      "validation": {
+        "outcomeRequired": "Choisissez d'approuver ou de refuser.",
+        "grantedAmountRequired": "Indiquez le montant octroyé.",
+        "rejectionGroundRequired": "Choisissez le motif du refus."
+      },
+      "actions": {
+        "decide": "Enregistrer la décision"
+      },
+      "confirm": {
+        "heading": "Enregistrer cette décision ?",
+        "message": "Une décision est définitive : elle ne peut plus être modifiée ensuite, et une approbation est prélevée sur le budget de l'appel à projets.",
+        "accept": "Enregistrer la décision",
+        "reject": "Pas encore"
       }
     }
   },
@@ -264,7 +321,22 @@
       "organisationAlreadyRegistered": "Cette organisation est déjà enregistrée. Recherchez-la avec son numéro d'entreprise.",
       "schemaViolation": "Cette valeur n'est pas valide.",
       "invalidInput": "Cette valeur n'est pas valide.",
-      "referencedResourceNotFound": "Cet élément n'existe plus. Rechargez la page et réessayez."
+      "referencedResourceNotFound": "Cet élément n'existe plus. Rechargez la page et réessayez.",
+      "assessmentCommentRequired": "Rédigez un commentaire pour l'évaluation.",
+      "assessmentCommentTooLong": "Le commentaire peut compter au maximum 4 000 caractères.",
+      "approvalRecommendationRequiresEligibility": "Seule une demande recevable peut être recommandée pour approbation.",
+      "proposedAmountNotPositive": "Le montant proposé doit être supérieur à zéro.",
+      "proposedAmountExceedsRequested": "Le montant proposé ne peut pas dépasser le montant demandé.",
+      "conflictOfInterest": "Vous ne pouvez pas évaluer une demande que vous avez introduite vous-même, ni statuer sur celle-ci.",
+      "applicationNotSubmitted": "Cette demande n'attend plus d'évaluation. Rechargez la page pour voir son statut.",
+      "motivationRequired": "Rédigez la motivation de la décision.",
+      "motivationTooLong": "La motivation peut compter au maximum 4 000 caractères.",
+      "ineligibleApplicationCannotBeApproved": "Cette demande a été jugée non recevable : elle ne peut qu'être refusée.",
+      "grantedAmountNotPositive": "Le montant octroyé doit être supérieur à zéro.",
+      "grantedAmountExceedsRequested": "Le montant octroyé ne peut pas dépasser le montant demandé.",
+      "grantExceedsRemainingBudget": "Le budget restant de l'appel à projets ne suffit pas pour ce montant.",
+      "separationOfDuties": "Vous avez évalué cette demande : quelqu'un d'autre doit statuer sur celle-ci.",
+      "applicationNotAssessed": "Cette demande n'attend plus de décision. Rechargez la page pour voir son statut."
     },
     "fallback": {
       "unreachable": "CivicGrant est injoignable pour le moment. Vérifiez votre connexion et réessayez.",

@@ -7,6 +7,27 @@
     }
   </app-page-header>
 
+  @if (user.isStaff()) {
+    <div class="mb-6 max-w-xs">
+      <app-form-row
+        [label]="t('applications.list.filter.label')"
+        controlId="status-filter"
+        [errors]="[]"
+      >
+        <p-select
+          inputId="status-filter"
+          ariaLabelledBy="status-filter-label"
+          optionLabel="label"
+          optionValue="value"
+          fluid
+          [options]="statusOptions()"
+          [formField]="filter.status"
+          (onChange)="filterBy($event.value)"
+        />
+      </app-form-row>
+    </div>
+  }
+
   @if (applications.error(); as error) {
     <app-load-error [error]="error" />
   } @else {
@@ -16,6 +37,7 @@
       [lazy]="true"
       [lazyLoadOnInit]="false"
       [paginator]="total() > pageSize"
+      [first]="first()"
       [rows]="pageSize"
       [totalRecords]="total()"
       (onLazyLoad)="showPage($event)"

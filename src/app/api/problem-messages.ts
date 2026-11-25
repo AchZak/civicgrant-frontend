@@ -32,6 +32,21 @@ const translatedCodes: ReadonlySet<string> = new Set([
   'schemaViolation',
   'invalidInput',
   'referencedResourceNotFound',
+  'assessmentCommentRequired',
+  'assessmentCommentTooLong',
+  'approvalRecommendationRequiresEligibility',
+  'proposedAmountNotPositive',
+  'proposedAmountExceedsRequested',
+  'conflictOfInterest',
+  'applicationNotSubmitted',
+  'motivationRequired',
+  'motivationTooLong',
+  'ineligibleApplicationCannotBeApproved',
+  'grantedAmountNotPositive',
+  'grantedAmountExceedsRequested',
+  'grantExceedsRemainingBudget',
+  'separationOfDuties',
+  'applicationNotAssessed',
 ]);
 
 export function problemKey(problem: Problem): string {

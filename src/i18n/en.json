@@ -2,6 +2,10 @@
   "common": {
     "actions": {
       "backToStart": "Back to the start page"
+    },
+    "answers": {
+      "yes": "Yes",
+      "no": "No"
     }
   },
   "layout": {
@@ -135,6 +139,14 @@
       "insufficientQuality": "The project's quality is insufficient",
       "unknown": "Another ground"
     },
+    "recommendation": {
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "decisionOutcome": {
+      "approved": "Approve",
+      "rejected": "Reject"
+    },
     "actions": {
       "seeOpenCalls": "See the open funding calls."
     },
@@ -150,6 +162,10 @@
         "heading": "Applications",
         "intro": "Submitted applications, the most recently changed first.",
         "empty": "There are no submitted applications yet."
+      },
+      "filter": {
+        "label": "Status",
+        "all": "All statuses"
       },
       "actions": {
         "newApplication": "New application"
@@ -181,6 +197,7 @@
         "proposal": "Your project",
         "documents": "Supporting documents",
         "submission": "Submit",
+        "assessment": "Assessment",
         "decision": "Decision"
       },
       "actions": {
@@ -223,12 +240,52 @@
         "reject": "Not yet"
       }
     },
+    "assessment": {
+      "fields": {
+        "eligible": "Eligible",
+        "recommendation": "Recommendation",
+        "proposedAmount": "Proposed amount",
+        "comment": "Comment",
+        "assessedAt": "Assessed on"
+      },
+      "hints": {
+        "proposedAmount": "At most the requested amount, {{ amount }}."
+      },
+      "validation": {
+        "eligibleRequired": "Say whether the application is eligible.",
+        "recommendationRequired": "Choose a recommendation.",
+        "proposedAmountRequired": "Enter the amount you propose."
+      },
+      "actions": {
+        "record": "Record the assessment"
+      }
+    },
     "decision": {
       "fields": {
+        "outcome": "Your decision",
         "grantedAmount": "Granted amount",
         "rejectionGround": "Ground for rejection",
         "decidedAt": "Decided on",
         "motivation": "Motivation"
+      },
+      "hints": {
+        "grantedAmount": "At most the requested amount, {{ amount }}.",
+        "remainingBudget": "Left in the funding call's budget: {{ amount }}.",
+        "motivation": "Required by law: explain the decision so the applicant understands it."
+      },
+      "validation": {
+        "outcomeRequired": "Choose approve or reject.",
+        "grantedAmountRequired": "Enter the amount you grant.",
+        "rejectionGroundRequired": "Choose the ground for rejection."
+      },
+      "actions": {
+        "decide": "Record the decision"
+      },
+      "confirm": {
+        "heading": "Record this decision?",
+        "message": "A decision is final: it can't be changed afterwards, and an approval is taken from the funding call's budget.",
+        "accept": "Record the decision",
+        "reject": "Not yet"
       }
     }
   },
@@ -264,7 +321,22 @@
       "organisationAlreadyRegistered": "This organisation is already registered. Look it up by its enterprise number.",
       "schemaViolation": "This value isn't valid.",
       "invalidInput": "This value isn't valid.",
-      "referencedResourceNotFound": "This no longer exists. Reload the page and try again."
+      "referencedResourceNotFound": "This no longer exists. Reload the page and try again.",
+      "assessmentCommentRequired": "Write a comment on the assessment.",
+      "assessmentCommentTooLong": "The comment can be at most 4,000 characters long.",
+      "approvalRecommendationRequiresEligibility": "Only an eligible application can be recommended for approval.",
+      "proposedAmountNotPositive": "The proposed amount must be more than zero.",
+      "proposedAmountExceedsRequested": "The proposed amount can't be more than the requested amount.",
+      "conflictOfInterest": "You can't assess or decide on an application you submitted yourself.",
+      "applicationNotSubmitted": "This application isn't waiting for an assessment anymore. Reload the page to see its status.",
+      "motivationRequired": "Write the motivation of the decision.",
+      "motivationTooLong": "The motivation can be at most 4,000 characters long.",
+      "ineligibleApplicationCannotBeApproved": "This application was assessed as not eligible, so it can only be rejected.",
+      "grantedAmountNotPositive": "The granted amount must be more than zero.",
+      "grantedAmountExceedsRequested": "The granted amount can't be more than the requested amount.",
+      "grantExceedsRemainingBudget": "There isn't enough left in the funding call's budget for this amount.",
+      "separationOfDuties": "You assessed this application, so someone else has to decide on it.",
+      "applicationNotAssessed": "This application isn't waiting for a decision anymore. Reload the page to see its status."
     },
     "fallback": {
       "unreachable": "CivicGrant can't be reached right now. Check your connection and try again.",

@@ -6,6 +6,7 @@ import { ButtonDirective, ButtonLabel } from 'primeng/button';
 import { Message } from 'primeng/message';
 import { Skeleton } from 'primeng/skeleton';
 import { problemFrom } from '../../api/http-problem';
+import { CurrentUser } from '../../auth/current-user';
 import { fundingCallResource } from '../../funding-calls/funding-calls-api';
 import { acceptsApplications } from '../../funding-calls/submission-period';
 import { CurrentLanguage } from '../../language/current-language';
@@ -18,8 +19,15 @@ import { LocalizedPipe } from '../../shared/localized-pipe';
 import { MoneyPipe } from '../../shared/money-pipe';
 import { PageHeader } from '../../shared/page-header/page-header';
 import { serverErrors } from '../../shared/server-errors';
+import { ApplicationAssessment } from '../application-assessment/application-assessment';
+import { ApplicationDecision } from '../application-decision/application-decision';
 import { ApplicationStatusTag } from '../application-status-tag/application-status-tag';
-import { applicationResource, ApplicationsApi, decisionResource } from '../applications-api';
+import {
+  applicationResource,
+  ApplicationsApi,
+  ApplicationStatus,
+  assessmentResource,
+} from '../applications-api';
 import { ApplicationDocuments } from '../application-documents/application-documents';
 import { ApplicationSubmission } from '../application-submission/application-submission';
 import {
@@ -32,7 +40,8 @@ import {
   proposalSchema,
 } from '../proposal';
 import { ProposalForm } from '../proposal-form/proposal-form';
-import { rejectionGroundKey } from '../rejection-ground';
+
+const assessedStatuses: readonly ApplicationStatus[] = ['ASSESSED', 'APPROVED', 'REJECTED'];
 
 @Component({
   imports: [
@@ -51,6 +60,8 @@ import { rejectionGroundKey } from '../rejection-ground';
     MoneyPipe,
     PageHeader,
     ApplicationStatusTag,
+    ApplicationAssessment,
+    ApplicationDecision,
     ApplicationDocuments,
     ApplicationSubmission,
     ProposalForm,
@@ -62,6 +73,7 @@ export class ApplicationDetail {
   readonly applicationId = input.required<string>();
 
   private readonly api = inject(ApplicationsApi);
+  private readonly user = inject(CurrentUser);
 
   protected readonly application = applicationResource(this.applicationId);
   protected readonly fundingCall = fundingCallResource(
@@ -70,12 +82,29 @@ export class ApplicationDetail {
   protected readonly organisation = organisationResource(
     () => this.application.value()?.organisationId,
   );
-  protected readonly decision = decisionResource(() => {
-    const status = this.application.value()?.status;
-    return status === 'APPROVED' || status === 'REJECTED' ? this.applicationId() : undefined;
+  private readonly status = computed(() => this.application.value()?.status);
+  private readonly assessed = computed(() => {
+    const status = this.status();
+    return status !== undefined && assessedStatuses.includes(status);
   });
 
-  protected readonly isDraft = computed(() => this.application.value()?.status === 'DRAFT');
+  // Applicants never see the assessment; the API refuses it to them.
+  protected readonly assessment = assessmentResource(() =>
+    this.user.isStaff() && this.assessed() ? this.applicationId() : undefined,
+  );
+  protected readonly showsAssessment = computed(
+    () =>
+      (this.user.isStaff() && this.assessed()) ||
+      (this.user.isAssessor() && this.status() === 'SUBMITTED'),
+  );
+  protected readonly showsDecision = computed(
+    () =>
+      this.status() === 'APPROVED' ||
+      this.status() === 'REJECTED' ||
+      (this.user.isDecisionMaker() && this.status() === 'ASSESSED'),
+  );
+
+  protected readonly isDraft = computed(() => this.status() === 'DRAFT');
   protected readonly cap = computed(() => this.fundingCall.value()?.maxAmountPerApplication);
   protected readonly callOpen = computed(() => {
     const call = this.fundingCall.value();
@@ -115,11 +144,16 @@ export class ApplicationDetail {
 
   protected readonly localizedTextLang = inject(CurrentLanguage).localizedTextLang;
   protected readonly languageKey = languageKey;
-  protected readonly rejectionGroundKey = rejectionGroundKey;
 
   protected onSubmitted(): void {
     this.justSubmitted.set(true);
     this.application.reload();
+  }
+
+  // An approval takes the grant from the call's budget, so its remaining budget changes too.
+  protected onDecided(): void {
+    this.application.reload();
+    this.fundingCall.reload();
   }
 
   protected reload(): void {

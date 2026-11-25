@@ -1,0 +1,119 @@
+<ng-container *transloco="let t">
+  @if (decision.hasValue()) {
+    @let taken = decision.value();
+    <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+      @if (taken.grantedAmount !== undefined) {
+        <div app-detail [label]="t('applications.decision.fields.grantedAmount')">
+          {{ taken.grantedAmount | money }}
+        </div>
+      }
+      @if (taken.rejectionGround; as ground) {
+        <div app-detail [label]="t('applications.decision.fields.rejectionGround')">
+          {{ t(rejectionGroundKey(ground)) }}
+        </div>
+      }
+      <div app-detail [label]="t('applications.decision.fields.decidedAt')">
+        {{ taken.decidedAt | brusselsDate }}
+      </div>
+      <div app-detail class="sm:col-span-2" [label]="t('applications.decision.fields.motivation')">
+        <span class="whitespace-pre-line font-normal">{{ taken.motivation }}</span>
+      </div>
+    </dl>
+  } @else if (canDecide()) {
+    <form [formRoot]="decisionForm" class="flex max-w-2xl flex-col gap-6">
+      <fieldset aria-describedby="outcome-errors">
+        <legend class="mb-2 font-semibold">{{ t('applications.decision.fields.outcome') }}</legend>
+        <div class="flex flex-wrap gap-6">
+          @for (outcome of outcomes; track outcome) {
+            <div class="flex items-center gap-2">
+              <p-radiobutton
+                [inputId]="'outcome-' + outcome"
+                [value]="outcome"
+                [formField]="decisionForm.outcome"
+              />
+              <label [for]="'outcome-' + outcome">{{ t(outcomeKey(outcome)) }}</label>
+            </div>
+          }
+        </div>
+        <app-field-errors id="outcome-errors" [errors]="decisionForm.outcome().errors()" />
+      </fieldset>
+
+      @if (decisionForm.outcome().value() === 'APPROVED') {
+        <app-form-row
+          [label]="t('applications.decision.fields.grantedAmount')"
+          controlId="granted-amount"
+          [hint]="
+            t('applications.decision.hints.grantedAmount', {
+              amount: (application().proposal.requestedAmount | money),
+            })
+          "
+          [errors]="decisionForm.grantedAmount().errors()"
+        >
+          <p-inputnumber
+            inputId="granted-amount"
+            mode="currency"
+            currency="EUR"
+            class="sm:w-1/2"
+            ariaDescribedBy="granted-amount-hint granted-amount-budget granted-amount-errors"
+            [locale]="locale()"
+            [formField]="decisionForm.grantedAmount"
+          />
+          @if (remainingBudget(); as remaining) {
+            <small id="granted-amount-budget" class="text-muted-color">{{
+              t('applications.decision.hints.remainingBudget', { amount: (remaining | money) })
+            }}</small>
+          }
+        </app-form-row>
+      } @else if (decisionForm.outcome().value() === 'REJECTED') {
+        <app-form-row
+          [label]="t('applications.decision.fields.rejectionGround')"
+          controlId="rejection-ground"
+          [errors]="decisionForm.rejectionGround().errors()"
+        >
+          <p-select
+            inputId="rejection-ground"
+            ariaLabelledBy="rejection-ground-label"
+            optionLabel="label"
+            optionValue="value"
+            fluid
+            [options]="rejectionGrounds()"
+            [formField]="decisionForm.rejectionGround"
+          />
+        </app-form-row>
+      }
+
+      <app-form-row
+        [label]="t('applications.decision.fields.motivation')"
+        controlId="decision-motivation"
+        [hint]="t('applications.decision.hints.motivation')"
+        [errors]="decisionForm.motivation().errors()"
+      >
+        <textarea
+          pTextarea
+          fluid
+          autoResize
+          rows="5"
+          id="decision-motivation"
+          aria-describedby="decision-motivation-hint decision-motivation-errors"
+          [attr.aria-invalid]="decisionForm.motivation().invalid()"
+          [formField]="decisionForm.motivation"
+        ></textarea>
+      </app-form-row>
+
+      <app-form-errors [errors]="decisionForm().errors()" />
+      @if (conflict()) {
+        <div>
+          <button pButton type="button" outlined (click)="reload()">
+            <span pButtonLabel>{{ t('applications.detail.actions.reload') }}</span>
+          </button>
+        </div>
+      }
+      <div>
+        <button pButton type="submit" [disabled]="decisionForm().submitting()">
+          <span pButtonLabel>{{ t('applications.decision.actions.decide') }}</span>
+        </button>
+      </div>
+    </form>
+    <p-confirmdialog />
+  }
+</ng-container>

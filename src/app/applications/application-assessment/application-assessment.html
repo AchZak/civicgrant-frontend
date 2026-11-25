@@ -1,0 +1,126 @@
+<ng-container *transloco="let t">
+  @let resource = assessment();
+  @if (resource.hasValue()) {
+    @let assessed = resource.value();
+    <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div app-detail [label]="t('applications.assessment.fields.eligible')">
+        {{ t(assessed.eligible ? 'common.answers.yes' : 'common.answers.no') }}
+      </div>
+      <div app-detail [label]="t('applications.assessment.fields.recommendation')">
+        {{ t(recommendationKey(assessed.recommendation)) }}
+      </div>
+      @if (assessed.proposedAmount !== undefined) {
+        <div app-detail [label]="t('applications.assessment.fields.proposedAmount')">
+          {{ assessed.proposedAmount | money }}
+        </div>
+      }
+      <div app-detail [label]="t('applications.assessment.fields.assessedAt')">
+        {{ assessed.assessedAt | brusselsDate }}
+      </div>
+      <div app-detail class="sm:col-span-2" [label]="t('applications.assessment.fields.comment')">
+        <span class="whitespace-pre-line font-normal">{{ assessed.comment }}</span>
+      </div>
+    </dl>
+  } @else if (resource.error(); as error) {
+    <app-load-error [error]="error" />
+  } @else if (canAssess()) {
+    <form [formRoot]="assessmentForm" class="flex max-w-2xl flex-col gap-6">
+      <fieldset aria-describedby="eligible-errors">
+        <legend class="mb-2 font-semibold">
+          {{ t('applications.assessment.fields.eligible') }}
+        </legend>
+        <div class="flex flex-wrap gap-6">
+          @for (answer of answers; track answer.value) {
+            <div class="flex items-center gap-2">
+              <p-radiobutton
+                [inputId]="'eligible-' + answer.value"
+                [value]="answer.value"
+                [formField]="assessmentForm.eligible"
+              />
+              <label [for]="'eligible-' + answer.value">{{ t(answer.key) }}</label>
+            </div>
+          }
+        </div>
+        <app-field-errors id="eligible-errors" [errors]="assessmentForm.eligible().errors()" />
+      </fieldset>
+
+      <fieldset aria-describedby="recommendation-errors">
+        <legend class="mb-2 font-semibold">
+          {{ t('applications.assessment.fields.recommendation') }}
+        </legend>
+        <div class="flex flex-wrap gap-6">
+          @for (recommendation of recommendations; track recommendation) {
+            <div class="flex items-center gap-2">
+              <p-radiobutton
+                [inputId]="'recommendation-' + recommendation"
+                [value]="recommendation"
+                [formField]="assessmentForm.recommendation"
+              />
+              <label [for]="'recommendation-' + recommendation">{{
+                t(recommendationKey(recommendation))
+              }}</label>
+            </div>
+          }
+        </div>
+        <app-field-errors
+          id="recommendation-errors"
+          [errors]="assessmentForm.recommendation().errors()"
+        />
+      </fieldset>
+
+      @if (assessmentForm.recommendation().value() === 'APPROVE') {
+        <app-form-row
+          [label]="t('applications.assessment.fields.proposedAmount')"
+          controlId="proposed-amount"
+          [hint]="
+            t('applications.assessment.hints.proposedAmount', {
+              amount: (application().proposal.requestedAmount | money),
+            })
+          "
+          [errors]="assessmentForm.proposedAmount().errors()"
+        >
+          <p-inputnumber
+            inputId="proposed-amount"
+            mode="currency"
+            currency="EUR"
+            class="sm:w-1/2"
+            ariaDescribedBy="proposed-amount-hint proposed-amount-errors"
+            [locale]="locale()"
+            [formField]="assessmentForm.proposedAmount"
+          />
+        </app-form-row>
+      }
+
+      <app-form-row
+        [label]="t('applications.assessment.fields.comment')"
+        controlId="assessment-comment"
+        [errors]="assessmentForm.comment().errors()"
+      >
+        <textarea
+          pTextarea
+          fluid
+          autoResize
+          rows="5"
+          id="assessment-comment"
+          aria-describedby="assessment-comment-errors"
+          [attr.aria-invalid]="assessmentForm.comment().invalid()"
+          [formField]="assessmentForm.comment"
+        ></textarea>
+      </app-form-row>
+
+      <app-form-errors [errors]="assessmentForm().errors()" />
+      @if (conflict()) {
+        <div>
+          <button pButton type="button" outlined (click)="reload()">
+            <span pButtonLabel>{{ t('applications.detail.actions.reload') }}</span>
+          </button>
+        </div>
+      }
+      <div>
+        <button pButton type="submit" [disabled]="assessmentForm().submitting()">
+          <span pButtonLabel>{{ t('applications.assessment.actions.record') }}</span>
+        </button>
+      </div>
+    </form>
+  }
+</ng-container>

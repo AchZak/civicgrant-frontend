@@ -7,13 +7,7 @@ import { Message } from 'primeng/message';
 import { problemFrom } from '../../api/http-problem';
 import { codeKey, problemKey } from '../../api/problem-messages';
 import { Application, ApplicationsApi } from '../applications-api';
-
-interface ConfirmTexts {
-  readonly heading: string;
-  readonly message: string;
-  readonly accept: string;
-  readonly reject: string;
-}
+import { confirmTexts } from '../confirm-texts';
 
 @Component({
   imports: [TranslocoDirective, ButtonDirective, ButtonLabel, ConfirmDialog, Message],
@@ -49,12 +43,8 @@ export class ApplicationSubmission {
   });
 
   protected confirmSubmission(): void {
-    const texts = this.transloco.translateObject<ConfirmTexts>('applications.submission.confirm');
     this.confirmation.confirm({
-      header: texts.heading,
-      message: texts.message,
-      acceptLabel: texts.accept,
-      rejectLabel: texts.reject,
+      ...confirmTexts(this.transloco, 'applications.submission.confirm'),
       accept: () => void this.submit(),
     });
   }

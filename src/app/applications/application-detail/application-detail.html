@@ -119,34 +119,30 @@
         </section>
       }
 
-      @if (decision.hasValue()) {
-        @let taken = decision.value();
+      @if (showsAssessment()) {
+        <section aria-labelledby="assessment-heading">
+          <h2 id="assessment-heading" class="mb-4 text-lg font-semibold">
+            {{ t('applications.detail.sections.assessment') }}
+          </h2>
+          <app-application-assessment
+            [application]="current"
+            [assessment]="assessment"
+            (changed)="application.reload()"
+          />
+        </section>
+      }
+
+      @if (showsDecision()) {
         <section aria-labelledby="decision-heading">
-          <h2 id="decision-heading" class="mb-2 text-lg font-semibold">
+          <h2 id="decision-heading" class="mb-4 text-lg font-semibold">
             {{ t('applications.detail.sections.decision') }}
           </h2>
-          <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-            @if (taken.grantedAmount !== undefined) {
-              <div app-detail [label]="t('applications.decision.fields.grantedAmount')">
-                {{ taken.grantedAmount | money }}
-              </div>
-            }
-            @if (taken.rejectionGround; as ground) {
-              <div app-detail [label]="t('applications.decision.fields.rejectionGround')">
-                {{ t(rejectionGroundKey(ground)) }}
-              </div>
-            }
-            <div app-detail [label]="t('applications.decision.fields.decidedAt')">
-              {{ taken.decidedAt | brusselsDate }}
-            </div>
-            <div
-              app-detail
-              class="sm:col-span-2"
-              [label]="t('applications.decision.fields.motivation')"
-            >
-              <span class="whitespace-pre-line font-normal">{{ taken.motivation }}</span>
-            </div>
-          </dl>
+          <app-application-decision
+            [application]="current"
+            [proposedAmount]="assessment.value()?.proposedAmount"
+            [remainingBudget]="fundingCall.value()?.remainingBudget"
+            (changed)="onDecided()"
+          />
         </section>
       }
     </div>
