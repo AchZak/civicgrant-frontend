@@ -46,10 +46,28 @@
   "fundingCalls": {
     "fields": {
       "title": "Appel à projets",
+      "reference": "Référence",
+      "titleNl": "Titre en néerlandais",
+      "titleFr": "Titre en français",
       "opensAt": "Ouvert aux demandes à partir du",
       "closesAt": "Clôture le",
+      "lastDay": "Dernier jour pour les demandes",
+      "totalBudget": "Budget total",
       "maxAmountPerApplication": "Maximum par demande",
       "remainingBudget": "Budget restant"
+    },
+    "hints": {
+      "reference": "Majuscules, chiffres et traits d'union, par exemple GRN-2027. Chaque référence ne peut servir qu'une fois.",
+      "firstDay": "À partir de minuit au début de ce jour, heure de Bruxelles.",
+      "lastDay": "Jusqu'à minuit à la fin de ce jour, heure de Bruxelles."
+    },
+    "validation": {
+      "referenceRequired": "Indiquez la référence.",
+      "titleRequired": "Indiquez le titre.",
+      "firstDayRequired": "Choisissez le premier jour.",
+      "lastDayRequired": "Choisissez le dernier jour.",
+      "totalBudgetRequired": "Indiquez le budget total.",
+      "maxAmountPerApplicationRequired": "Indiquez le maximum par demande."
     },
     "open": {
       "title": "Appels à projets ouverts",
@@ -66,6 +84,14 @@
       "notOpen": "Cet appel à projets n'accepte pas de demandes pour le moment.",
       "actions": {
         "apply": "Introduire une demande"
+      }
+    },
+    "new": {
+      "title": "Ouvrir un appel à projets",
+      "heading": "Ouvrir un appel à projets",
+      "intro": "L'appel accepte des demandes du premier au dernier jour, heure de Bruxelles. Une fois ouvert, il ne peut plus être modifié.",
+      "actions": {
+        "open": "Ouvrir l'appel à projets"
       }
     }
   },
@@ -340,7 +366,16 @@
       "grantedAmountExceedsRequested": "Le montant octroyé ne peut pas dépasser le montant demandé.",
       "grantExceedsRemainingBudget": "Le budget restant de l'appel à projets ne suffit pas pour ce montant.",
       "separationOfDuties": "Vous avez évalué cette demande : quelqu'un d'autre doit statuer sur celle-ci.",
-      "applicationNotAssessed": "Cette demande n'attend plus de décision. Rechargez la page pour voir son statut."
+      "applicationNotAssessed": "Cette demande n'attend plus de décision. Rechargez la page pour voir son statut.",
+      "fundingCallReferenceInvalid": "Une référence se compose de majuscules et de chiffres en groupes reliés par un seul trait d'union, et compte au maximum 30 caractères, par exemple GRN-2027.",
+      "fundingCallReferenceTaken": "Un autre appel à projets porte déjà cette référence. Choisissez-en une autre.",
+      "translationMissing": "Indiquez le titre en néerlandais et en français.",
+      "fundingCallTitleTooLong": "Un titre peut compter au maximum 200 caractères dans chaque langue.",
+      "submissionPeriodClosesBeforeOpening": "Le dernier jour ne peut pas précéder le premier jour.",
+      "fundingCallAlreadyClosed": "Le dernier jour est déjà passé.",
+      "totalBudgetNotPositive": "Le budget total doit être supérieur à zéro.",
+      "capPerApplicationNotPositive": "Le maximum par demande doit être supérieur à zéro.",
+      "capPerApplicationExceedsBudget": "Le maximum par demande ne peut pas dépasser le budget total."
     },
     "fallback": {
       "unreachable": "CivicGrant est injoignable pour le moment. Vérifiez votre connexion et réessayez.",

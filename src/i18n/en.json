@@ -46,10 +46,28 @@
   "fundingCalls": {
     "fields": {
       "title": "Funding call",
+      "reference": "Reference",
+      "titleNl": "Title in Dutch",
+      "titleFr": "Title in French",
       "opensAt": "Open for applications from",
       "closesAt": "Closes on",
+      "lastDay": "Last day for applications",
+      "totalBudget": "Total budget",
       "maxAmountPerApplication": "Maximum per application",
       "remainingBudget": "Remaining budget"
+    },
+    "hints": {
+      "reference": "Capitals, digits and hyphens, for example GRN-2027. Each reference can be used once.",
+      "firstDay": "From midnight at the start of this day, Brussels time.",
+      "lastDay": "Until midnight at the end of this day, Brussels time."
+    },
+    "validation": {
+      "referenceRequired": "Enter the reference.",
+      "titleRequired": "Enter the title.",
+      "firstDayRequired": "Choose the first day.",
+      "lastDayRequired": "Choose the last day.",
+      "totalBudgetRequired": "Enter the total budget.",
+      "maxAmountPerApplicationRequired": "Enter the maximum per application."
     },
     "open": {
       "title": "Open funding calls",
@@ -66,6 +84,14 @@
       "notOpen": "This funding call doesn't accept applications right now.",
       "actions": {
         "apply": "Apply"
+      }
+    },
+    "new": {
+      "title": "Open a funding call",
+      "heading": "Open a funding call",
+      "intro": "The call accepts applications from its first to its last day, Brussels time. Once it's open, it can't be changed.",
+      "actions": {
+        "open": "Open the funding call"
       }
     }
   },
@@ -340,7 +366,16 @@
       "grantedAmountExceedsRequested": "The granted amount can't be more than the requested amount.",
       "grantExceedsRemainingBudget": "There isn't enough left in the funding call's budget for this amount.",
       "separationOfDuties": "You assessed this application, so someone else has to decide on it.",
-      "applicationNotAssessed": "This application isn't waiting for a decision anymore. Reload the page to see its status."
+      "applicationNotAssessed": "This application isn't waiting for a decision anymore. Reload the page to see its status.",
+      "fundingCallReferenceInvalid": "A reference has capitals and digits in groups joined by single hyphens, at most 30 characters, for example GRN-2027.",
+      "fundingCallReferenceTaken": "Another funding call already has this reference. Choose another one.",
+      "translationMissing": "Enter the title in both Dutch and French.",
+      "fundingCallTitleTooLong": "A title can be at most 200 characters long in each language.",
+      "submissionPeriodClosesBeforeOpening": "The last day can't come before the first day.",
+      "fundingCallAlreadyClosed": "The last day has already passed.",
+      "totalBudgetNotPositive": "The total budget must be more than zero.",
+      "capPerApplicationNotPositive": "The maximum per application must be more than zero.",
+      "capPerApplicationExceedsBudget": "The maximum per application can't be more than the total budget."
     },
     "fallback": {
       "unreachable": "CivicGrant can't be reached right now. Check your connection and try again.",

@@ -1,0 +1,145 @@
+<ng-container *transloco="let t">
+  <app-page-header
+    [heading]="t('fundingCalls.new.heading')"
+    [intro]="t('fundingCalls.new.intro')"
+  />
+
+  <form [formRoot]="openingForm" class="flex max-w-2xl flex-col gap-6">
+    <app-form-row
+      [label]="t('fundingCalls.fields.reference')"
+      controlId="reference"
+      [hint]="t('fundingCalls.hints.reference')"
+      [errors]="openingForm.reference().errors()"
+    >
+      <input
+        pInputText
+        id="reference"
+        class="sm:w-1/2"
+        autocomplete="off"
+        aria-describedby="reference-hint reference-errors"
+        [attr.aria-invalid]="openingForm.reference().invalid()"
+        [formField]="openingForm.reference"
+      />
+    </app-form-row>
+
+    <app-form-row
+      [label]="t('fundingCalls.fields.titleNl')"
+      controlId="title-nl"
+      [errors]="openingForm.title.nl().errors()"
+    >
+      <input
+        pInputText
+        fluid
+        id="title-nl"
+        lang="nl"
+        aria-describedby="title-nl-errors"
+        [attr.aria-invalid]="openingForm.title.nl().invalid()"
+        [formField]="openingForm.title.nl"
+      />
+    </app-form-row>
+
+    <app-form-row
+      [label]="t('fundingCalls.fields.titleFr')"
+      controlId="title-fr"
+      [errors]="openingForm.title.fr().errors()"
+    >
+      <input
+        pInputText
+        fluid
+        id="title-fr"
+        lang="fr"
+        aria-describedby="title-fr-errors"
+        [attr.aria-invalid]="openingForm.title.fr().invalid()"
+        [formField]="openingForm.title.fr"
+      />
+    </app-form-row>
+
+    <!-- DatePicker has no ariaDescribedBy: its pass-through options reach the inner input. -->
+    <div class="grid gap-6 sm:grid-cols-2">
+      <app-form-row
+        [label]="t('fundingCalls.fields.opensAt')"
+        controlId="first-day"
+        [hint]="t('fundingCalls.hints.firstDay')"
+        [errors]="openingForm.firstDay().errors()"
+      >
+        <p-datepicker
+          inputId="first-day"
+          showIcon
+          fluid
+          [pt]="{
+            pcInputText: {
+              root: {
+                'aria-describedby': 'first-day-hint first-day-errors',
+                'aria-invalid': openingForm.firstDay().invalid(),
+              },
+            },
+          }"
+          [formField]="openingForm.firstDay"
+        />
+      </app-form-row>
+
+      <app-form-row
+        [label]="t('fundingCalls.fields.lastDay')"
+        controlId="last-day"
+        [hint]="t('fundingCalls.hints.lastDay')"
+        [errors]="openingForm.lastDay().errors()"
+      >
+        <p-datepicker
+          inputId="last-day"
+          showIcon
+          fluid
+          [pt]="{
+            pcInputText: {
+              root: {
+                'aria-describedby': 'last-day-hint last-day-errors',
+                'aria-invalid': openingForm.lastDay().invalid(),
+              },
+            },
+          }"
+          [formField]="openingForm.lastDay"
+        />
+      </app-form-row>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      <app-form-row
+        [label]="t('fundingCalls.fields.totalBudget')"
+        controlId="total-budget"
+        [errors]="openingForm.totalBudget().errors()"
+      >
+        <p-inputnumber
+          inputId="total-budget"
+          mode="currency"
+          currency="EUR"
+          fluid
+          ariaDescribedBy="total-budget-errors"
+          [locale]="locale()"
+          [formField]="openingForm.totalBudget"
+        />
+      </app-form-row>
+
+      <app-form-row
+        [label]="t('fundingCalls.fields.maxAmountPerApplication')"
+        controlId="max-amount-per-application"
+        [errors]="openingForm.maxAmountPerApplication().errors()"
+      >
+        <p-inputnumber
+          inputId="max-amount-per-application"
+          mode="currency"
+          currency="EUR"
+          fluid
+          ariaDescribedBy="max-amount-per-application-errors"
+          [locale]="locale()"
+          [formField]="openingForm.maxAmountPerApplication"
+        />
+      </app-form-row>
+    </div>
+
+    <app-form-errors [errors]="openingForm().errors()" />
+    <div>
+      <button pButton type="submit" [disabled]="openingForm().submitting()">
+        <span pButtonLabel>{{ t('fundingCalls.new.actions.open') }}</span>
+      </button>
+    </div>
+  </form>
+</ng-container>

@@ -47,6 +47,15 @@ const translatedCodes: ReadonlySet<string> = new Set([
   'grantExceedsRemainingBudget',
   'separationOfDuties',
   'applicationNotAssessed',
+  'fundingCallReferenceInvalid',
+  'fundingCallReferenceTaken',
+  'translationMissing',
+  'fundingCallTitleTooLong',
+  'submissionPeriodClosesBeforeOpening',
+  'fundingCallAlreadyClosed',
+  'totalBudgetNotPositive',
+  'capPerApplicationNotPositive',
+  'capPerApplicationExceedsBudget',
 ]);
 
 export function problemKey(problem: Problem): string {

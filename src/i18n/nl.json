@@ -46,10 +46,28 @@
   "fundingCalls": {
     "fields": {
       "title": "Projectoproep",
+      "reference": "Referentie",
+      "titleNl": "Titel in het Nederlands",
+      "titleFr": "Titel in het Frans",
       "opensAt": "Open voor aanvragen vanaf",
       "closesAt": "Sluit op",
+      "lastDay": "Laatste dag voor aanvragen",
+      "totalBudget": "Totaal budget",
       "maxAmountPerApplication": "Maximum per aanvraag",
       "remainingBudget": "Resterend budget"
+    },
+    "hints": {
+      "reference": "Hoofdletters, cijfers en koppeltekens, bijvoorbeeld GRN-2027. Elke referentie kan maar één keer gebruikt worden.",
+      "firstDay": "Vanaf middernacht bij het begin van deze dag, Brusselse tijd.",
+      "lastDay": "Tot middernacht aan het einde van deze dag, Brusselse tijd."
+    },
+    "validation": {
+      "referenceRequired": "Vul de referentie in.",
+      "titleRequired": "Vul de titel in.",
+      "firstDayRequired": "Kies de eerste dag.",
+      "lastDayRequired": "Kies de laatste dag.",
+      "totalBudgetRequired": "Vul het totale budget in.",
+      "maxAmountPerApplicationRequired": "Vul het maximum per aanvraag in."
     },
     "open": {
       "title": "Open projectoproepen",
@@ -66,6 +84,14 @@
       "notOpen": "Deze projectoproep aanvaardt momenteel geen aanvragen.",
       "actions": {
         "apply": "Aanvraag indienen"
+      }
+    },
+    "new": {
+      "title": "Projectoproep openen",
+      "heading": "Een projectoproep openen",
+      "intro": "De oproep aanvaardt aanvragen van de eerste tot de laatste dag, Brusselse tijd. Eens ze open is, kan ze niet meer gewijzigd worden.",
+      "actions": {
+        "open": "Projectoproep openen"
       }
     }
   },
@@ -340,7 +366,16 @@
       "grantedAmountExceedsRequested": "Het toegekende bedrag mag niet hoger zijn dan het gevraagde bedrag.",
       "grantExceedsRemainingBudget": "Er blijft niet genoeg over in het budget van de projectoproep voor dit bedrag.",
       "separationOfDuties": "U hebt deze aanvraag beoordeeld, dus iemand anders moet erover beslissen.",
-      "applicationNotAssessed": "Deze aanvraag wacht niet meer op een beslissing. Laad de pagina opnieuw om haar status te zien."
+      "applicationNotAssessed": "Deze aanvraag wacht niet meer op een beslissing. Laad de pagina opnieuw om haar status te zien.",
+      "fundingCallReferenceInvalid": "Een referentie bestaat uit hoofdletters en cijfers in groepen, verbonden door één koppelteken, en telt hoogstens 30 tekens, bijvoorbeeld GRN-2027.",
+      "fundingCallReferenceTaken": "Een andere projectoproep heeft al deze referentie. Kies een andere.",
+      "translationMissing": "Vul de titel in het Nederlands en in het Frans in.",
+      "fundingCallTitleTooLong": "Een titel kan in elke taal hoogstens 200 tekens lang zijn.",
+      "submissionPeriodClosesBeforeOpening": "De laatste dag kan niet vóór de eerste dag liggen.",
+      "fundingCallAlreadyClosed": "De laatste dag is al voorbij.",
+      "totalBudgetNotPositive": "Het totale budget moet meer dan nul zijn.",
+      "capPerApplicationNotPositive": "Het maximum per aanvraag moet meer dan nul zijn.",
+      "capPerApplicationExceedsBudget": "Het maximum per aanvraag kan niet hoger zijn dan het totale budget."
     },
     "fallback": {
       "unreachable": "CivicGrant is momenteel niet bereikbaar. Controleer uw verbinding en probeer het opnieuw.",
