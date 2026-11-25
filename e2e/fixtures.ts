@@ -23,6 +23,8 @@ export const test = base.extend<{ translationsComplete: void }>({
 
 export type Application = components['schemas']['Application'];
 export type ApplicationPage = components['schemas']['ApplicationPage'];
+export type Assessment = components['schemas']['Assessment'];
+export type Decision = components['schemas']['Decision'];
 export type FundingCall = components['schemas']['FundingCall'];
 export type Organisation = components['schemas']['Organisation'];
 export type ProjectProposal = components['schemas']['ProjectProposal'];
@@ -67,6 +69,39 @@ export function aDraft(changes: Partial<Application> = {}): Application {
     createdAt: '2026-11-23T15:00:00Z',
     updatedAt: '2026-11-23T15:00:00Z',
     ...changes,
+  };
+}
+
+export function aSubmittedApplication(changes: Partial<Application> = {}): Application {
+  return aDraft({
+    status: 'SUBMITTED',
+    documents: [aDocument('begroting.pdf')],
+    submittedAt: '2026-11-24T11:00:00Z',
+    ...changes,
+  });
+}
+
+export function anApprovalAssessment(): Assessment {
+  return {
+    eligible: true,
+    recommendation: 'APPROVE',
+    proposedAmount: 7500,
+    comment: 'Sterk buurtproject met een realistische begroting.',
+    assessedAt: '2026-11-24T14:00:00Z',
+  };
+}
+
+export function aSummaryOf(application: Application): ApplicationPage['items'][number] {
+  return {
+    id: application.id,
+    reference: application.reference,
+    fundingCallId: application.fundingCallId,
+    organisationId: application.organisationId,
+    status: application.status,
+    projectTitle: application.proposal.title,
+    requestedAmount: application.proposal.requestedAmount,
+    submittedAt: application.submittedAt,
+    updatedAt: application.updatedAt,
   };
 }
 
