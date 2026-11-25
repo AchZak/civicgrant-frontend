@@ -14,7 +14,7 @@ The app is in Dutch, French and English, and it's a thin presentation layer: the
 - [x] Navigation and start page per role
 - [x] Applicant flow: funding calls, organisations, drafts, documents and submission
 - [x] Assessment and decision
-- [ ] Opening a funding call
+- [x] Opening a funding call
 - [ ] Deployment to Azure Static Web Apps
 
 ## How it's built
@@ -29,6 +29,8 @@ Forms use Angular's Signal Forms with PrimeNG's inputs. The only rules checked i
 
 Staff work from the same application page as applicants. An assessor gets the assessment form while an application is submitted, and a decision maker the decision form once it's assessed, with the assessor's proposed amount filled in and a confirmation first, since a decision is final. The page can't know who assessed an application, so a decision maker who did sees the form and the backend's refusal above it. Staff can filter the list by status, and the filter stays in the address bar.
 
+A programme manager opens funding calls: a reference, a title in Dutch and French, the first and last day for applications, the budget and the maximum per application. The API wants moments in UTC, so the app turns the chosen days into midnight in Brussels, at the start of the first day and at the end of the last, whatever time zone the browser is in. Summer time makes that easy to get wrong, so it has a unit test of its own.
+
 The texts come from Transloco, in one JSON file per language with English as the reference. The switch in the header changes the language without a reload and remembers it; a first visit gets the browser's language if it's one of the three, else Dutch. Templates and code only hold keys, grouped by feature and then by screen, so the same field label is one key wherever it shows up. Each file is imported rather than fetched, so the build gives it a hashed name and a browser never keeps an old version after a deploy. Money, dates and PrimeNG's own texts follow the language too. A funding call's title only exists in Dutch and French, so the English pages show the Dutch one, marked as Dutch for screen readers.
 
 Nothing in the build fails on a missing translation, so two checks stand in: a unit test that the three files have the same keys, and the journeys fail when a screen they visit asks for a key that doesn't exist.
@@ -39,7 +41,7 @@ One build runs in every environment. The values that differ, the Entra registrat
 
 ### Tests
 
-The backend tests every business rule and access rule, so the frontend keeps its tests few. Unit tests cover what the compiler can't check: reading an error from the API, parsing enterprise numbers, and keeping the translation files in line. Playwright covers the journeys a user takes, in Dutch, with the API mocked and a fake signed-in user swapped in by a build configuration, so the production code has no test switch.
+The backend tests every business rule and access rule, so the frontend keeps its tests few. Unit tests cover what the compiler can't check: reading an error from the API, parsing enterprise numbers, turning a chosen day into Brussels time, and keeping the translation files in line. Playwright covers the journeys a user takes, in Dutch, with the API mocked and a fake signed-in user swapped in by a build configuration, so the production code has no test switch.
 
 ### Where to look first
 
@@ -48,6 +50,7 @@ The backend tests every business rule and access rule, so the frontend keeps its
 - [start-session.ts](src/app/auth/start-session.ts) and [start-session.e2e.ts](src/app/auth/start-session.e2e.ts): the sign-in, and the fake user the journeys run with.
 - [error-handling.spec.ts](e2e/error-handling.spec.ts): a refused form and a concurrent change, tested the way a user sees them.
 - [decision.ts](src/app/applications/decision.ts) and [application-decision.ts](src/app/applications/application-decision/application-decision.ts): a form whose rules depend on the chosen outcome, and a final step confirmed before it's sent.
+- [brussels-day.ts](src/app/funding-calls/brussels-day.ts): a day picked in the browser turned into midnight in Brussels, summer time included.
 - [current-language.ts](src/app/language/current-language.ts) and [en.json](src/i18n/en.json): how the language switches at runtime, and how the texts are organised.
 
 ## Running it locally
