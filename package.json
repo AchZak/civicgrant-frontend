@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "playwright test",
-    "api:types": "openapi-typescript ../civicgrant-backend/api/src/main/openapi/openapi.yaml --output src/app/api/schema.ts",
+    "api:types": "openapi-typescript https://raw.githubusercontent.com/AchZak/civicgrant-backend/api-v0.2.0/api/src/main/openapi/openapi.yaml --output src/app/api/schema.ts",
+    "api:types:local": "openapi-typescript ../civicgrant-backend/api/src/main/openapi/openapi.yaml --output src/app/api/schema.ts",
     "lint": "ng lint && tsc --project tsconfig.e2e.json",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

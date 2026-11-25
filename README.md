@@ -21,7 +21,7 @@ The app is in Dutch, French and English, and it's a thin presentation layer: the
 
 Angular 22 with standalone components, signals and no zone.js. PrimeNG provides every widget and the look, through one theme preset; Tailwind is only used for layout.
 
-The API contract in the backend repository is the single source of truth. `npm run api:types` generates the TypeScript types from it, so the app never declares an API shape by hand. Pages read through `httpResource`, and each feature has one file that knows its URLs. Writes go through a small service per feature and return promises, so components never subscribe to anything.
+The API contract in the backend repository is the single source of truth. `npm run api:types` generates the TypeScript types from a tagged version of it, read from GitHub, so the app never declares an API shape by hand and always says which contract it was built against. The generated file is committed, CI fails when it doesn't match that tag, and Renovate opens a pull request when the backend tags a new contract. `npm run api:types:local` reads the backend checked out next to this repository instead, for a change that touches both. Pages read through `httpResource`, and each feature has one file that knows its URLs. Writes go through a small service per feature and return promises, so components never subscribe to anything.
 
 The API answers with codes, never with text. Statuses, legal forms, rejection grounds and problem types are translated in the app, one list per kind, and an unknown code falls back to a generic message, so a new code in the backend never breaks a page. When the backend refuses a form, the problem's input issues and field-specific codes appear next to the field concerned, and everything else above the form. A change made by someone else at the same time gives a 409, and the page offers to reload.
 
@@ -49,7 +49,7 @@ The backend tests every business rule and access rule, so the frontend keeps its
 
 ## Running it locally
 
-Requirements: Node 26, the version in `.node-version`, and the [backend](https://github.com/AchZak/civicgrant-backend) checked out next to this repository and running on port 8080. The dev server forwards `/api` to it, so there's no CORS to set up.
+Requirements: Node 26, the version in `.node-version`, and the [backend](https://github.com/AchZak/civicgrant-backend) running on port 8080. The dev server forwards `/api` to it, so there's no CORS to set up.
 
 ```bash
 npm ci
@@ -61,11 +61,12 @@ Fill in `public/config.json` with the Entra values of a SPA registration first; 
 
 The app runs on http://localhost:4200.
 
-| What                     | Command                |
-| ------------------------ | ---------------------- |
-| Lint                     | `npm run lint`         |
-| Check formatting         | `npm run format:check` |
-| Unit tests               | `npm test`             |
-| Playwright journeys      | `npm run e2e`          |
-| Build                    | `npm run build`        |
-| Regenerate the API types | `npm run api:types`    |
+| What                                         | Command                   |
+| -------------------------------------------- | ------------------------- |
+| Lint                                         | `npm run lint`            |
+| Check formatting                             | `npm run format:check`    |
+| Unit tests                                   | `npm test`                |
+| Playwright journeys                          | `npm run e2e`             |
+| Build                                        | `npm run build`           |
+| Regenerate the API types from the pinned tag | `npm run api:types`       |
+| Regenerate them from the backend next door   | `npm run api:types:local` |

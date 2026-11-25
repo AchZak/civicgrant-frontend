@@ -1,5 +1,5 @@
-# Pull requests and pushes to develop or main are checked: formatting, lint, unit tests, the
-# build, and the Playwright journeys against the Dutch build with a mocked API.
+# Pull requests and pushes to develop or main are checked: the API types against the pinned
+# contract, formatting, lint, unit tests, the build, and the Playwright journeys with a mocked API.
 name: CI
 
 on:
@@ -39,6 +39,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # schema.ts is committed; it must be what the contract tag in api:types generates.
+      - name: Check the API types
+        run: |
+          npm run api:types
+          git diff --exit-code src/app/api/schema.ts
 
       - name: Check formatting
         run: npm run format:check

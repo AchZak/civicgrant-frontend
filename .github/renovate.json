@@ -9,7 +9,25 @@
   "baseBranchPatterns": ["develop"],
   "timezone": "Europe/Brussels",
   "labels": ["dependencies"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "The backend's API contract, pinned by its api-v tag in the api:types script",
+      "managerFilePatterns": ["/^package\\.json$/"],
+      "matchStrings": ["civicgrant-backend/api-v(?<currentValue>\\d+\\.\\d+\\.\\d+)/"],
+      "depNameTemplate": "AchZak/civicgrant-backend",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^api-v(?<version>.+)$"
+    }
+  ],
   "packageRules": [
+    {
+      "description": "A new API contract needs npm run api:types on the branch; CI fails until schema.ts matches",
+      "matchManagers": ["custom.regex"],
+      "matchDepNames": ["AchZak/civicgrant-backend"],
+      "semanticCommitType": "build",
+      "semanticCommitScope": "api"
+    },
     {
       "description": "Use the build commit type for npm updates",
       "matchManagers": ["npm"],
