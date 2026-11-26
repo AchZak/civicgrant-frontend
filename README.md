@@ -31,7 +31,7 @@ The screenshots come from the app running against a mocked API, the same way the
 - [x] Applicant flow: funding calls, organisations, drafts, documents and submission
 - [x] Assessment and decision
 - [x] Opening a funding call
-- [ ] Deployment to Azure Static Web Apps
+- [x] Deployment to Azure Static Web Apps (test environment)
 
 ## How it's built
 
