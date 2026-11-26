@@ -76,13 +76,16 @@ export class ApplicationDetail {
   private readonly user = inject(CurrentUser);
 
   protected readonly application = applicationResource(this.applicationId);
-  protected readonly fundingCall = fundingCallResource(
-    () => this.application.value()?.fundingCallId,
+  // A resource that failed throws from value(), so every read checks hasValue() first.
+  protected readonly fundingCall = fundingCallResource(() =>
+    this.application.hasValue() ? this.application.value().fundingCallId : undefined,
   );
-  protected readonly organisation = organisationResource(
-    () => this.application.value()?.organisationId,
+  protected readonly organisation = organisationResource(() =>
+    this.application.hasValue() ? this.application.value().organisationId : undefined,
   );
-  private readonly status = computed(() => this.application.value()?.status);
+  private readonly status = computed(() =>
+    this.application.hasValue() ? this.application.value().status : undefined,
+  );
   private readonly assessed = computed(() => {
     const status = this.status();
     return status !== undefined && assessedStatuses.includes(status);
@@ -105,19 +108,27 @@ export class ApplicationDetail {
   );
 
   protected readonly isDraft = computed(() => this.status() === 'DRAFT');
-  protected readonly cap = computed(() => this.fundingCall.value()?.maxAmountPerApplication);
-  protected readonly callOpen = computed(() => {
-    const call = this.fundingCall.value();
-    return call === undefined || acceptsApplications(call);
-  });
+  protected readonly cap = computed(() =>
+    this.fundingCall.hasValue() ? this.fundingCall.value().maxAmountPerApplication : undefined,
+  );
+  protected readonly remainingBudget = computed(() =>
+    this.fundingCall.hasValue() ? this.fundingCall.value().remainingBudget : undefined,
+  );
+  protected readonly proposedAmount = computed(() =>
+    this.assessment.hasValue() ? this.assessment.value().proposedAmount : undefined,
+  );
+  protected readonly callOpen = computed(
+    () => !this.fundingCall.hasValue() || acceptsApplications(this.fundingCall.value()),
+  );
   protected readonly saved = signal(false);
   protected readonly concurrentUpdate = signal(false);
   protected readonly justSubmitted = signal(false);
 
-  private readonly proposal = linkedSignal(() => {
-    const application = this.application.value();
-    return application ? proposalModelOf(application.proposal) : emptyProposal();
-  });
+  private readonly proposal = linkedSignal(() =>
+    this.application.hasValue()
+      ? proposalModelOf(this.application.value().proposal)
+      : emptyProposal(),
+  );
 
   protected readonly proposalForm = form(this.proposal, proposalSchema(this.cap), {
     submission: {
