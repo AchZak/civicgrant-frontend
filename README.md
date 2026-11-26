@@ -20,7 +20,7 @@ A decision maker approving an assessed application, in French, and a programme m
 
 ![The form to open a funding call, in English](docs/screenshots/open-a-funding-call.png)
 
-The screenshots come from the app running against a mocked API, the same way the journeys run. The red banner is PrimeNG's: it shows until a PrimeUI licence key is configured.
+The screenshots come from the app running against a mocked API, the same way the journeys run.
 
 ## Status
 
