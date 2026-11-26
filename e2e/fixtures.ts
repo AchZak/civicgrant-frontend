@@ -142,6 +142,7 @@ export async function mockApi(page: Page, handlers: Record<string, Handler>): Pr
     route.fulfill({
       json: {
         primeUiLicenseKey: '',
+        apiBaseUrl: '',
         entra: {
           tenantId: 'e2e',
           clientId: 'e2e',

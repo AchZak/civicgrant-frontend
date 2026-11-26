@@ -1,5 +1,6 @@
 export interface RuntimeConfig {
   readonly primeUiLicenseKey: string;
+  readonly apiBaseUrl: string;
   readonly entra: EntraConfig;
 }
 
@@ -25,6 +26,7 @@ function isRuntimeConfig(value: unknown): value is RuntimeConfig {
   return (
     isObject(value) &&
     typeof value['primeUiLicenseKey'] === 'string' &&
+    typeof value['apiBaseUrl'] === 'string' &&
     isEntraConfig(value['entra'])
   );
 }

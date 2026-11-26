@@ -1,5 +1,6 @@
 {
   "primeUiLicenseKey": "",
+  "apiBaseUrl": "",
   "entra": {
     "tenantId": "<tenant id>",
     "clientId": "<client id of the civicgrant-spa-<env> registration>",

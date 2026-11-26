@@ -9,6 +9,7 @@ import {
 import { provideRouter, TitleStrategy, withComponentInputBinding } from '@angular/router';
 import { provideTransloco } from '@jsverse/transloco';
 import { providePrimeNG } from 'primeng/config';
+import { API_BASE_URL, apiBaseUrlInterceptor } from './api/api-base-url';
 import { routes } from './app.routes';
 import { accessTokenInterceptor } from './auth/access-token-interceptor';
 import { CurrentUser } from './auth/current-user';
@@ -30,7 +31,9 @@ export function appConfig(
       provideBrowserGlobalErrorListeners(),
       provideRouter(routes, withComponentInputBinding()),
       { provide: TitleStrategy, useExisting: TranslatedTitleStrategy },
-      provideHttpClient(withInterceptors([accessTokenInterceptor])),
+      // The token is added to relative /api/ calls first, then they're sent to the API's origin.
+      provideHttpClient(withInterceptors([accessTokenInterceptor, apiBaseUrlInterceptor])),
+      { provide: API_BASE_URL, useValue: config.apiBaseUrl.replace(/\/$/, '') },
       { provide: Session, useValue: session },
       provideTransloco({
         config: {
