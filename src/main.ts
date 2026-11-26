@@ -5,7 +5,14 @@ import { startSession } from './app/auth/start-session';
 import { initialLanguage, localeOf, UiLanguage } from './app/language/ui-language';
 import { loadRuntimeConfig } from './app/runtime-config';
 
-// Shown when the app can't start, so Transloco isn't there to translate it.
+// Shown before the app runs, so Transloco isn't there to translate them. Angular replaces
+// the loading text once the app renders; the API may take a while to wake up first.
+const loading: Readonly<Record<UiLanguage, string>> = {
+  nl: 'CivicGrant wordt geladen. Na een rustige periode kan het opstarten tot een minuut duren.',
+  fr: 'Chargement de CivicGrant. Après une période calme, le démarrage peut prendre jusqu’à une minute.',
+  en: 'Loading CivicGrant. After a quiet period, starting up can take up to a minute.',
+};
+
 const unavailable: Readonly<Record<UiLanguage, string>> = {
   nl: 'CivicGrant is momenteel niet beschikbaar. Probeer het later opnieuw.',
   fr: 'CivicGrant est momentanément indisponible. Veuillez réessayer plus tard.',
@@ -14,6 +21,7 @@ const unavailable: Readonly<Record<UiLanguage, string>> = {
 
 const language = initialLanguage();
 document.documentElement.lang = localeOf[language];
+document.getElementById('app-loading')?.replaceChildren(loading[language]);
 
 async function start(): Promise<void> {
   const config = await loadRuntimeConfig();
