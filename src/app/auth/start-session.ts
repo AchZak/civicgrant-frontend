@@ -13,7 +13,7 @@ export async function startSession(entra: EntraConfig): Promise<Session | undefi
     auth: {
       clientId: entra.clientId,
       authority: `https://login.microsoftonline.com/${entra.tenantId}`,
-      redirectUri: document.baseURI,
+      redirectUri: new URL('auth/redirect.html', document.baseURI).href,
       postLogoutRedirectUri: document.baseURI,
     },
   });

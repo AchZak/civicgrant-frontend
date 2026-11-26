@@ -5,6 +5,12 @@
   },
   "routes": [
     {
+      "route": "/auth/*",
+      "headers": {
+        "Cache-Control": "no-store"
+      }
+    },
+    {
       "route": "/*.{js,css}",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"

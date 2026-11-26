@@ -50,6 +50,11 @@
                 "glob": "**/*",
                 "input": "public",
                 "ignore": ["config.example.json"]
+              },
+              {
+                "glob": "msal-redirect-bridge.min.js",
+                "input": "node_modules/@azure/msal-browser/lib/redirect-bridge",
+                "output": "auth"
               }
             ],
             "styles": ["src/styles.css"]
