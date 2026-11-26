@@ -138,6 +138,20 @@ jobs:
               entra: {tenantId: $tenantId, clientId: $clientId, apiScope: $apiScope}}' \
             > site/config.json
 
+      # The security policy lets the app call the API, whose host differs per environment.
+      - name: Put the API's origin in the security policy
+        env:
+          API_BASE_URL: ${{ vars.API_BASE_URL }}
+        run: |
+          jq --arg apiOrigin "${API_BASE_URL%/}" \
+            '.globalHeaders |= map_values(split("{apiOrigin}") | join($apiOrigin))' \
+            site/staticwebapp.config.json > staticwebapp.config.json
+          mv staticwebapp.config.json site/staticwebapp.config.json
+          if grep --quiet --fixed-strings '{apiOrigin}' site/staticwebapp.config.json; then
+            echo "::error::The security policy still holds the {apiOrigin} placeholder"
+            exit 1
+          fi
+
       - name: Log in to Azure
         uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3.1.0
         with:
@@ -167,10 +181,15 @@ jobs:
           skip_app_build: true
           skip_api_build: true
 
-      # A deep link must come back as the app, and config.json must name the SPA registration.
+      # A deep link must come back as the app, config.json must name the SPA registration,
+      # and the security policy must name the API.
       - name: Check the site
         env:
           SITE: https://${{ vars.STATIC_WEB_APP_HOSTNAME }}
+          API_BASE_URL: ${{ vars.API_BASE_URL }}
         run: |
           curl --fail --silent --show-error --output /dev/null "$SITE/applications"
           curl --fail --silent --show-error "$SITE/config.json" | jq --exit-status '.entra.clientId != ""' > /dev/null
+          curl --fail --silent --show-error --head "$SITE/" \
+            | grep --ignore-case '^content-security-policy' \
+            | grep --fixed-strings "${API_BASE_URL%/}" > /dev/null
