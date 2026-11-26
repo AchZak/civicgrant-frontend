@@ -13,6 +13,7 @@ import { LocalizedPipe } from '../../shared/localized-pipe';
 import { MoneyPipe } from '../../shared/money-pipe';
 import { PageHeader } from '../../shared/page-header/page-header';
 import { fundingCallResource } from '../funding-calls-api';
+import { LastDayPipe } from '../last-day-pipe';
 import { acceptsApplications } from '../submission-period';
 
 @Component({
@@ -24,6 +25,7 @@ import { acceptsApplications } from '../submission-period';
     Skeleton,
     BrusselsDatePipe,
     Detail,
+    LastDayPipe,
     LoadError,
     LocalizedPipe,
     MoneyPipe,

@@ -14,7 +14,7 @@
       <ng-template #header>
         <tr>
           <th scope="col">{{ t('fundingCalls.fields.title') }}</th>
-          <th scope="col">{{ t('fundingCalls.fields.closesAt') }}</th>
+          <th scope="col">{{ t('fundingCalls.fields.lastDay') }}</th>
           <th scope="col" class="text-right">
             {{ t('fundingCalls.fields.maxAmountPerApplication') }}
           </th>
@@ -32,7 +32,7 @@
             >
             <div class="text-sm text-muted-color">{{ call.reference }}</div>
           </td>
-          <td>{{ call.closesAt | brusselsDate }}</td>
+          <td>{{ call.closesAt | lastDay | brusselsDate: 'date' }}</td>
           <td class="text-right">{{ call.maxAmountPerApplication | money }}</td>
           <td class="text-right">{{ call.remainingBudget | money }}</td>
         </tr>

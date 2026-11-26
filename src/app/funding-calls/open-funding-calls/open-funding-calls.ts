@@ -11,6 +11,7 @@ import { LocalizedPipe } from '../../shared/localized-pipe';
 import { MoneyPipe } from '../../shared/money-pipe';
 import { PageHeader } from '../../shared/page-header/page-header';
 import { openFundingCallsResource } from '../funding-calls-api';
+import { LastDayPipe } from '../last-day-pipe';
 
 @Component({
   imports: [
@@ -20,6 +21,7 @@ import { openFundingCallsResource } from '../funding-calls-api';
     ButtonLabel,
     TableModule,
     BrusselsDatePipe,
+    LastDayPipe,
     LoadError,
     LocalizedPipe,
     MoneyPipe,

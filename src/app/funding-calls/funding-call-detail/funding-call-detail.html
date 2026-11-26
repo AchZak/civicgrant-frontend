@@ -27,10 +27,10 @@
 
     <dl class="grid max-w-2xl gap-x-8 gap-y-6 sm:grid-cols-2">
       <div app-detail [label]="t('fundingCalls.fields.opensAt')">
-        {{ fundingCall.opensAt | brusselsDate }}
+        {{ fundingCall.opensAt | brusselsDate: 'date' }}
       </div>
-      <div app-detail [label]="t('fundingCalls.fields.closesAt')">
-        {{ fundingCall.closesAt | brusselsDate }}
+      <div app-detail [label]="t('fundingCalls.fields.lastDay')">
+        {{ fundingCall.closesAt | lastDay | brusselsDate: 'date' }}
       </div>
       <div app-detail [label]="t('fundingCalls.fields.maxAmountPerApplication')">
         {{ fundingCall.maxAmountPerApplication | money }}
