@@ -6,6 +6,22 @@ The Angular app of CivicGrant, a grant application portal for a (fictional) Belg
 
 The app is in Dutch, French and English, and it's a thin presentation layer: the backend enforces every business rule and access rule, and the app shows what the API answers.
 
+## Screens
+
+An applicant's applications, and a draft with its documents, ready to submit:
+
+![My applications, in Dutch](docs/screenshots/my-applications.png)
+
+![A draft application with two documents, in Dutch](docs/screenshots/application-draft.png)
+
+A decision maker approving an assessed application, in French, and a programme manager opening a funding call, in English:
+
+![The decision form under the assessment, in French](docs/screenshots/decision.png)
+
+![The form to open a funding call, in English](docs/screenshots/open-a-funding-call.png)
+
+The screenshots come from the app running against a mocked API, the same way the journeys run. The red banner is PrimeNG's: it shows until a PrimeUI licence key is configured.
+
 ## Status
 
 - [x] Scaffold: the shell, PrimeNG and Tailwind, types generated from the API contract, CI
@@ -37,7 +53,9 @@ Nothing in the build fails on a missing translation, so two checks stand in: a u
 
 Sign-in uses Microsoft Entra ID with MSAL, before Angular starts: the app either runs with a signed-in user or redirects to sign in. An interceptor adds the access token to API calls only. The user's roles come from the API's `/me`, read once at startup: each role gets its own start page and navigation, and a page outside the user's roles says so. That's a courtesy, not security: the API checks the role on every call.
 
-One build runs in every environment. The values that differ, the Entra registration and PrimeNG's licence key, come from `/config.json`, which the app loads before it starts and the deployment writes.
+One build runs in every environment. The values that differ, the Entra registration, the API's address and PrimeNG's licence key, come from `/config.json`, which the app loads before it starts and the deployment writes.
+
+The app is hosted on Azure Static Web Apps, on the free plan. A push to `develop` deploys the build that passed the checks to the test environment: the workflow writes `config.json` from the environment's GitHub variables, signs in to Azure with GitHub's OIDC token and reads the site's deployment token while it runs, so no credential is stored anywhere. The site, and the identity allowed to deploy to it and nothing else, are defined in the backend repository's Bicep. Static Web Apps aren't offered in Belgium or France Central, and West Europe refused the subscription, so the site's metadata lives in East US 2; the files are served from Microsoft's edge, and the API and every piece of data stay in France Central. The API is on its own host and accepts the site's origin through CORS.
 
 ### Tests
 
@@ -51,6 +69,7 @@ The backend tests every business rule and access rule, so the frontend keeps its
 - [error-handling.spec.ts](e2e/error-handling.spec.ts): a refused form and a concurrent change, tested the way a user sees them.
 - [decision.ts](src/app/applications/decision.ts) and [application-decision.ts](src/app/applications/application-decision/application-decision.ts): a form whose rules depend on the chosen outcome, and a final step confirmed before it's sent.
 - [brussels-day.ts](src/app/funding-calls/brussels-day.ts): a day picked in the browser turned into midnight in Brussels, summer time included.
+- [ci.yaml](.github/workflows/ci.yaml): the checks, and a deployment that stores no credential.
 - [current-language.ts](src/app/language/current-language.ts) and [en.json](src/i18n/en.json): how the language switches at runtime, and how the texts are organised.
 
 ## Running it locally
@@ -63,7 +82,7 @@ cp public/config.example.json public/config.json
 npm start
 ```
 
-Fill in `public/config.json` with the Entra values of a SPA registration first; the app signs in before it shows anything. `npm run start:e2e` runs the same app with a fake signed-in user instead, which is what the journeys use.
+Fill in `public/config.json` with the Entra values of a SPA registration first; the app signs in before it shows anything. Leave `apiBaseUrl` empty: the dev server forwards `/api` itself. `npm run start:e2e` runs the same app with a fake signed-in user instead, which is what the journeys use.
 
 The app runs on http://localhost:4200.
 
